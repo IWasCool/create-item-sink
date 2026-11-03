@@ -64,6 +64,9 @@ dependencies {
 
 tasks.named('test', Test) {
     useJUnitPlatform()
+    testLogging {
+        exceptionFormat = 'full'
+    }
 }
 
 // All resources use Minecraft 1.20.1 paths and live inside this project.
