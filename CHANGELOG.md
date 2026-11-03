@@ -1,5 +1,12 @@
 ﻿# Update Log
 
+## v0.0.4
+
+- Fixed the energy bar and tooltip showing incorrect values above 32,767 FE.
+- Synced server energy capacity and long processing times correctly to the machine screen.
+- Removed two unused textures and a redundant item value catalogue from the mod.
+- Added packet serialization regression tests; test code and dependencies are excluded from the release jar.
+
 ## v0.0.3
 
 - Fixed the missing pickaxe mining tag so the Item Sink mines at pickaxe speed and drops itself when harvested with any pickaxe.

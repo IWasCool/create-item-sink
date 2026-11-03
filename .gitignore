@@ -41,6 +41,7 @@ repo/
 !**/src/**/repo/
 
 ### Local development files ###
+/logs/
 /src/gametest/
 /docs/
 /tools/

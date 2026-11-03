@@ -19,6 +19,7 @@ import net.minecraftforge.items.SlotItemHandler;
 
 public class ItemSinkMenu extends AbstractContainerMenu {
     private static final int MACHINE_SLOT_COUNT = 3;
+    private static final int DATA_COUNT = 4;
     private static final int PLAYER_INVENTORY_START = MACHINE_SLOT_COUNT;
     private static final int PLAYER_INVENTORY_END = PLAYER_INVENTORY_START + 27;
     private static final int HOTBAR_START = PLAYER_INVENTORY_END;
@@ -36,13 +37,14 @@ public class ItemSinkMenu extends AbstractContainerMenu {
     }
 
     private ItemSinkMenu(int containerId, Inventory playerInventory, BlockEntityLookup lookup) {
-        this(containerId, playerInventory, lookup.inventory, lookup.data, lookup.pos);
+        this(containerId, playerInventory, lookup.inventory, new SimpleContainerData(DATA_COUNT), lookup.pos);
     }
 
     private ItemSinkMenu(int containerId, Inventory playerInventory, IItemHandler inventory, ContainerData data, BlockPos pos) {
         super(ItemSink.ITEM_SINK_MENU.get(), containerId);
         this.pos = pos;
         this.data = data;
+        checkContainerDataCount(data, DATA_COUNT);
 
         addSlot(new InputSlot(inventory, ItemSinkBlockEntity.INPUT_SLOT, 52, 35));
         addSlot(new OutputSlot(inventory, ItemSinkBlockEntity.OUTPUT_SLOT_1, 125, 35));
@@ -58,7 +60,7 @@ public class ItemSinkMenu extends AbstractContainerMenu {
             addSlot(new Slot(playerInventory, column, 8 + column * 18, 142));
         }
 
-        addDataSlots(data);
+        addDataSlots(new IntContainerData(data));
     }
 
     @Override
@@ -128,12 +130,12 @@ public class ItemSinkMenu extends AbstractContainerMenu {
     private static BlockEntityLookup resolveBlockEntity(Inventory playerInventory, BlockPos pos) {
         BlockEntity blockEntity = playerInventory.player.level().getBlockEntity(pos);
         if (blockEntity instanceof ItemSinkBlockEntity itemSink) {
-            return new BlockEntityLookup(itemSink.getInventory(), itemSink.getData(), pos);
+            return new BlockEntityLookup(itemSink.getInventory(), pos);
         }
-        return new BlockEntityLookup(new ItemStackHandler(MACHINE_SLOT_COUNT), new SimpleContainerData(4), pos);
+        return new BlockEntityLookup(new ItemStackHandler(MACHINE_SLOT_COUNT), pos);
     }
 
-    private record BlockEntityLookup(IItemHandler inventory, ContainerData data, BlockPos pos) {
+    private record BlockEntityLookup(IItemHandler inventory, BlockPos pos) {
     }
 
     private static class InputSlot extends SlotItemHandler {
