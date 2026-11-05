@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Συλλέξτε το νόμισμα από τις δύο υποδοχές εξόδου στα δεξιά. Κάθε ολοκληρωμένος κύκλος καταναλώνει ένα στοιχείο εισόδου.",
   "jei.item_sink.item_sink_conversion": "Μετατροπή αντικειμένων",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Η πληρωμή εξαρτάται από την αξία του αντικειμένου.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Πρόοδος: %1$s / %2$s ticks",
   "gui.item_sink.complete": "%1$s%% ολοκληρώθηκε",

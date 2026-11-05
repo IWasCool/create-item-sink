@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Lacagta ka qaado labada boos ee bixinta ee midigta. Wareeg kasta oo dhammaada wuxuu isticmaalaa hal shay.",
   "jei.item_sink.item_sink_conversion": "Beddelidda alaabta",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Lacag-bixintu waxay ku xiran tahay qiimaha shayga.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Horumar: %1$s / %2$s tik",
   "gui.item_sink.complete": "%1$s%% dhammaystiran",

@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "E hōʻiliʻili i ke kālā mai nā puka puka ʻelua ma ka ʻākau. Hoʻopau i kēlā me kēia pōʻai hoʻopau i hoʻokahi mea hoʻokomo.",
   "jei.item_sink.item_sink_conversion": "Hoʻololi mea",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Pili ka uku i ka waiwai o ka mea.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Ka holomua: %1$s / %2$s tick",
   "gui.item_sink.complete": "%1$s%% pau",

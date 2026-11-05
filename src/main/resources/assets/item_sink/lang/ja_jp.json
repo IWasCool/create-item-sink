@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "右側の2つの出力スロットから通貨を回収します。処理が1回完了するごとに入力アイテムを1個消費します。",
   "jei.item_sink.item_sink_conversion": "アイテム変換",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "報酬はアイテムの価値に応じます。",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "進行状況: %1$s / %2$s ティック",
   "gui.item_sink.complete": "%1$s%% 完了",

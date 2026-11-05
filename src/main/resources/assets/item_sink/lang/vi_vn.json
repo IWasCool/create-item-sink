@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Thu thập tiền từ hai khe đầu ra ở bên phải. Mỗi chu trình hoàn thành tiêu thụ một mục đầu vào.",
   "jei.item_sink.item_sink_conversion": "Chuyển đổi vật phẩm",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Tiền nhận tùy theo giá trị vật phẩm.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Tiến độ: %1$s / %2$s tick",
   "gui.item_sink.complete": "%1$s%% hoàn thành",

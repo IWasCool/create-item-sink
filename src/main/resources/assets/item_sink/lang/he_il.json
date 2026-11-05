@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "אספו את המטבע משני משבצות הפלט בצד ימין. כל מחזור שהושלם צורך פריט קלט אחד.",
   "jei.item_sink.item_sink_conversion": "המרת פריטים",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "התשלום תלוי בערך הפריט.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "התקדמות: %1$s / %2$s טיקים",
   "gui.item_sink.complete": "%1$s%% הושלם",

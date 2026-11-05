@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Reculhisson la moneda dels dos ranuras de sortida a drecha. Cada cicle completat consoma un element d'entrada.",
   "jei.item_sink.item_sink_conversion": "Conversion d'objèctes",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Lo pagament depend de la valor de l'objècte.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Progression: %1$s / %2$s tics",
   "gui.item_sink.complete": "%1$s%% acabat",

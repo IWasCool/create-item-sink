@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Kumpul mata wang daripada dua slot keluaran di sebelah kanan. Setiap kitaran yang lengkap menggunakan satu item input.",
   "jei.item_sink.item_sink_conversion": "Penukaran barang",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Bayaran bergantung pada nilai barang.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Kemajuan: %1$s / %2$s tick",
   "gui.item_sink.complete": "%1$s%% selesai",

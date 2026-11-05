@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Versamel die geldeenheid uit die twee uitsetgleuwe aan die regterkant. Elke voltooide siklus verbruik een insetitem.",
   "jei.item_sink.item_sink_conversion": "Voorwerpomskakeling",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Uitbetaling hang van die item se waarde af.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Vordering: %1$s / %2$s tikke",
   "gui.item_sink.complete": "%1$s%% voltooi",

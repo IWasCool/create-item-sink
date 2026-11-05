@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Verzamel 't geld uit de twee uitvoervakken aan de rechterkant. Elke voltooide cyclus verbruikt één invoeritem.",
   "jei.item_sink.item_sink_conversion": "Spulle omzetting",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "De betaoling hangt af van de waarde.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Voortgang: %1$s / %2$s tikke",
   "gui.item_sink.complete": "%1$s%% klaor",

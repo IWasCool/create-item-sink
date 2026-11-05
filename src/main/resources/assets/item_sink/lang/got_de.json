@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "2 [ -> ]: 𐍆𐌰𐌹𐌷𐌿 ->. 1 𐍅𐌰𐌹𐌷𐍄𐌰 / ↻.",
   "jei.item_sink.item_sink_conversion": "𐍅𐌰𐌹𐌷𐍄𐌰𐍅𐌰𐌽𐌳𐌴𐌹𐌽𐍃",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Payout varies by value.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "𐍅𐌰𐌿𐍂𐍃𐍄𐍅: %1$s / %2$s t",
   "gui.item_sink.complete": "%1$s%% 𐌲𐌰𐍄𐌰𐍅𐌹𐌸",

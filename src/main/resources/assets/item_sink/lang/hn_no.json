@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Hent valutaen frå dei to utmatingsplassane til høgre. Kvar fullførte syklus bruker éin lut.",
   "jei.item_sink.item_sink_conversion": "Lutomforming",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Utbetalingi fylgjer verdien åt luten.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Framgang: %1$s / %2$s tikk",
   "gui.item_sink.complete": "%1$s%% fullført",

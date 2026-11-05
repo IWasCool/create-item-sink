@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Сылтӑмри икӗ тухӑҫ слотӗнчен укҫа пухӑр. Кашни вӗҫленнӗ цикл пӗрер кӗртмелли япалана пӗтерет.",
   "jei.item_sink.item_sink_conversion": "Item Sink Conversion",
   "jei.item_sink.details": "%1$sс %2$s FE/т",
+  "jei.item_sink.overview.payout": "Payout varies by value.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Прогресс: %1$s / %2$s тикс",
   "gui.item_sink.complete": "%1$s%% тулли",

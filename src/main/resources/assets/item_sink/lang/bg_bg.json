@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Съберете валутата от двата изходни слота вдясно. Всеки завършен цикъл изразходва един входен елемент.",
   "jei.item_sink.item_sink_conversion": "Преобразуване на предмети",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Плащането зависи от стойността на предмета.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Напредък: %1$s / %2$s тика",
   "gui.item_sink.complete": "%1$s%% завършено",

@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Savāciet valūtu no diviem izvades slotiem labajā pusē. Katrs pabeigtais cikls patērē vienu ievades vienumu.",
   "jei.item_sink.item_sink_conversion": "Priekšmetu pārveidošana",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Izmaksa atkarīga no priekšmeta vērtības.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Progress: %1$s / %2$s tiki",
   "gui.item_sink.complete": "%1$s%% pabeigts",

@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Mblidhni monedhën nga dy slotat e daljes në të djathtë. Çdo cikël i përfunduar konsumon një artikull hyrës.",
   "jei.item_sink.item_sink_conversion": "Shndërrim sendesh",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Pagesa varet nga vlera e objektit.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Përparimi: %1$s / %2$s tike",
   "gui.item_sink.complete": "%1$s%% përfunduar",

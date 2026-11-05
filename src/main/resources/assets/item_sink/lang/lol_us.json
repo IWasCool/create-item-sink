@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Get ur moneyz from teh two output slots on teh right. Each finished cycle eats one input thingy.",
   "jei.item_sink.item_sink_conversion": "STUFF TO SHINIES",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "MONIEZ DEPENDZ ON STUFF WORTH.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "HOW FAR: %1$s / %2$s TIKZ",
   "gui.item_sink.complete": "%1$s%% DUN",

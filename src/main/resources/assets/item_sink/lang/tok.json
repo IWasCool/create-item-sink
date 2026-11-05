@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "o kama jo e mani tan poki tawa tu lon poka nanpa tu. pali wan pini li moku e ijo kama wan.",
   "jei.item_sink.item_sink_conversion": "ante ijo",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "mani li tan nanpa mani pi ijo.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "pali: %1$s / %2$s tenpo lili",
   "gui.item_sink.complete": "%1$s%% pini",

@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Nimm d'Münzn aus de zwoa Ausgabeplätz rechts. Jeder fertige Durchgang verbraucht oa Eingabesach.",
   "jei.item_sink.item_sink_conversion": "Sachnverwertung",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "D'Auszoihung hängt vom Sachnwert o.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Fortschritt: %1$s / %2$s Ticks",
   "gui.item_sink.complete": "%1$s%% fertig",

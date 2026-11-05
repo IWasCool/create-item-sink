@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Dastum ar moneiz diwar an daou lec'h ezporzhiañ a-zehou. Pep kelc'hiad echuet a zebr un elfenn enporzhiañ.",
   "jei.item_sink.item_sink_conversion": "Treuzfurmañ traoù",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "An talvoudegezh a dermen ar paeamant.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Araokadur: %1$s / %2$s tikoù",
   "gui.item_sink.complete": "%1$s%% graet",

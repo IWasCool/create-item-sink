@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Iġbor il-munita miż-żewġ slots tal-ħruġ fuq il-lemin. Kull ċiklu komplut jikkonsma oġġett wieħed input.",
   "jei.item_sink.item_sink_conversion": "Konverżjoni tal-oġġetti",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Il-ħlas jiddependi fuq il-valur tal-oġġett.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Progress: %1$s / %2$s ticks",
   "gui.item_sink.complete": "%1$s%% lest",

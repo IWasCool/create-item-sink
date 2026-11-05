@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Sammelt d'Währung vun den zwee Ausgangsplazen op der rietser Säit. All ofgeschloss Zyklus verbraucht een Input Element.",
   "jei.item_sink.item_sink_conversion": "Géigestandsverwertung",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "D'Ausbezuelung hänkt vum Wäert of.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Fortschrëtt: %1$s / %2$s Ticks",
   "gui.item_sink.complete": "%1$s%% ofgeschloss",

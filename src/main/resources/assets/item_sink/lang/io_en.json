@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Prenez la pekunio de la du ekiraj loki dextre. Singla finita ciklo konsumas un eniranta objekto.",
   "jei.item_sink.item_sink_conversion": "Objektokonvertado",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "La pago dependas de la valoro di l'objekto.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Progreso: %1$s / %2$s tiki",
   "gui.item_sink.complete": "%1$s%% finita",

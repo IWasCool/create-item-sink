@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "O'ngdagi ikkita chiqish joyidan valyutani yig'ing. Har bir tugallangan tsikl bitta kirish elementini sarflaydi.",
   "jei.item_sink.item_sink_conversion": "Item Sink Conversion",
   "jei.item_sink.details": "%1$ss %2$s FE/t",
+  "jei.item_sink.overview.payout": "Payout varies by value.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Jarayon: %1$s / %2$s belgi",
   "gui.item_sink.complete": "%1$s%% to'liq",

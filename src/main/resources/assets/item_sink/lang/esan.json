@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Recoge la moneda en lâ dos ranuras de salida de la derecha. Cada ciclo completado consume un ôhheto de entrada.",
   "jei.item_sink.item_sink_conversion": "Conversión d'ôhhetô",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Er pago depende der balô der ôhheto.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Progreço: %1$s / %2$s ticks",
   "gui.item_sink.complete": "%1$s%% completâo",

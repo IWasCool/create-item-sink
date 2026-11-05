@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "ເກັບກໍາສະກຸນເງິນຈາກສອງຊ່ອງຜົນຜະລິດຢູ່ເບື້ອງຂວາ. ແຕ່ລະຮອບທີ່ເຮັດແລ້ວຈະບໍລິໂພກໜຶ່ງລາຍການປ້ອນຂໍ້ມູນ.",
   "jei.item_sink.item_sink_conversion": "ການແປງສິ່ງຂອງ",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "ການຈ່າຍຂຶ້ນກັບມູນຄ່າສິ່ງຂອງ.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "ຄວາມຄືບໜ້າ: %1$s / %2$s ຕິກ",
   "gui.item_sink.complete": "%1$s%% ສຳເລັດ",

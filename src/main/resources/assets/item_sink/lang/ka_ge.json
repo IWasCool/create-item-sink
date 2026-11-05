@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "შეაგროვეთ ვალუტა ორი გამომავალი სლოტიდან მარჯვნივ. ყოველი დასრულებული ციკლი მოიხმარს ერთ შეყვანის ელემენტს.",
   "jei.item_sink.item_sink_conversion": "ნივთების გარდაქმნა",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "ანაზღაურება ნივთის ღირებულებაზეა დამოკიდებული.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "პროგრესი: %1$s / %2$s ტიკი",
   "gui.item_sink.complete": "%1$s%% დასრულებულია",

@@ -14,6 +14,8 @@ Right-click the sink to open it. Insert unwanted items and supply Forge Energy t
 
 Mine the Item Sink with any pickaxe to recover the machine. Its stored items drop separately.
 
+JEI shows one compact `? -> currency` overview, with checkerboard slots and a short payout tooltip.
+
 Includes two short Ponder tutorials: basic use and Create automation. Belts sit directly on Create's checkerboard floor, with funnels feeding items into the sink and extracting currency onto an output belt.
 
 Initial translations cover all 143 Minecraft 1.20.1 language options; new Create automation captions fall back to English. Translation corrections are welcome.

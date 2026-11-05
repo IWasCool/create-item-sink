@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Bildu moneta eskuineko bi irteerako zirrikituetatik. Amaitutako ziklo bakoitzak sarrerako elementu bat kontsumitzen du.",
   "jei.item_sink.item_sink_conversion": "Objektuen bihurketa",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Ordainketa objektuaren balioaren araberakoa da.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Aurrerapena: %1$s / %2$s tick",
   "gui.item_sink.complete": "%1$s%% osatuta",

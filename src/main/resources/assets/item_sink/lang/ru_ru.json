@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Соберите валюту из двух выходных слотов справа. Каждый завершенный цикл потребляет один входной элемент.",
   "jei.item_sink.item_sink_conversion": "Преобразование предметов",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Выплата зависит от стоимости предмета.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Прогресс: %1$s / %2$s тактов",
   "gui.item_sink.complete": "%1$s%% завершено",

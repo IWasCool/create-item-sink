@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Anakọta ego site na oghere abụọ mmepụta n'aka nri. okirikiri nke ọ bụla emechara na-eri otu ihe ntinye.",
   "jei.item_sink.item_sink_conversion": "Ntụgharị ihe",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Ụgwọ dabere na uru ihe ahụ.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Ọganihu: %1$s / %2$s tik",
   "gui.item_sink.complete": "%1$s%% emechara",

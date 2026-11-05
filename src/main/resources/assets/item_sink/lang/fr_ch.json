@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Récupérez la monnaie dans les deux emplacements de sortie à droite. Chaque cycle terminé consomme un objet.",
   "jei.item_sink.item_sink_conversion": "Recyclage d'objets",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Payout varies by value.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Progression: %1$s / %2$s ticks",
   "gui.item_sink.complete": "%1$s%% terminé",

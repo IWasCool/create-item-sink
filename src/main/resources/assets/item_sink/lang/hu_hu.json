@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Gyűjtsd össze a valutát a jobb oldali két kimeneti nyílásból. Minden befejezett ciklus egy bemeneti elemet fogyaszt.",
   "jei.item_sink.item_sink_conversion": "Tárgyak átalakítása",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "A kifizetés a tárgy értékétől függ.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Folyamat: %1$s / %2$s tick",
   "gui.item_sink.complete": "%1$s%% kész",

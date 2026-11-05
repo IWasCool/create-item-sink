@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "ارز را از دو اسلات خروجی سمت راست جمع کنید. هر چرخه تکمیل شده یک آیتم ورودی مصرف می کند.",
   "jei.item_sink.item_sink_conversion": "تبدیل اشیا",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "پرداخت به ارزش وسیله بستگی دارد.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "پیشرفت: %1$s / %2$s تیک",
   "gui.item_sink.complete": "%1$s%% تکمیل‌شده",

@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Zberite valuto iz dveh izhodnih rež na desni. Vsak zaključen cikel porabi en vhodni element.",
   "jei.item_sink.item_sink_conversion": "Pretvorba predmetov",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Izplačilo je odvisno od vrednosti predmeta.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Napredek: %1$s / %2$s tikov",
   "gui.item_sink.complete": "%1$s%% končano",

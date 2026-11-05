@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Rancura ła vałuta dałe do slot de output a destra. Ogni ciclo finìo el consuma un input.",
   "jei.item_sink.item_sink_conversion": "Conversion de ogeti",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "El pagamento el dipende dal vałor de l'ogeto.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Avansamento: %1$s / %2$s tick",
   "gui.item_sink.complete": "%1$s%% finio",

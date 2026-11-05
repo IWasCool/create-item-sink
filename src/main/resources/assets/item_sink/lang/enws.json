@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Gather thy coin from the two outlets on the right. Each finished round consumes a single ware.",
   "jei.item_sink.item_sink_conversion": "Exchange of Wares",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Thy payment follows the ware's worth.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Advancement: %1$s / %2$s ticks",
   "gui.item_sink.complete": "%1$s%% accomplished",

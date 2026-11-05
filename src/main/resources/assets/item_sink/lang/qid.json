@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Koempoelkan mata oeang dari doea slot keloearan di sebelah kanan. Setiap sikloes jang selesai menggoenakan satoe item masoekan.",
   "jei.item_sink.item_sink_conversion": "Konversi barang",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Bajaran bergantoeng pada nilai barang.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Kemadjoean: %1$s / %2$s titjk",
   "gui.item_sink.complete": "%1$s%% selesai",

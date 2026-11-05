@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "2 [ -> ]: ¤ ->. 1 ting / ↻.",
   "jei.item_sink.item_sink_conversion": "Impla reforma",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Mon = impla verdi.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Framgang: %1$s / %2$s tik",
   "gui.item_sink.complete": "%1$s%% owari",

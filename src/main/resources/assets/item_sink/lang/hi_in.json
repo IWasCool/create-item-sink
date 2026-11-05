@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "दाईं ओर दो आउटपुट स्लॉट से मुद्रा एकत्र करें। प्रत्येक पूर्ण चक्र में एक इनपुट आइटम की खपत होती है।",
   "jei.item_sink.item_sink_conversion": "वस्तु परिवर्तन",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "भुगतान वस्तु के मूल्य पर निर्भर है।",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "प्रगति: %1$s / %2$s टिक",
   "gui.item_sink.complete": "%1$s%% पूर्ण",

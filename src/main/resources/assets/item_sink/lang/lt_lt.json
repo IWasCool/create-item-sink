@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Surinkite valiutą iš dviejų išvesties lizdų dešinėje. Kiekvienas užbaigtas ciklas sunaudoja vieną įvesties elementą.",
   "jei.item_sink.item_sink_conversion": "Daiktų keitimas",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Išmoka priklauso nuo daikto vertės.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Pažanga: %1$s / %2$s taktų",
   "gui.item_sink.complete": "%1$s%% baigta",

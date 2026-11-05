@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Kerää valuutta kahdesta oikealla olevasta lähtöpaikasta. Jokainen valmis sykli kuluttaa yhden syöttökohteen.",
   "jei.item_sink.item_sink_conversion": "Esineiden muuntaminen",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Maksu riippuu esineen arvosta.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Edistyminen: %1$s / %2$s tikkiä",
   "gui.item_sink.complete": "%1$s%% valmis",

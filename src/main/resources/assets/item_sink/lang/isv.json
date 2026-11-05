@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Vozmi novce iz dvoh izhodnyh měst na pravo. Vsaky zakončeny cikl potrěbljaje jedin vhodny prědmet.",
   "jei.item_sink.item_sink_conversion": "Prěměna predmetov",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Vyplata zavisi od cěnnosti predmeta.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Postup: %1$s / %2$s tikov",
   "gui.item_sink.complete": "%1$s%% zakončeno",

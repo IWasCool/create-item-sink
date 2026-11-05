@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Skupite valutu iz dva izlazna otvora s desne strane. Svaki dovršeni ciklus troši jednu ulaznu stavku.",
   "jei.item_sink.item_sink_conversion": "Pretvaranje predmeta",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Isplata ovisi o vrijednosti predmeta.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Napredak: %1$s / %2$s otkucaja",
   "gui.item_sink.complete": "%1$s%% dovršeno",

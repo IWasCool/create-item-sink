@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Prenez la monaie den les deûz pllacots de sortie a drete. Chaqe tour abutë use eune bezaigne.",
   "jei.item_sink.item_sink_conversion": "Chanjemant de bezaignes",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Payout varies by value.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Avançée: %1$s / %2$s tics",
   "gui.item_sink.complete": "%1$s%% abutë",

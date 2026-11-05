@@ -177,6 +177,15 @@ public class Config {
         return index().exchanges();
     }
 
+    /** Keep overview currency icons in configured tier order. */
+    public static List<ResourceLocation> configuredCurrencies() {
+        return VALUE_TIERS.stream()
+                .map(tier -> ResourceLocation.tryParse(tier.output().get()))
+                .filter(output -> output != null)
+                .distinct()
+                .toList();
+    }
+
     public static synchronized void invalidateExchanges() {
         exchangeIndex = null;
     }

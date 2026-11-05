@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Bailigh an t-airgeadra ón dá shliotán aschuir ar dheis. ídíonn gach timthriall críochnaithe mír ionchuir amháin.",
   "jei.item_sink.item_sink_conversion": "Tiontú earraí",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Braitheann an íocaíocht ar luach an earra.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Dul chun cinn: %1$s / %2$s tic",
   "gui.item_sink.complete": "%1$s%% críochnaithe",

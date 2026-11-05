@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Tak pengarna frå di två platjerna til yöger. War färdug runda brukar ien sak.",
   "jei.item_sink.item_sink_conversion": "Sakumwandlingg",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Betalningg fylger sakwerdien.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Framgangg: %1$s / %2$s tikker",
   "gui.item_sink.complete": "%1$s%% rieðu",

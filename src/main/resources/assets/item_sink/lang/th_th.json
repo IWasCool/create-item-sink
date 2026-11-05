@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "รวบรวมสกุลเงินจากช่องเอาต์พุตสองช่องทางด้านขวา แต่ละรอบที่เสร็จสมบูรณ์จะใช้หนึ่งรายการอินพุต",
   "jei.item_sink.item_sink_conversion": "การแปลงไอเทม",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "จำนวนเงินขึ้นอยู่กับมูลค่าของไอเทม",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "ความคืบหน้า: %1$s / %2$s ทิก",
   "gui.item_sink.complete": "%1$s%% เสร็จสมบูรณ์",

@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Racuei la monede dai doi slot di jesside a drete. Ogni cicli completât al consume un element di input.",
   "jei.item_sink.item_sink_conversion": "Conversion di ogjets",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Il paiament al dipent dal valôr dal ogjet.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Progrès: %1$s / %2$s ticks",
   "gui.item_sink.complete": "%1$s%% completât",

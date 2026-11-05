@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "於右側二出格取幣。每輪事畢，耗入物一件。",
   "jei.item_sink.item_sink_conversion": "物品轉化",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "所得依物之值。",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "進度: %1$s / %2$s 刻",
   "gui.item_sink.complete": "%1$s%% 既成",

@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Raccogli la valuta dai due slot di uscita sulla destra. Ogni ciclo completato consuma un elemento di input.",
   "jei.item_sink.item_sink_conversion": "Conversione di oggetti",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Il pagamento dipende dal valore dell'oggetto.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Avanzamento: %1$s / %2$s tick",
   "gui.item_sink.complete": "%1$s%% completato",

@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Para birimini sağdaki iki çıkış yuvasından toplayın. Tamamlanan her döngü bir girdi öğesini tüketir.",
   "jei.item_sink.item_sink_conversion": "Eşya dönüştürme",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Ödeme, eşyanın değerine bağlıdır.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "İlerleme: %1$s / %2$s tik",
   "gui.item_sink.complete": "%1$s%% tamamlandı",

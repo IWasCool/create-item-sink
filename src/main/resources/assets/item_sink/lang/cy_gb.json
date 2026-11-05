@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Casglwch yr arian o'r ddau slot allbwn ar y dde. Mae pob cylch gorffenedig yn defnyddio un eitem mewnbwn.",
   "jei.item_sink.item_sink_conversion": "Trawsnewid eitemau",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Mae'r taliad yn dibynnu ar werth yr eitem.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Cynnydd: %1$s / %2$s tic",
   "gui.item_sink.complete": "%1$s%% wedi'i gwblhau",

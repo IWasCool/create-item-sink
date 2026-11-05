@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Zbierz walutę z dwóch pól wyjściowych po prawej stronie. Każdy ukończony cykl zużywa jeden element wejściowy.",
   "jei.item_sink.item_sink_conversion": "Przetwarzanie przedmiotów",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Wypłata zależy od wartości przedmiotu.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Postęp: %1$s / %2$s ticków",
   "gui.item_sink.complete": "%1$s%% ukończono",

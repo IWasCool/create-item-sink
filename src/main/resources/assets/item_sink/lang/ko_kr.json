@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "오른쪽에 있는 두 개의 출력 슬롯에서 통화를 수집합니다. 완료된 각 주기는 하나의 입력 항목을 소비합니다.",
   "jei.item_sink.item_sink_conversion": "아이템 변환",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "지급액은 아이템의 가치에 따라 달라집니다.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "진행 상황: %1$s / %2$s 틱",
   "gui.item_sink.complete": "%1$s%% 완료",

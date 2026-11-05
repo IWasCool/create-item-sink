@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Баруун талд байгаа хоёр гаралтын үүрнээс валютыг цуглуул. Дууссан мөчлөг бүр нэг оролтын зүйл зарцуулдаг.",
   "jei.item_sink.item_sink_conversion": "Эд зүйл хувиргах",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Төлбөр нь эд зүйлийн үнээс хамаарна.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Явц: %1$s / %2$s тик",
   "gui.item_sink.complete": "%1$s%% дууссан",

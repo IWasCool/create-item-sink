@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Koguge valuuta kahest parempoolsest väljundpesast. Iga lõpetatud tsükkel kulutab ühe sisendelemendi.",
   "jei.item_sink.item_sink_conversion": "Esemete muundamine",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Tasu sõltub eseme väärtusest.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Edenemine: %1$s / %2$s takti",
   "gui.item_sink.complete": "%1$s%% valmis",

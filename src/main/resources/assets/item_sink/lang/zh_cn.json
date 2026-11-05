@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "从右侧的两个输出槽取出货币。每完成一个处理周期，就会消耗一件输入物品。",
   "jei.item_sink.item_sink_conversion": "物品回收",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "收益取决于物品的价值。",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "进度: %1$s / %2$s 刻",
   "gui.item_sink.complete": "%1$s%% 完成",

@@ -28,7 +28,7 @@ public class ItemSinkJeiPlugin implements IModPlugin {
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
         List<ItemSinkConversionRecipe> recipes = ItemSinkConversionRecipe.fromConfig();
-        ItemSink.LOGGER.info("Registering {} Item Sink conversion recipes with JEI", recipes.size());
+        ItemSink.LOGGER.info("Registering {} Item Sink conversion overview with JEI", recipes.size());
         registration.addRecipes(ItemSinkJeiCategory.TYPE, recipes);
     }
 

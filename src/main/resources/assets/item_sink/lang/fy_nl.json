@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Sammelje de munt út de twa útfier slots oan de rjochterkant. Elke foltôge syklus ferbrûkt ien ynfier item.",
   "jei.item_sink.item_sink_conversion": "Foarwerpomsetting",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "De betelling hinget ôf fan de wearde fan it foarwerp.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Fuortgong: %1$s / %2$s tikken",
   "gui.item_sink.complete": "%1$s%% foltôge",

@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Cruinnich an airgead bhon dà shliotan toraidh air an taobh cheart. Bidh gach cearcall crìochnaichte ag ithe aon rud cuir a-steach.",
   "jei.item_sink.item_sink_conversion": "Iomlaid nithean",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Tha am pàigheadh a rèir luach an nì.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Adhartas: %1$s / %2$s ticean",
   "gui.item_sink.complete": "%1$s%% coileanta",

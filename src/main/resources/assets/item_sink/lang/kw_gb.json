@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Kuntel an mona dhyworth an dew dyller esa war an tu dyghow. Pub tro gorfenwys a dhevnydh unn dra.",
   "jei.item_sink.item_sink_conversion": "Treylyans traow",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "An talans yw herwyd gwerth an dra.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Avonsyans: %1$s / %2$s tikow",
   "gui.item_sink.complete": "%1$s%% gwrys",

@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "ಬಲಭಾಗದಲ್ಲಿರುವ ಎರಡು ಔಟ್‌ಪುಟ್ ಸ್ಲಾಟ್‌ಗಳಿಂದ ಕರೆನ್ಸಿಯನ್ನು ಸಂಗ್ರಹಿಸಿ. ಪ್ರತಿ ಪೂರ್ಣಗೊಂಡ ಚಕ್ರವು ಒಂದು ಇನ್‌ಪುಟ್ ಐಟಂ ಅನ್ನು ಬಳಸುತ್ತದೆ.",
   "jei.item_sink.item_sink_conversion": "ವಸ್ತು ಪರಿವರ್ತನೆ",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "ಪಾವತಿ ವಸ್ತುವಿನ ಮೌಲ್ಯವನ್ನು ಅವಲಂಬಿಸಿದೆ.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "ಪ್ರಗತಿ: %1$s / %2$s ಟಿಕ್‌ಗಳು",
   "gui.item_sink.complete": "%1$s%% ಪೂರ್ಣಗೊಂಡಿದೆ",

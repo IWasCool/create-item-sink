@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Ciapa la moneda di duu post d'uscida a drita. Ogni gir complet el consuma una roba d'entrada.",
   "jei.item_sink.item_sink_conversion": "Conversion de robe",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "El pagament el dipend del valor de la roba.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Avanzament: %1$s / %2$s tick",
   "gui.item_sink.complete": "%1$s%% finid",

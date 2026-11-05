@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Харчыны уҥа өттүгэр баар икки тахсар сиртэн ыл. Хас биирдии бүттүт эргииргэ биир мал туттуллар.",
   "jei.item_sink.item_sink_conversion": "Мал уларытыы",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Төлөбүр мал сыанатыттан тутулуктаах.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Барыыта: %1$s / %2$s тик",
   "gui.item_sink.complete": "%1$s%% бэлэм",

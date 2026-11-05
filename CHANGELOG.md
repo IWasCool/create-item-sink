@@ -2,6 +2,8 @@
 
 ## v1.0.0
 
+- Simplified JEI to a question-mark overview with checkerboard slots and one short hover line.
+
 - Shortened Ponder to two focused tutorials with brief captions.
 - Matched Create's white concrete and snow checkerboard floor.
 - Replaced the hopper tutorial with floor-level input and output belts, funnels, shafts, and gearboxes.

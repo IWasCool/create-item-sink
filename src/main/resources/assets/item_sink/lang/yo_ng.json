@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Gba owo naa lati awọn iho o wu meji ni apa ọtun. Yiyipo ti o pari kọọkan n gba ohun kan titẹ sii kan.",
   "jei.item_sink.item_sink_conversion": "Àyípadà ohun",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Ìsanwó dá lórí iye ohun náà.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Ìlọsíwájú: %1$s / %2$s tik",
   "gui.item_sink.complete": "%1$s%% parí",

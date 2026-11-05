@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Zbiyraj waluta z dwōch slotōw wyjściowych po prawyj. Kożdy zakōńczōny cykl pochłōnio jedyn elymynt wejściowy.",
   "jei.item_sink.item_sink_conversion": "Przetworzenie rzeczy",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Wypłata zależy ôd werty rzeczy.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Postymp: %1$s / %2$s tikōw",
   "gui.item_sink.complete": "%1$s%% skōńczōne",

@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Take the geld from the two outgoing slots on the right. Each finished work round spends one ingoing thing.",
   "jei.item_sink.item_sink_conversion": "Thing Swapping",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Pay hangs on the thing's worth.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Headway: %1$s / %2$s ticks",
   "gui.item_sink.complete": "%1$s%% done",

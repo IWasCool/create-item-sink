@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "வலதுபுறத்தில் உள்ள இரண்டு வெளியீட்டு இடங்களிலிருந்து நாணயத்தை சேகரிக்கவும். முடிக்கப்பட்ட ஒவ்வொரு சுழற்சியும் ஒரு உள்ளீட்டு உருப்படியைப் பயன்படுத்துகிறது.",
   "jei.item_sink.item_sink_conversion": "பொருள் மாற்றம்",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "பணம் பொருளின் மதிப்பைப் பொறுத்தது.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "முன்னேற்றம்: %1$s / %2$s டிக்குகள்",
   "gui.item_sink.complete": "%1$s%% நிறைவடைந்தது",

@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Colectați moneda din cele două sloturi de ieșire din dreapta. Fiecare ciclu finalizat consumă un element de intrare.",
   "jei.item_sink.item_sink_conversion": "Conversia obiectelor",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Plata depinde de valoarea obiectului.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Progres: %1$s / %2$s tickuri",
   "gui.item_sink.complete": "%1$s%% finalizat",

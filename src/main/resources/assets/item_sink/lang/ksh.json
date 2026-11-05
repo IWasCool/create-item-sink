@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Holl et Jeld us dä zwei Ußjabeplätz räächts. Jeder fäädije Döschjang verbrüch e Deng.",
   "jei.item_sink.item_sink_conversion": "Dengsverwertung",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "De Ußzahlung hängk vum Wääd af.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Fottjank: %1$s / %2$s Ticks",
   "gui.item_sink.complete": "%1$s%% fäddisch",

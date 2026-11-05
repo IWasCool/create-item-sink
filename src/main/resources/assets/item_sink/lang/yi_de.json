@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "קלייַבן די קראַנטקייַט פון די צוויי רעזולטאַט סלאָץ אויף די רעכט. יעדער געענדיקט ציקל קאַנסומז איין אַרייַנשרייַב נומער.",
   "jei.item_sink.item_sink_conversion": "אומוואַנדלונג פֿון זאַכן",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "די צאָלונג ווענדט זיך אין ווערט פֿון דער זאַך.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "פֿאָרטשריט: %1$s / %2$s טיקן",
   "gui.item_sink.complete": "%1$s%% פֿאַרענדיקט",

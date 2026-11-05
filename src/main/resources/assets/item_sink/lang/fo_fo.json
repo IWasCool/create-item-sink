@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "Savna gjaldoyrað frá teimum báðum útgangsplássunum til høgru. Hvør liðug ringrás brúkar ein inntøkulut.",
   "jei.item_sink.item_sink_conversion": "Lutaumbroyting",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Útgjald veldst um virðið á lutinum.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "Framgongd: %1$s / %2$s tikk",
   "gui.item_sink.complete": "%1$s%% liðugt",

@@ -7,6 +7,7 @@
   "item_sink.ponder.item_sink_basics.text_3": "nIH Dop cha' Daqvo' Huch yItlhap. rInDI' mIw, wa' Doch lo'lu'ta'.",
   "jei.item_sink.item_sink_conversion": "Doch choH",
   "jei.item_sink.details": "%1$ss  %2$s FE/t",
+  "jei.item_sink.overview.payout": "Doch lo'laHghachmo' Huch noblu'.",
   "gui.item_sink.energy": "%1$s / %2$s FE",
   "gui.item_sink.progress": "taHghach: %1$s / %2$s tickmey",
   "gui.item_sink.complete": "%1$s%% pItlh",
