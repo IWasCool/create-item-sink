@@ -15,6 +15,6 @@ public final class ItemSinkPonderPlugin implements PonderPlugin {
     public void registerScenes(PonderSceneRegistrationHelper<ResourceLocation> helper) {
         helper.forComponents(ItemSink.ITEM_SINK_ITEM.getId())
                 .addStoryBoard("item_sink", ItemSinkScenes::basics)
-                .addStoryBoard("item_sink", ItemSinkScenes::automation);
+                .addStoryBoard("item_sink_create", ItemSinkScenes::createAutomation);
     }
 }

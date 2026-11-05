@@ -2,7 +2,9 @@
 
 A configurable Create addon that converts unwanted items into currency.
 
-Version **0.0.4** for Minecraft 1.20.1, Forge 47.4.x (47.4.0+), Create 6.0.x and Java 17.
+Version **1.0.0** for Minecraft 1.20.1, Forge 47.4.x (47.4.0+), Create 6.0.x and Java 17.
+
+**Public source:** [IWasCool/create-item-sink-forge](https://github.com/IWasCool/create-item-sink-forge).
 
 Download the jar from [Releases](https://github.com/IWasCool/create-item-sink-forge/releases) and place it in your client and server's `mods` folders alongside Create.
 
@@ -12,8 +14,10 @@ Right-click the sink to open it. Insert unwanted items and supply Forge Energy t
 
 Mine the Item Sink with any pickaxe to recover the machine. Its stored items drop separately.
 
-Includes two Ponder tutorials and initial translations for all 143 Minecraft 1.20.1 language options. Translation corrections are welcome.
+Includes two short Ponder tutorials: basic use and Create automation. Belts sit directly on Create's checkerboard floor, with funnels feeding items into the sink and extracting currency onto an output belt.
 
-Build from source with `./gradlew build` or `gradlew.bat build` on Windows. The jar is written to `build/libs/`.
+Initial translations cover all 143 Minecraft 1.20.1 language options; new Create automation captions fall back to English. Translation corrections are welcome.
+
+Build from source with `./gradlew build` or `gradlew.bat build` on Windows. The release jar is `build/libs/create_item_sink-1.0.0.jar`.
 
 The code is available to view, reuse, modify and port under the [MIT license](LICENSE).

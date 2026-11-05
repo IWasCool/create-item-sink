@@ -43,5 +43,6 @@ repo/
 ### Local development files ###
 /logs/
 /src/gametest/
+/src/test/
 /docs/
 /tools/

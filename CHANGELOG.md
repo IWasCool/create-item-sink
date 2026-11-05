@@ -1,5 +1,13 @@
 ﻿# Update Log
 
+## v1.0.0
+
+- Shortened Ponder to two focused tutorials with brief captions.
+- Matched Create's white concrete and snow checkerboard floor.
+- Replaced the hopper tutorial with floor-level input and output belts, funnels, shafts, and gearboxes.
+- Showed a funnel extracting currency onto the output belt, with a separate reminder to supply FE.
+- Removed regression test sources and their build-only dependencies from the source distribution.
+
 ## v0.0.4
 
 - Fixed the energy bar and tooltip showing incorrect values above 32,767 FE.

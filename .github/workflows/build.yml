@@ -16,5 +16,5 @@ jobs:
         run: bash ./gradlew build
       - uses: actions/upload-artifact@v4
         with:
-          name: create_item_sink-0.0.4
-          path: build/libs/*.jar
+          name: create_item_sink-1.0.0
+          path: build/libs/create_item_sink-1.0.0.jar

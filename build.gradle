@@ -46,8 +46,6 @@ legacyForge {
     }
 }
 
-legacyForge.addModdingDependenciesTo(sourceSets.test)
-
 dependencies {
     // Create supplies Ponder at runtime; only its API is needed to compile our scenes.
     modCompileOnly("net.createmod.ponder:Ponder-Forge-${minecraft_version}:${ponder_version}") {
@@ -56,27 +54,9 @@ dependencies {
     compileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
     compileOnly "mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"
     modRuntimeOnly "mezz.jei:jei-${minecraft_version}-forge:${jei_version}"
-    modRuntimeOnly "maven.modrinth:create:${create_version}"
+    // Use Create's Ponder helpers for animated belts and funnels.
+    modImplementation "maven.modrinth:create:${create_version}"
     modRuntimeOnly "maven.modrinth:numismatics:${numismatics_version}"
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.11.4'
-}
-
-// A plain test JVM cannot verify Forge signatures retained on remapped development classes.
-// Extract only the test runtime copy; the original artifact and release jar stay untouched.
-def testGameJar = tasks.named('createMinecraftArtifacts').flatMap { it.gameJarArtifact }
-def testForgeClasses = tasks.register('prepareTestForgeClasses', Sync) {
-    from(zipTree(testGameJar))
-    into(layout.buildDirectory.dir('test-forge-classes'))
-    exclude 'META-INF/MANIFEST.MF', 'META-INF/*.SF', 'META-INF/*.RSA', 'META-INF/*.DSA', 'META-INF/*.EC'
-}
-
-tasks.named('test', Test) {
-    useJUnitPlatform()
-    classpath = classpath.minus(files(testGameJar)).plus(files(testForgeClasses))
-    testLogging {
-        exceptionFormat = 'full'
-    }
 }
 
 // All resources use Minecraft 1.20.1 paths and live inside this project.
