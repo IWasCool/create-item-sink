@@ -97,7 +97,7 @@ public class ItemSinkJeiCategory implements IRecipeCategory<ItemSinkConversionRe
                            IRecipeSlotsView recipeSlotsView, double mouseX, double mouseY) {
         if (mouseX >= INPUT_X && mouseX < INPUT_X + SLOT_SIZE
                 && mouseY >= SLOT_Y && mouseY < SLOT_Y + SLOT_SIZE) {
-            tooltip.add(Component.translatable("jei.item_sink.overview.payout"));
+            tooltip.add(Component.translatable("jei.item_sink.overview.any_item"));
         }
     }
 

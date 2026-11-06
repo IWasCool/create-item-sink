@@ -1,0 +1,68 @@
+package com.ourcreation.itemsink;
+
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
+
+import java.util.HashSet;
+import java.util.Locale;
+import java.util.function.Predicate;
+import java.util.regex.Pattern;
+
+/** Registry-based selectors: player language and renamed stacks never affect prices. */
+final class ItemSelector {
+    private ItemSelector() {}
+
+    static Predicate<ResourceLocation> parse(String text) {
+        String selector = text.trim();
+        if (selector.startsWith("#")) {
+            ResourceLocation tag = requireId(selector.substring(1));
+            var members = new HashSet<ResourceLocation>();
+            BuiltInRegistries.ITEM.getTag(TagKey.create(Registries.ITEM, tag)).ifPresent(holders ->
+                    holders.forEach(holder -> members.add(BuiltInRegistries.ITEM.getKey(holder.value()))));
+            return members::contains;
+        }
+        if (selector.startsWith("contains:")) {
+            String phrase = selector.substring("contains:".length()).trim()
+                    .toLowerCase(Locale.ROOT).replaceAll("\\s+", "_");
+            if (phrase.isEmpty()) {
+                throw new IllegalArgumentException("contains: needs a phrase");
+            }
+            return id -> id.getPath().contains(phrase);
+        }
+        if (selector.startsWith("namespace:")) {
+            String namespace = selector.substring("namespace:".length()).trim();
+            if (!namespace.matches("[a-z0-9_.-]+")) {
+                throw new IllegalArgumentException("namespace: needs a valid mod id");
+            }
+            return id -> id.getNamespace().equals(namespace);
+        }
+        if (selector.indexOf('*') >= 0 || selector.indexOf('?') >= 0) {
+            if (!selector.matches("[a-z0-9_.:/?*\\-]+") || selector.chars().filter(c -> c == ':').count() > 1) {
+                throw new IllegalArgumentException("invalid item wildcard: " + selector);
+            }
+            StringBuilder regex = new StringBuilder();
+            for (char character : selector.toCharArray()) {
+                regex.append(switch (character) {
+                    case '*' -> ".*";
+                    case '?' -> ".";
+                    default -> Pattern.quote(String.valueOf(character));
+                });
+            }
+            Pattern pattern = Pattern.compile(regex.toString());
+            boolean fullId = selector.indexOf(':') >= 0;
+            return id -> pattern.matcher(fullId ? id.toString() : id.getPath()).matches();
+        }
+        ResourceLocation item = requireId(selector);
+        return item::equals;
+    }
+
+    private static ResourceLocation requireId(String text) {
+        ResourceLocation id = text.isBlank() ? null : ResourceLocation.tryParse(text);
+        if (id == null) {
+            throw new IllegalArgumentException("invalid item or tag id: " + text);
+        }
+        return id;
+    }
+}

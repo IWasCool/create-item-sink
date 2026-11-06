@@ -10,16 +10,20 @@ Download the jar from [Releases](https://github.com/IWasCool/create-item-sink-fo
 
 Create: Numismatics and JEI are optional. The default outputs use Numismatics coins. Without Numismatics, configure installed currency items (such as `minecraft:emerald`) as the tiers' `outputItem` values in `config/item_sink-common.toml`; tiers with missing output items stay disabled.
 
+Pricing supports ordered config rules for item IDs, tags, phrases, wildcards, and entire mods. Keep the current prices as defaults or build a custom economy with any installed currency items, payout amounts, processing times, and FE costs. See the [configuration guide](CONFIGURATION.md) for examples.
+
 Right-click the sink to open it. Insert unwanted items and supply Forge Energy to convert them into currency. Hold **W** over the item to view its Ponder tutorials.
 
 Mine the Item Sink with any pickaxe to recover the machine. Its stored items drop separately.
 
-JEI shows one compact `? -> currency` overview, with checkerboard slots and a short payout tooltip.
+JEI shows one compact `? -> currency` overview, with checkerboard slots and an **Any Item** tooltip over the question mark.
 
 Includes two short Ponder tutorials: basic use and Create automation. Belts sit directly on Create's checkerboard floor, with funnels feeding items into the sink and extracting currency onto an output belt.
 
 Initial translations cover all 143 Minecraft 1.20.1 language options; new Create automation captions fall back to English. Translation corrections are welcome.
 
 Build from source with `./gradlew build` or `gradlew.bat build` on Windows. The release jar is `build/libs/create_item_sink-1.0.0.jar`.
+
+Run the server GameTests with `./gradlew runGameTestServer`, and repeat with `-PwithoutNumismatics` to verify custom currencies without Numismatics. The test mod is excluded from the release jar.
 
 The code is available to view, reuse, modify and port under the [MIT license](LICENSE).

@@ -2,13 +2,18 @@
 
 ## v1.0.0
 
+- Added ordered pricing rules matching item IDs, tags, phrases, wildcards, and entire mod namespaces.
+- Kept the existing catalogue prices as defaults, with optional fallback prices and a switch to replace the bundled economy.
+- Added direct rule payouts with configurable currency items, quantities, processing times, and FE costs; Numismatics remains optional.
+- Extended exclusions to all selector types and applied currency loop protection to every input source.
+- Added the configuration guide with examples for custom economies and alternative currencies.
+- Changed the question-mark input tooltip to **Any Item** and included custom rule currencies in the JEI overview.
 - Simplified JEI to a question-mark overview with checkerboard slots and one short hover line.
-
 - Shortened Ponder to two focused tutorials with brief captions.
 - Matched Create's white concrete and snow checkerboard floor.
 - Replaced the hopper tutorial with floor-level input and output belts, funnels, shafts, and gearboxes.
 - Showed a funnel extracting currency onto the output belt, with a separate reminder to supply FE.
-- Removed regression test sources and their build-only dependencies from the source distribution.
+- Added 13 server GameTests and CI checks with and without Numismatics. Test code remains excluded from the release jar.
 
 ## v0.0.4
 
