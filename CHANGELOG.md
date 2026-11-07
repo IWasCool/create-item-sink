@@ -2,6 +2,7 @@
 
 ## v1.0.0 | NeoForge 1.21.1
 
+- When the optional power mod is absent, omit its blocks and wires and show a text explanation that the sink requires FE. No replacement power assets, blocks or items are added.
 - Consolidated Item Sink use, the visible power connection, processing, Create automation, and blocked outputs into one complete Ponder.
 - Fixed the battery connector attachment: it explicitly faces down into the battery; the sink connector explicitly faces south into the sink.
 - The main tutorial uses Create Crafts & Additions when installed: a charged accumulator, mounted Pull/Push connectors, and a real copper wire connected to the Item Sink.

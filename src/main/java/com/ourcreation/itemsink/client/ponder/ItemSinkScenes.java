@@ -70,13 +70,12 @@ public final class ItemSinkScenes {
 
         if (wired) {
             installPowerExample(scene, util);
-        } else {
-            Vec3 port = util.vector().blockSurface(SINK, Direction.NORTH);
-            scene.overlay().showBigLine(PonderPalette.BLUE, port.add(0, 0, -1.5), port, 80);
         }
 
         scene.overlay().showText(80)
-                .text("The connected source fills the FE buffer. The sink lights up as it uses that energy to make currency.")
+                .text(wired
+                        ? "The connected source fills the FE buffer. The sink lights up as it uses that energy to make currency."
+                        : "The Item Sink needs Forge Energy (FE). Use a compatible battery, generator or cable from your modpack.")
                 .pointAt(util.vector().centerOf(SINK)).placeNearTarget()
                 .colored(PonderPalette.BLUE).attachKeyFrame();
         // Ponder is client-side. Animate the stored FE alongside the real displayed connection.
