@@ -2,14 +2,16 @@
 
 ## v1.0.0 | NeoForge 1.21.1
 
-- Added an optional power tutorial using Create Crafts & Additions: a charged accumulator, Pull/Push connectors, and a real copper wire connected to the Item Sink.
+- Consolidated Item Sink use, the visible power connection, processing, Create automation, and blocked outputs into one complete Ponder.
+- Fixed the battery connector attachment: it explicitly faces down into the battery; the sink connector explicitly faces south into the sink.
+- The main tutorial uses Create Crafts & Additions when installed: a charged accumulator, mounted Pull/Push connectors, and a real copper wire connected to the Item Sink.
 - Shows both wire-spool clicks, the FE buffer charging, and item conversion after power is connected.
-- Appears only when the optional accumulator, connectors, and copper spool are installed. The two existing tutorials remain available without the addon.
+- Packs without the optional wire addon still get one combined tutorial for input, FE, processing, automation, and paused outputs.
 - Adds English fallback captions across all 137 supported locales.
 
 - Ported Forge 1.0.0 pricing rules: ordered exact IDs, tags, phrases, wildcards, whole-mod selectors, direct custom payouts, fallback values, and optional replacement of bundled prices.
 - Preserved the NeoForge 0.0.4 catalogue, tier settings, custom inputs, IDs, and existing world data. Currency protection and exclusions apply to every pricing source.
-- Added the short basic-use and Create belt/funnel Ponder tutorials, plus the concise Any Item JEI tooltip.
+- Added the concise Any Item JEI tooltip.
 - Kept all 137 Minecraft 1.21.1 locales, with English fallbacks for new untranslated text.
 - Made source builds reproducible with downloaded dependencies and separate server GameTests, including a run without Numismatics.
 

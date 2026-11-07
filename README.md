@@ -14,7 +14,7 @@ Create: Numismatics and JEI are optional. Default outputs use Numismatics coins.
 
 1.0.0 introduced ordered pricing rules for exact item IDs, tags, phrases, wildcards, and entire mods, with custom payouts and fallback prices. Existing prices, customized tier lists, output amounts, FE costs, and processing times remain in use. See the [configuration guide](CONFIGURATION.md) and [item value catalogue](docs/item-values.md).
 
-Right-click the Item Sink, insert unwanted items, and supply Forge Energy to convert them into currency. Hold **W** over the item for Ponder tutorials for basic use and Create belts and funnels. With Create Crafts & Additions installed, a third tutorial shows a charged accumulator connected to the sink by a copper wire, with the battery connector set to Pull and the sink connector set to Push. Any pickaxe recovers the machine; stored items drop separately.
+Hold **W** over the Item Sink for one complete Ponder tutorial: insert an item, connect power, watch conversion, automate input and currency collection with belts and funnels, and clear blocked outputs. With Create Crafts & Additions installed, the same tutorial shows a charged accumulator, correctly attached Pull/Push connectors, and a copper wire supplying the sink. Any pickaxe recovers the machine; stored items drop separately.
 
 JEI shows one compact `? -> currency` overview with an **Any Item** input tooltip. Currency outputs are protected from being sold back into the machine.
 
