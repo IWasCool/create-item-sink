@@ -2,11 +2,12 @@
 
 ## v1.0.0 | NeoForge 1.21.1
 
+- Shortened the power step to one caption: Connect power to the sink (FE). Removed the connector, wrench and spool walkthrough; the optional connected setup appears immediately.
 - When the optional power mod is absent, omit its blocks and wires and show a text explanation that the sink requires FE. No replacement power assets, blocks or items are added.
 - Consolidated Item Sink use, the visible power connection, processing, Create automation, and blocked outputs into one complete Ponder.
 - Fixed the battery connector attachment: it explicitly faces down into the battery; the sink connector explicitly faces south into the sink.
 - The main tutorial uses Create Crafts & Additions when installed: a charged accumulator, mounted Pull/Push connectors, and a real copper wire connected to the Item Sink.
-- Shows both wire-spool clicks, the FE buffer charging, and item conversion after power is connected.
+- Shows the connected power setup briefly, then moves on to item conversion.
 - Packs without the optional wire addon still get one combined tutorial for input, FE, processing, automation, and paused outputs.
 - Adds English fallback captions across all 137 supported locales.
 

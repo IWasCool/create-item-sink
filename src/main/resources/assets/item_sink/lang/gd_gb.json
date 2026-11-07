@@ -81,16 +81,8 @@
   "item_sink.configuration.item_sink.values.fallbackValue.tooltip": "Price for items with no other match. Empty rejects them; use a tier name or outputItem, count, ticks, FE/t.",
   "item_sink.ponder.item_sink_complete.header": "Using and Automating the Item Sink",
   "item_sink.ponder.item_sink_complete.text_1": "Right-click the sink. Put unwanted items in its left input slot.",
-  "item_sink.ponder.item_sink_complete.text_2": "Attach connectors to the charged accumulator and the sink. Wrench the battery to Pull and the sink to Push.",
-  "item_sink.ponder.item_sink_complete.text_3": "Use a copper wire spool on both connectors to link the battery to the sink.",
-  "item_sink.ponder.item_sink_complete.text_4": "The connected source fills the FE buffer. The sink lights up as it uses that energy to make currency.",
-  "item_sink.ponder.item_sink_complete.text_5": "Turn the belts. Funnels feed accepted items from the input chest into the sink.",
-  "item_sink.ponder.item_sink_complete.text_6": "The extracting funnel puts currency on the output belt. Collect it in the chest.",
-  "item_sink.ponder.item_sink_complete.text_7": "Keep power supplied and the outputs clear. A full machine pauses until there is room again.",
-  "item_sink.ponder.item_sink_complete_fe.header": "Using and Automating the Item Sink",
-  "item_sink.ponder.item_sink_complete_fe.text_1": "Right-click the sink. Put unwanted items in its left input slot.",
-  "item_sink.ponder.item_sink_complete_fe.text_2": "The Item Sink needs Forge Energy (FE). Use a compatible battery, generator or cable from your modpack.",
-  "item_sink.ponder.item_sink_complete_fe.text_3": "Turn the belts. Funnels feed accepted items from the input chest into the sink.",
-  "item_sink.ponder.item_sink_complete_fe.text_4": "The extracting funnel puts currency on the output belt. Collect it in the chest.",
-  "item_sink.ponder.item_sink_complete_fe.text_5": "Keep power supplied and the outputs clear. A full machine pauses until there is room again."
+  "item_sink.ponder.item_sink_complete.text_2": "Connect power to the sink (FE).",
+  "item_sink.ponder.item_sink_complete.text_3": "Turn the belts. Funnels feed accepted items from the input chest into the sink.",
+  "item_sink.ponder.item_sink_complete.text_4": "The extracting funnel puts currency on the output belt. Collect it in the chest.",
+  "item_sink.ponder.item_sink_complete.text_5": "Keep power supplied and the outputs clear. A full machine pauses until there is room again."
 }

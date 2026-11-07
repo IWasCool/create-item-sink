@@ -50,7 +50,7 @@ public final class ItemSinkScenes {
     public static void tutorial(SceneBuilder builder, SceneBuildingUtil util) {
         CreateSceneBuilder scene = new CreateSceneBuilder(builder);
         boolean wired = hasWireExample();
-        scene.title(wired ? "item_sink_complete" : "item_sink_complete_fe", "Using and Automating the Item Sink");
+        scene.title("item_sink_complete", "Using and Automating the Item Sink");
         scene.configureBasePlate(0, 0, 7);
         scene.scaleSceneView(0.9F);
         scene.showBasePlate();
@@ -72,10 +72,8 @@ public final class ItemSinkScenes {
             installPowerExample(scene, util);
         }
 
-        scene.overlay().showText(80)
-                .text(wired
-                        ? "The connected source fills the FE buffer. The sink lights up as it uses that energy to make currency."
-                        : "The Item Sink needs Forge Energy (FE). Use a compatible battery, generator or cable from your modpack.")
+        scene.overlay().showText(65)
+                .text("Connect power to the sink (FE).")
                 .pointAt(util.vector().centerOf(SINK)).placeNearTarget()
                 .colored(PonderPalette.BLUE).attachKeyFrame();
         // Ponder is client-side. Animate the stored FE alongside the real displayed connection.
@@ -163,36 +161,16 @@ public final class ItemSinkScenes {
         scene.world().showSection(util.select().position(BATTERY), Direction.DOWN);
         // FACING points at the supporting block, not away from it. Never use the north-facing default.
         BlockState connector = BuiltInRegistries.BLOCK.get(ResourceLocation.parse("createaddition:connector")).defaultBlockState();
-        scene.world().setBlock(BATTERY_CONNECTOR,
-                setProperty(connector, connector.getBlock().getStateDefinition().getProperty("facing"), "down"), false);
-        scene.world().setBlock(SINK_CONNECTOR,
-                setProperty(connector, connector.getBlock().getStateDefinition().getProperty("facing"), "south"), false);
+        BlockState source = setProperty(connector, connector.getBlock().getStateDefinition().getProperty("facing"), "down");
+        source = setProperty(source, source.getBlock().getStateDefinition().getProperty("mode"), "pull");
+        BlockState target = setProperty(connector, connector.getBlock().getStateDefinition().getProperty("facing"), "south");
+        target = setProperty(target, target.getBlock().getStateDefinition().getProperty("mode"), "push");
+        scene.world().setBlock(BATTERY_CONNECTOR, source, false);
+        scene.world().setBlock(SINK_CONNECTOR, target, false);
         scene.world().showSection(util.select().position(BATTERY_CONNECTOR), Direction.DOWN);
         scene.world().showSection(util.select().position(SINK_CONNECTOR), Direction.SOUTH);
-        scene.overlay().showText(90)
-                .text("Attach connectors to the charged accumulator and the sink. Wrench the battery to Pull and the sink to Push.")
-                .pointAt(util.vector().centerOf(BATTERY_CONNECTOR)).placeNearTarget()
-                .colored(PonderPalette.BLUE).attachKeyFrame();
-        ItemStack wrench = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse("create:wrench")));
-        scene.overlay().showControls(util.vector().centerOf(BATTERY_CONNECTOR), Pointing.RIGHT, 35).rightClick().withItem(wrench);
-        scene.world().modifyBlock(BATTERY_CONNECTOR,
-                state -> setProperty(state, state.getBlock().getStateDefinition().getProperty("mode"), "pull"), false);
-        scene.idle(35);
-        scene.overlay().showControls(util.vector().centerOf(SINK_CONNECTOR), Pointing.RIGHT, 35).rightClick().withItem(wrench);
-        scene.world().modifyBlock(SINK_CONNECTOR,
-                state -> setProperty(state, state.getBlock().getStateDefinition().getProperty("mode"), "push"), false);
-        scene.idle(70);
-
-        scene.overlay().showText(80)
-                .text("Use a copper wire spool on both connectors to link the battery to the sink.")
-                .pointAt(util.vector().centerOf(SINK_CONNECTOR)).placeNearTarget().attachKeyFrame();
-        ItemStack spool = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse("createaddition:copper_spool")));
-        scene.overlay().showControls(util.vector().centerOf(BATTERY_CONNECTOR), Pointing.RIGHT, 30).rightClick().withItem(spool);
-        scene.idle(35);
-        scene.overlay().showControls(util.vector().centerOf(SINK_CONNECTOR), Pointing.RIGHT, 30).rightClick().withItem(spool);
         connectWire(scene, util, BATTERY_CONNECTOR, SINK_CONNECTOR);
         connectWire(scene, util, SINK_CONNECTOR, BATTERY_CONNECTOR);
-        scene.idle(65);
     }
 
     private static <T extends Comparable<T>> BlockState setProperty(BlockState state, Property<T> property, String value) {
