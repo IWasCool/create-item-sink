@@ -40,8 +40,13 @@ run-gametest*/
 repo/
 !**/src/**/repo/
 
-### Local development files ###
-/logs/
-/src/test/
-/docs/
-/tools/
+### Item value audit tools ###
+tools/__pycache__/
+
+### Local development dependencies and installation records ###
+libs/
+forge/
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+MODPACK_STATUS.md
+logs/

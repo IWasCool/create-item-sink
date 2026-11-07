@@ -13,7 +13,7 @@ Under `[item_sink.values]`, change `pricingRules` to add overrides. The first ma
 pricingRules = [
     "minecraft:diamond -> value16",
     "contains:diamond sword -> value32",
-    "#forge:ingots/iron -> value4",
+    "#c:ingots/iron -> value4",
     "contains:ingot -> value4",
     "*:raw_* -> value2",
     "namespace:create -> value8"
@@ -43,7 +43,7 @@ Direct payouts let you use any quantity in that range and mix currencies without
 | Selector | Matches |
 | --- | --- |
 | `minecraft:diamond` | Exactly that registered item |
-| `#forge:ingots/iron` | Every item in that item tag |
+| `#c:ingots/iron` | Every item in that item tag |
 | `contains:iron ingot` | Item paths containing `iron_ingot` |
 | `namespace:create` | All items registered by Create |
 | `minecraft:*_planks` | Minecraft IDs ending in `_planks` |
@@ -112,7 +112,7 @@ This applies to the bundled value4 items, custom `value4Items`, and rules target
 ```toml
 excludedItems = [
     "minecraft:rotten_flesh",
-    "#forge:ores",
+    "#c:ores",
     "contains:creative",
     "namespace:yourmod",
     "*:infinite_*"

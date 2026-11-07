@@ -1,0 +1,841 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "chipped:angry_lapis_block",
+      "required": false
+    },
+    {
+      "id": "chipped:angry_redstone_block",
+      "required": false
+    },
+    {
+      "id": "chipped:blank_lapis_block_carving",
+      "required": false
+    },
+    {
+      "id": "chipped:blank_redstone_block_carving",
+      "required": false
+    },
+    {
+      "id": "chipped:blue_redstone_torch",
+      "required": false
+    },
+    {
+      "id": "chipped:bordered_lapis_block",
+      "required": false
+    },
+    {
+      "id": "chipped:bordered_redstone_block",
+      "required": false
+    },
+    {
+      "id": "chipped:brick_bordered_lapis_block",
+      "required": false
+    },
+    {
+      "id": "chipped:brick_bordered_redstone_block",
+      "required": false
+    },
+    {
+      "id": "chipped:carved_lapis_block",
+      "required": false
+    },
+    {
+      "id": "chipped:carved_redstone_block",
+      "required": false
+    },
+    {
+      "id": "chipped:checkered_lapis_block_tiles",
+      "required": false
+    },
+    {
+      "id": "chipped:checkered_redstone_block_tiles",
+      "required": false
+    },
+    {
+      "id": "chipped:cobbled_lapis_block",
+      "required": false
+    },
+    {
+      "id": "chipped:cobbled_redstone_block",
+      "required": false
+    },
+    {
+      "id": "chipped:cracked_disordered_lapis_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:cracked_disordered_redstone_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:cracked_flat_lapis_block_tiles",
+      "required": false
+    },
+    {
+      "id": "chipped:cracked_flat_redstone_block_tiles",
+      "required": false
+    },
+    {
+      "id": "chipped:cracked_lapis_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:cracked_redstone_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:creeper_lapis_block_carving",
+      "required": false
+    },
+    {
+      "id": "chipped:creeper_redstone_block_carving",
+      "required": false
+    },
+    {
+      "id": "chipped:crimson_redstone_torch",
+      "required": false
+    },
+    {
+      "id": "chipped:crying_lapis_block",
+      "required": false
+    },
+    {
+      "id": "chipped:crying_redstone_block",
+      "required": false
+    },
+    {
+      "id": "chipped:curly_lapis_block_pillar",
+      "required": false
+    },
+    {
+      "id": "chipped:curly_redstone_block_pillar",
+      "required": false
+    },
+    {
+      "id": "chipped:cut_blank_lapis_block",
+      "required": false
+    },
+    {
+      "id": "chipped:cut_blank_redstone_block",
+      "required": false
+    },
+    {
+      "id": "chipped:cut_lapis_block_column",
+      "required": false
+    },
+    {
+      "id": "chipped:cut_redstone_block_column",
+      "required": false
+    },
+    {
+      "id": "chipped:duh_lapis_block",
+      "required": false
+    },
+    {
+      "id": "chipped:duh_redstone_block",
+      "required": false
+    },
+    {
+      "id": "chipped:edged_lapis_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:edged_redstone_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:edged_redstone_lamp",
+      "required": false
+    },
+    {
+      "id": "chipped:edged_white_redstone_lamp",
+      "required": false
+    },
+    {
+      "id": "chipped:engraved_lapis_block",
+      "required": false
+    },
+    {
+      "id": "chipped:engraved_redstone_block",
+      "required": false
+    },
+    {
+      "id": "chipped:eroded_lapis_block",
+      "required": false
+    },
+    {
+      "id": "chipped:eroded_redstone_block",
+      "required": false
+    },
+    {
+      "id": "chipped:etched_lapis_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:etched_redstone_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:fancy_redstone_lamp",
+      "required": false
+    },
+    {
+      "id": "chipped:fancy_white_redstone_lamp",
+      "required": false
+    },
+    {
+      "id": "chipped:fine_lapis_block_pillar",
+      "required": false
+    },
+    {
+      "id": "chipped:fine_redstone_block_pillar",
+      "required": false
+    },
+    {
+      "id": "chipped:flat_lapis_block_tiles",
+      "required": false
+    },
+    {
+      "id": "chipped:flat_redstone_block_tiles",
+      "required": false
+    },
+    {
+      "id": "chipped:glad_lapis_block",
+      "required": false
+    },
+    {
+      "id": "chipped:glad_redstone_block",
+      "required": false
+    },
+    {
+      "id": "chipped:green_redstone_torch",
+      "required": false
+    },
+    {
+      "id": "chipped:hived_redstone_lamp",
+      "required": false
+    },
+    {
+      "id": "chipped:hived_white_redstone_lamp",
+      "required": false
+    },
+    {
+      "id": "chipped:inlayed_lapis_block",
+      "required": false
+    },
+    {
+      "id": "chipped:inlayed_redstone_block",
+      "required": false
+    },
+    {
+      "id": "chipped:inlayed_redstone_lamp",
+      "required": false
+    },
+    {
+      "id": "chipped:inlayed_white_redstone_lamp",
+      "required": false
+    },
+    {
+      "id": "chipped:inscribed_lapis_block",
+      "required": false
+    },
+    {
+      "id": "chipped:inscribed_redstone_block",
+      "required": false
+    },
+    {
+      "id": "chipped:lapis_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:lapis_block_mini_tiles",
+      "required": false
+    },
+    {
+      "id": "chipped:lapis_block_pillar",
+      "required": false
+    },
+    {
+      "id": "chipped:lapis_block_pillar_top",
+      "required": false
+    },
+    {
+      "id": "chipped:lapis_block_scales",
+      "required": false
+    },
+    {
+      "id": "chipped:layed_lapis_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:layed_redstone_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:lightstick_redstone_torch",
+      "required": false
+    },
+    {
+      "id": "chipped:loded_lapis_block",
+      "required": false
+    },
+    {
+      "id": "chipped:loded_redstone_block",
+      "required": false
+    },
+    {
+      "id": "chipped:massive_lapis_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:massive_redstone_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:nice_redstone_lamp",
+      "required": false
+    },
+    {
+      "id": "chipped:nice_white_redstone_lamp",
+      "required": false
+    },
+    {
+      "id": "chipped:offset_lapis_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:offset_redstone_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:ornate_lapis_block_pillar",
+      "required": false
+    },
+    {
+      "id": "chipped:ornate_redstone_block_pillar",
+      "required": false
+    },
+    {
+      "id": "chipped:ornate_redstone_lamp",
+      "required": false
+    },
+    {
+      "id": "chipped:ornate_white_redstone_lamp",
+      "required": false
+    },
+    {
+      "id": "chipped:overlapping_lapis_block_tiles",
+      "required": false
+    },
+    {
+      "id": "chipped:overlapping_redstone_block_tiles",
+      "required": false
+    },
+    {
+      "id": "chipped:pillar_lapis_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:pillar_redstone_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:polished_lapis_block",
+      "required": false
+    },
+    {
+      "id": "chipped:polished_redstone_block",
+      "required": false
+    },
+    {
+      "id": "chipped:prismal_lapis_block_remnants",
+      "required": false
+    },
+    {
+      "id": "chipped:prismal_redstone_block_remnants",
+      "required": false
+    },
+    {
+      "id": "chipped:redstone_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:redstone_block_mini_tiles",
+      "required": false
+    },
+    {
+      "id": "chipped:redstone_block_pillar",
+      "required": false
+    },
+    {
+      "id": "chipped:redstone_block_pillar_top",
+      "required": false
+    },
+    {
+      "id": "chipped:redstone_block_scales",
+      "required": false
+    },
+    {
+      "id": "chipped:reinforced_redstone_lamp",
+      "required": false
+    },
+    {
+      "id": "chipped:reinforced_white_redstone_lamp",
+      "required": false
+    },
+    {
+      "id": "chipped:rough_lapis_block",
+      "required": false
+    },
+    {
+      "id": "chipped:rough_redstone_block",
+      "required": false
+    },
+    {
+      "id": "chipped:rounded_lapis_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:rounded_redstone_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:runic_carved_lapis_block",
+      "required": false
+    },
+    {
+      "id": "chipped:runic_carved_redstone_block",
+      "required": false
+    },
+    {
+      "id": "chipped:sad_lapis_block",
+      "required": false
+    },
+    {
+      "id": "chipped:sad_redstone_block",
+      "required": false
+    },
+    {
+      "id": "chipped:sanded_lapis_block",
+      "required": false
+    },
+    {
+      "id": "chipped:sanded_redstone_block",
+      "required": false
+    },
+    {
+      "id": "chipped:simple_lapis_block_pillar",
+      "required": false
+    },
+    {
+      "id": "chipped:simple_redstone_block_pillar",
+      "required": false
+    },
+    {
+      "id": "chipped:small_lapis_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:small_redstone_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:smooth_inlayed_lapis_block",
+      "required": false
+    },
+    {
+      "id": "chipped:smooth_inlayed_redstone_block",
+      "required": false
+    },
+    {
+      "id": "chipped:smooth_lapis_block_column",
+      "required": false
+    },
+    {
+      "id": "chipped:smooth_redstone_block_column",
+      "required": false
+    },
+    {
+      "id": "chipped:smooth_redstone_lamp",
+      "required": false
+    },
+    {
+      "id": "chipped:smooth_ringed_lapis_block",
+      "required": false
+    },
+    {
+      "id": "chipped:smooth_ringed_redstone_block",
+      "required": false
+    },
+    {
+      "id": "chipped:smooth_white_redstone_lamp",
+      "required": false
+    },
+    {
+      "id": "chipped:smoothed_double_inlayed_lapis_block",
+      "required": false
+    },
+    {
+      "id": "chipped:smoothed_double_inlayed_redstone_block",
+      "required": false
+    },
+    {
+      "id": "chipped:spider_lapis_block_carving",
+      "required": false
+    },
+    {
+      "id": "chipped:spider_redstone_block_carving",
+      "required": false
+    },
+    {
+      "id": "chipped:spiraled_lapis_block",
+      "required": false
+    },
+    {
+      "id": "chipped:spiraled_redstone_block",
+      "required": false
+    },
+    {
+      "id": "chipped:stacked_lapis_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:stacked_redstone_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:thick_inlayed_lapis_block",
+      "required": false
+    },
+    {
+      "id": "chipped:thick_inlayed_redstone_block",
+      "required": false
+    },
+    {
+      "id": "chipped:thick_inlayed_redstone_lamp",
+      "required": false
+    },
+    {
+      "id": "chipped:thick_white_inlayed_redstone_lamp",
+      "required": false
+    },
+    {
+      "id": "chipped:tiled_bordered_lapis_block",
+      "required": false
+    },
+    {
+      "id": "chipped:tiled_bordered_redstone_block",
+      "required": false
+    },
+    {
+      "id": "chipped:tiled_lapis_block",
+      "required": false
+    },
+    {
+      "id": "chipped:tiled_lapis_block_column",
+      "required": false
+    },
+    {
+      "id": "chipped:tiled_redstone_block",
+      "required": false
+    },
+    {
+      "id": "chipped:tiled_redstone_block_column",
+      "required": false
+    },
+    {
+      "id": "chipped:tiny_brick_bordered_lapis_block",
+      "required": false
+    },
+    {
+      "id": "chipped:tiny_brick_bordered_redstone_block",
+      "required": false
+    },
+    {
+      "id": "chipped:tiny_lapis_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:tiny_layered_lapis_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:tiny_layered_lapis_block_slabs",
+      "required": false
+    },
+    {
+      "id": "chipped:tiny_layered_redstone_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:tiny_layered_redstone_block_slabs",
+      "required": false
+    },
+    {
+      "id": "chipped:tiny_redstone_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:trodden_lapis_block",
+      "required": false
+    },
+    {
+      "id": "chipped:trodden_redstone_block",
+      "required": false
+    },
+    {
+      "id": "chipped:unamused_lapis_block",
+      "required": false
+    },
+    {
+      "id": "chipped:unamused_redstone_block",
+      "required": false
+    },
+    {
+      "id": "chipped:vertical_cut_lapis_block",
+      "required": false
+    },
+    {
+      "id": "chipped:vertical_cut_redstone_block",
+      "required": false
+    },
+    {
+      "id": "chipped:vertical_disordered_lapis_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:vertical_disordered_redstone_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:weathered_lapis_block",
+      "required": false
+    },
+    {
+      "id": "chipped:weathered_redstone_block",
+      "required": false
+    },
+    {
+      "id": "chipped:yellow_redstone_torch",
+      "required": false
+    },
+    {
+      "id": "create:crushed_raw_aluminum",
+      "required": false
+    },
+    {
+      "id": "create:crushed_raw_tin",
+      "required": false
+    },
+    {
+      "id": "create:redstone_contact",
+      "required": false
+    },
+    {
+      "id": "create:redstone_link",
+      "required": false
+    },
+    {
+      "id": "create:redstone_requester",
+      "required": false
+    },
+    {
+      "id": "create:wheat_flour",
+      "required": false
+    },
+    {
+      "id": "create_hypertube:redstone_detector_tube_attachment",
+      "required": false
+    },
+    {
+      "id": "create_vibrant_vaults:black_redstone_requester",
+      "required": false
+    },
+    {
+      "id": "create_vibrant_vaults:blue_redstone_requester",
+      "required": false
+    },
+    {
+      "id": "create_vibrant_vaults:brown_redstone_requester",
+      "required": false
+    },
+    {
+      "id": "create_vibrant_vaults:cyan_redstone_requester",
+      "required": false
+    },
+    {
+      "id": "create_vibrant_vaults:gray_redstone_requester",
+      "required": false
+    },
+    {
+      "id": "create_vibrant_vaults:green_redstone_requester",
+      "required": false
+    },
+    {
+      "id": "create_vibrant_vaults:light_blue_redstone_requester",
+      "required": false
+    },
+    {
+      "id": "create_vibrant_vaults:light_gray_redstone_requester",
+      "required": false
+    },
+    {
+      "id": "create_vibrant_vaults:lime_redstone_requester",
+      "required": false
+    },
+    {
+      "id": "create_vibrant_vaults:magenta_redstone_requester",
+      "required": false
+    },
+    {
+      "id": "create_vibrant_vaults:orange_redstone_requester",
+      "required": false
+    },
+    {
+      "id": "create_vibrant_vaults:pink_redstone_requester",
+      "required": false
+    },
+    {
+      "id": "create_vibrant_vaults:purple_redstone_requester",
+      "required": false
+    },
+    {
+      "id": "create_vibrant_vaults:red_redstone_requester",
+      "required": false
+    },
+    {
+      "id": "create_vibrant_vaults:white_redstone_requester",
+      "required": false
+    },
+    {
+      "id": "create_vibrant_vaults:yellow_redstone_requester",
+      "required": false
+    },
+    {
+      "id": "createaddition:redstone_relay",
+      "required": false
+    },
+    {
+      "id": "createmetalwork:dirty_tin_dust",
+      "required": false
+    },
+    {
+      "id": "createmetalwork:molten_aluminum_bucket",
+      "required": false
+    },
+    {
+      "id": "createmetalwork:molten_tin_bucket",
+      "required": false
+    },
+    {
+      "id": "createmetalwork:tin_dust",
+      "required": false
+    },
+    {
+      "id": "createpropulsion:redstone_converter",
+      "required": false
+    },
+    {
+      "id": "createteleporters:redstone_pearl",
+      "required": false
+    },
+    {
+      "id": "createthrusters:gyro_redstone_bridge",
+      "required": false
+    },
+    {
+      "id": "linearbearing:redstone_converter",
+      "required": false
+    },
+    {
+      "id": "minecraft:fermented_spider_eye",
+      "required": false
+    },
+    {
+      "id": "minecraft:redstone_lamp",
+      "required": false
+    },
+    {
+      "id": "minecraft:redstone_torch",
+      "required": false
+    },
+    {
+      "id": "naturalist:bushmeat",
+      "required": false
+    },
+    {
+      "id": "naturalist:drumstick",
+      "required": false
+    },
+    {
+      "id": "naturalist:mammoth_meat",
+      "required": false
+    },
+    {
+      "id": "powergrid:redstone_converter",
+      "required": false
+    },
+    {
+      "id": "powergrid:redstone_relay",
+      "required": false
+    },
+    {
+      "id": "quark:redstone_randomizer",
+      "required": false
+    },
+    {
+      "id": "simulated:redstone_accumulator",
+      "required": false
+    },
+    {
+      "id": "simulated:redstone_inductor",
+      "required": false
+    },
+    {
+      "id": "simulated:redstone_magnet",
+      "required": false
+    },
+    {
+      "id": "slimpatch:redstone_wedding_ring",
+      "required": false
+    },
+    {
+      "id": "spawn:bluefish",
+      "required": false
+    },
+    {
+      "id": "spawn:dates",
+      "required": false
+    },
+    {
+      "id": "spawn:dodo",
+      "required": false
+    },
+    {
+      "id": "spawn:tuna_chunk",
+      "required": false
+    },
+    {
+      "id": "supplementaries:lapis_bricks",
+      "required": false
+    },
+    {
+      "id": "supplementaries:lapis_bricks_slab",
+      "required": false
+    },
+    {
+      "id": "supplementaries:lapis_bricks_stairs",
+      "required": false
+    },
+    {
+      "id": "supplementaries:lapis_bricks_wall",
+      "required": false
+    },
+    {
+      "id": "supplementaries:redstone_illuminator",
+      "required": false
+    }
+  ]
+}

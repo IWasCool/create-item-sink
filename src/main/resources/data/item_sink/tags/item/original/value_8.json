@@ -1,0 +1,237 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "bosses_of_mass_destruction:crystal_fruit",
+      "required": false
+    },
+    {
+      "id": "bosses_of_mass_destruction:obsidian_heart",
+      "required": false
+    },
+    {
+      "id": "bosses_of_mass_destruction:void_lily",
+      "required": false
+    },
+    {
+      "id": "create:experience_nugget",
+      "required": false
+    },
+    {
+      "id": "create:polished_rose_quartz",
+      "required": false
+    },
+    {
+      "id": "create_enchantment_industry:enchanting_template",
+      "required": false
+    },
+    {
+      "id": "createaddition:cake_base",
+      "required": false
+    },
+    {
+      "id": "createaddition:electrum_amulet",
+      "required": false
+    },
+    {
+      "id": "createaddition:electrum_ingot",
+      "required": false
+    },
+    {
+      "id": "createaddition:electrum_sheet",
+      "required": false
+    },
+    {
+      "id": "createaddition:electrum_spool",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:apple_pie_slice",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:beef_patty",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:cabbage_rolls",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:cake_slice",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:chocolate_pie_slice",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:cooked_bacon",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:cooked_chicken_cuts",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:cooked_cod_slice",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:cooked_mutton_chops",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:cooked_rice",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:cooked_salmon_slice",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:fried_egg",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:melon_popsicle",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:nether_salad",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:sweet_berry_cheesecake_slice",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:tomato_sauce",
+      "required": false
+    },
+    {
+      "id": "kubejs:electrum_gear",
+      "required": false
+    },
+    {
+      "id": "kubejs:steel_gear",
+      "required": false
+    },
+    {
+      "id": "kubejs:steel_ingot",
+      "required": false
+    },
+    {
+      "id": "kubejs:steel_rod",
+      "required": false
+    },
+    {
+      "id": "kubejs:steel_sheet",
+      "required": false
+    },
+    {
+      "id": "minecraft:baked_potato",
+      "required": false
+    },
+    {
+      "id": "minecraft:blaze_rod",
+      "required": false
+    },
+    {
+      "id": "minecraft:bread",
+      "required": false
+    },
+    {
+      "id": "minecraft:cooked_chicken",
+      "required": false
+    },
+    {
+      "id": "minecraft:cooked_cod",
+      "required": false
+    },
+    {
+      "id": "minecraft:cooked_mutton",
+      "required": false
+    },
+    {
+      "id": "minecraft:cooked_rabbit",
+      "required": false
+    },
+    {
+      "id": "minecraft:cooked_salmon",
+      "required": false
+    },
+    {
+      "id": "minecraft:ender_pearl",
+      "required": false
+    },
+    {
+      "id": "minecraft:ghast_tear",
+      "required": false
+    },
+    {
+      "id": "minecraft:golden_axe",
+      "required": false
+    },
+    {
+      "id": "minecraft:golden_chestplate",
+      "required": false
+    },
+    {
+      "id": "minecraft:golden_helmet",
+      "required": false
+    },
+    {
+      "id": "minecraft:golden_leggings",
+      "required": false
+    },
+    {
+      "id": "minecraft:golden_pickaxe",
+      "required": false
+    },
+    {
+      "id": "minecraft:golden_sword",
+      "required": false
+    },
+    {
+      "id": "minecraft:honey_bottle",
+      "required": false
+    },
+    {
+      "id": "minecraft:iron_axe",
+      "required": false
+    },
+    {
+      "id": "minecraft:iron_chestplate",
+      "required": false
+    },
+    {
+      "id": "minecraft:iron_helmet",
+      "required": false
+    },
+    {
+      "id": "minecraft:iron_leggings",
+      "required": false
+    },
+    {
+      "id": "minecraft:iron_pickaxe",
+      "required": false
+    },
+    {
+      "id": "minecraft:iron_sword",
+      "required": false
+    },
+    {
+      "id": "minecraft:nautilus_shell",
+      "required": false
+    },
+    {
+      "id": "minecraft:rabbit_foot",
+      "required": false
+    },
+    {
+      "id": "nexus:chrono_shard",
+      "required": false
+    }
+  ]
+}

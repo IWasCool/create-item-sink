@@ -1,0 +1,53 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "create:brass_block",
+      "required": false
+    },
+    {
+      "id": "create_new_world_core:black_diamond",
+      "required": false
+    },
+    {
+      "id": "create_new_world_core:platinum_circuit",
+      "required": false
+    },
+    {
+      "id": "create_new_world_core:refined_radiance_circuit",
+      "required": false
+    },
+    {
+      "id": "create_new_world_core:reinforced_mechanism",
+      "required": false
+    },
+    {
+      "id": "create_new_world_core:shadow_steel_circuit",
+      "required": false
+    },
+    {
+      "id": "createbigcannons:bronze_block",
+      "required": false
+    },
+    {
+      "id": "minecraft:gold_block",
+      "required": false
+    },
+    {
+      "id": "minecraft:heavy_core",
+      "required": false
+    },
+    {
+      "id": "minecraft:mace",
+      "required": false
+    },
+    {
+      "id": "minecraft:raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "northstar:targeting_computer",
+      "required": false
+    }
+  ]
+}

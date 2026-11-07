@@ -1,0 +1,1321 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "buddycards:blank_buddysteel_medal",
+      "required": false
+    },
+    {
+      "id": "buddycards:buddysteel_medal_base",
+      "required": false
+    },
+    {
+      "id": "buddycards:buddysteel_medal_cave",
+      "required": false
+    },
+    {
+      "id": "buddycards:buddysteel_medal_end",
+      "required": false
+    },
+    {
+      "id": "buddycards:buddysteel_medal_nether",
+      "required": false
+    },
+    {
+      "id": "chipped:ancient_diamond_block",
+      "required": false
+    },
+    {
+      "id": "chipped:chipped_diamond_block",
+      "required": false
+    },
+    {
+      "id": "chipped:diamond_acacia_planks",
+      "required": false
+    },
+    {
+      "id": "chipped:diamond_bamboo_planks",
+      "required": false
+    },
+    {
+      "id": "chipped:diamond_birch_planks",
+      "required": false
+    },
+    {
+      "id": "chipped:diamond_block_panels",
+      "required": false
+    },
+    {
+      "id": "chipped:diamond_cherry_planks",
+      "required": false
+    },
+    {
+      "id": "chipped:diamond_crimson_planks",
+      "required": false
+    },
+    {
+      "id": "chipped:diamond_dark_oak_planks",
+      "required": false
+    },
+    {
+      "id": "chipped:diamond_jungle_planks",
+      "required": false
+    },
+    {
+      "id": "chipped:diamond_lodestone",
+      "required": false
+    },
+    {
+      "id": "chipped:diamond_mangrove_planks",
+      "required": false
+    },
+    {
+      "id": "chipped:diamond_mud_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:diamond_mud_bricks_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:diamond_oak_planks",
+      "required": false
+    },
+    {
+      "id": "chipped:diamond_packed_mud_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:diamond_spruce_planks",
+      "required": false
+    },
+    {
+      "id": "chipped:diamond_warped_planks",
+      "required": false
+    },
+    {
+      "id": "chipped:embossed_diamond_block",
+      "required": false
+    },
+    {
+      "id": "chipped:engraved_diamond_block",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_black_stained_glass",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_black_stained_glass_pane",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_blue_stained_glass",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_blue_stained_glass_pane",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_brown_stained_glass",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_brown_stained_glass_pane",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_cyan_stained_glass",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_cyan_stained_glass_pane",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_gray_stained_glass",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_gray_stained_glass_pane",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_green_stained_glass",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_green_stained_glass_pane",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_leaded_glass",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_leaded_glass_pane",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_light_blue_stained_glass",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_light_blue_stained_glass_pane",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_light_gray_stained_glass",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_light_gray_stained_glass_pane",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_lime_stained_glass",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_lime_stained_glass_pane",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_magenta_stained_glass",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_magenta_stained_glass_pane",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_orange_stained_glass",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_orange_stained_glass_pane",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_pink_stained_glass",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_pink_stained_glass_pane",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_purple_stained_glass",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_purple_stained_glass_pane",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_red_stained_glass",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_red_stained_glass_pane",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_white_stained_glass",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_white_stained_glass_pane",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_yellow_stained_glass",
+      "required": false
+    },
+    {
+      "id": "chipped:large_diamond_yellow_stained_glass_pane",
+      "required": false
+    },
+    {
+      "id": "chipped:layered_diamond_block",
+      "required": false
+    },
+    {
+      "id": "chipped:oak_diamond_bordered_glass",
+      "required": false
+    },
+    {
+      "id": "chipped:oak_diamond_bordered_glass_pane",
+      "required": false
+    },
+    {
+      "id": "chipped:oak_large_diamond_glass",
+      "required": false
+    },
+    {
+      "id": "chipped:oak_large_diamond_glass_pane",
+      "required": false
+    },
+    {
+      "id": "chipped:plated_diamond_block",
+      "required": false
+    },
+    {
+      "id": "chipped:pressed_diamond_block",
+      "required": false
+    },
+    {
+      "id": "chipped:reinforced_diamond_block",
+      "required": false
+    },
+    {
+      "id": "chipped:sheet_diamond_block",
+      "required": false
+    },
+    {
+      "id": "chipped:shuttered_diamond_block",
+      "required": false
+    },
+    {
+      "id": "chipped:small_diamond_leaded_glass",
+      "required": false
+    },
+    {
+      "id": "chipped:small_diamond_leaded_glass_pane",
+      "required": false
+    },
+    {
+      "id": "chipped:stacked_diamond_block",
+      "required": false
+    },
+    {
+      "id": "chipped:wider_diamond_lodestone",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_acacia_sapling_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_allium_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_amethyst_shard_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_apple_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_azure_bluet_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_bamboo_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_bat_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_beacon_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_bee_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_beetroot_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_bell_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_birch_sapling_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_blaze_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_blaze_powder_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_blue_orchid_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_brewing_stand_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_brown_mushroom_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_campfire_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_card_pack",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_carrot_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_cat_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_chainmail_boots_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_chainmail_chestplate_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_chainmail_helmet_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_chainmail_leggings_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_chicken_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_clock_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_coal_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_compass_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_cookie_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_cow_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_creeper_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_custom_card_pack",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_dandelion_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_dark_oak_sapling_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_dead_bush_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_diamond_axe_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_diamond_boots_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_diamond_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_diamond_chestplate_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_diamond_helmet_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_diamond_hoe_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_diamond_horse_armor_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_diamond_leggings_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_diamond_pickaxe_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_diamond_shovel_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_diamond_sword_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_emerald_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_enchantment_table_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_ender_dragon_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_ender_eye_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_ender_pearl_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_enderman_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_feather_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_firework_rocket_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_fox_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_ghast_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_glow_berries_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_glowstone_dust_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_gold_ingot_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_golden_apple_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_golden_axe_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_golden_boots_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_golden_carrot_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_golden_chestplate_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_golden_helmet_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_golden_hoe_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_golden_horse_armor_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_golden_leggings_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_golden_pickaxe_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_golden_shovel_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_golden_sword_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_heart_of_the_sea_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_honeycomb_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_horse_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_iron_axe_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_iron_boots_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_iron_chestplate_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_iron_helmet_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_iron_hoe_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_iron_horse_armor_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_iron_ingot_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_iron_leggings_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_iron_pickaxe_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_iron_shovel_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_iron_sword_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_jungle_sapling_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_kelp_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_lantern_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_lapis_lazuli_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_leather_boots_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_leather_chestplate_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_leather_helmet_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_leather_horse_armor_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_leather_leggings_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_magma_cube_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_melon_slice_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_music_disc_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_nautilus_shell_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_nether_star_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_nether_wart_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_netherite_axe_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_netherite_boots_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_netherite_chestplate_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_netherite_helmet_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_netherite_hoe_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_netherite_ingot_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_netherite_leggings_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_netherite_pickaxe_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_netherite_shovel_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_netherite_sword_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_oak_sapling_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_oxeye_daisy_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_panda_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_parrot_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_pig_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_piglin_brute_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_pillager_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_polar_bear_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_poppy_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_potato_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_red_mushroom_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_red_tulip_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_redstone_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_repacked_card_pack",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_sheep_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_shield_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_skeleton_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_slime_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_spider_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_spruce_sapling_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_spyglass_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_squid_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_stone_axe_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_stone_hoe_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_stone_pickaxe_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_stone_shovel_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_stone_sword_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_sugar_cane_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_sweet_berries_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_turtle_helmet_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_villager_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_wheat_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_witch_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_wither_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_wither_skeleton_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_wolf_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_wooden_axe_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_wooden_hoe_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_wooden_pickaxe_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_wooden_shovel_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_wooden_sword_card",
+      "required": false
+    },
+    {
+      "id": "collectorsalbum:legendary_zombie_card",
+      "required": false
+    },
+    {
+      "id": "create:andesite_alloy_block",
+      "required": false
+    },
+    {
+      "id": "create:handheld_worldshaper",
+      "required": false
+    },
+    {
+      "id": "create:raw_zinc_block",
+      "required": false
+    },
+    {
+      "id": "create:refined_radiance_casing",
+      "required": false
+    },
+    {
+      "id": "create:shadow_steel_casing",
+      "required": false
+    },
+    {
+      "id": "create:zinc_block",
+      "required": false
+    },
+    {
+      "id": "create_jetpack:jetpack",
+      "required": false
+    },
+    {
+      "id": "create_jetpack:jetpack_placeable",
+      "required": false
+    },
+    {
+      "id": "create_jetpack:netherite_jetpack",
+      "required": false
+    },
+    {
+      "id": "create_jetpack:netherite_jetpack_placeable",
+      "required": false
+    },
+    {
+      "id": "create_new_world_core:advanced_circuit",
+      "required": false
+    },
+    {
+      "id": "create_new_world_core:calculation_mechanism",
+      "required": false
+    },
+    {
+      "id": "create_new_world_core:integrated_mechanism",
+      "required": false
+    },
+    {
+      "id": "create_new_world_core:optical_unit",
+      "required": false
+    },
+    {
+      "id": "create_new_world_core:refined_radiance_sheet",
+      "required": false
+    },
+    {
+      "id": "create_new_world_core:sealed_mechanism",
+      "required": false
+    },
+    {
+      "id": "create_submarine:water_thruster",
+      "required": false
+    },
+    {
+      "id": "createbigcannons:traffic_cone",
+      "required": false
+    },
+    {
+      "id": "createbuddycards:buddysteel_medal_create",
+      "required": false
+    },
+    {
+      "id": "createnuclear:lead_block",
+      "required": false
+    },
+    {
+      "id": "createnuclear:raw_lead_block",
+      "required": false
+    },
+    {
+      "id": "createnuclear:reactor_cooler",
+      "required": false
+    },
+    {
+      "id": "createnuclear:reactor_frame",
+      "required": false
+    },
+    {
+      "id": "createpropulsion:deepslate_platinum_ore",
+      "required": false
+    },
+    {
+      "id": "createpropulsion:ion_thruster",
+      "required": false
+    },
+    {
+      "id": "createpropulsion:liquid_vector_thruster",
+      "required": false
+    },
+    {
+      "id": "createpropulsion:platinum_ore",
+      "required": false
+    },
+    {
+      "id": "createpropulsion:solid_fuel_thruster",
+      "required": false
+    },
+    {
+      "id": "createpropulsion:thruster",
+      "required": false
+    },
+    {
+      "id": "createpropulsion:vector_thruster",
+      "required": false
+    },
+    {
+      "id": "createqol:refined_radiance_boots",
+      "required": false
+    },
+    {
+      "id": "createqol:refined_radiance_hoe",
+      "required": false
+    },
+    {
+      "id": "createqol:refined_radiance_shovel",
+      "required": false
+    },
+    {
+      "id": "createqol:shadow_radiance_axe",
+      "required": false
+    },
+    {
+      "id": "createqol:shadow_radiance_boots",
+      "required": false
+    },
+    {
+      "id": "createqol:shadow_radiance_chestplate",
+      "required": false
+    },
+    {
+      "id": "createqol:shadow_radiance_helmet",
+      "required": false
+    },
+    {
+      "id": "createqol:shadow_radiance_hoe",
+      "required": false
+    },
+    {
+      "id": "createqol:shadow_radiance_leggings",
+      "required": false
+    },
+    {
+      "id": "createqol:shadow_radiance_pickaxe",
+      "required": false
+    },
+    {
+      "id": "createqol:shadow_radiance_shovel",
+      "required": false
+    },
+    {
+      "id": "createqol:shadow_radiance_sword",
+      "required": false
+    },
+    {
+      "id": "createqol:shadow_steel_boots",
+      "required": false
+    },
+    {
+      "id": "createqol:shadow_steel_hoe",
+      "required": false
+    },
+    {
+      "id": "createqol:shadow_steel_shovel",
+      "required": false
+    },
+    {
+      "id": "createteleporters:block_teleporter",
+      "required": false
+    },
+    {
+      "id": "createteleporters:entity_teleporter_quarter",
+      "required": false
+    },
+    {
+      "id": "createteleporters:entity_teleporter_slab",
+      "required": false
+    },
+    {
+      "id": "createteleporters:teleporter",
+      "required": false
+    },
+    {
+      "id": "createthrusters:advanced_contraption_controller",
+      "required": false
+    },
+    {
+      "id": "createthrusters:advanced_portable_contraption_controller",
+      "required": false
+    },
+    {
+      "id": "createthrusters:propulsion_upgrade_t1",
+      "required": false
+    },
+    {
+      "id": "createthrusters:propulsion_upgrade_t2",
+      "required": false
+    },
+    {
+      "id": "createthrusters:propulsion_upgrade_t3",
+      "required": false
+    },
+    {
+      "id": "createthrusters:propulsion_upgrade_t4",
+      "required": false
+    },
+    {
+      "id": "createthrusters:rcs_thruster",
+      "required": false
+    },
+    {
+      "id": "createthrusters:small_thruster",
+      "required": false
+    },
+    {
+      "id": "createthrusters:thruster",
+      "required": false
+    },
+    {
+      "id": "createthrusters:thruster_bearing",
+      "required": false
+    },
+    {
+      "id": "createthrusters:thruster_lense",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:gleaming_salad",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:onion_soup",
+      "required": false
+    },
+    {
+      "id": "minecraft:amethyst_block",
+      "required": false
+    },
+    {
+      "id": "minecraft:cake",
+      "required": false
+    },
+    {
+      "id": "minecraft:conduit",
+      "required": false
+    },
+    {
+      "id": "minecraft:deepslate_emerald_ore",
+      "required": false
+    },
+    {
+      "id": "minecraft:diamond_horse_armor",
+      "required": false
+    },
+    {
+      "id": "minecraft:emerald_ore",
+      "required": false
+    },
+    {
+      "id": "minecraft:iron_block",
+      "required": false
+    },
+    {
+      "id": "minecraft:mojang_banner_pattern",
+      "required": false
+    },
+    {
+      "id": "minecraft:netherite_upgrade_smithing_template",
+      "required": false
+    },
+    {
+      "id": "minecraft:ominous_trial_key",
+      "required": false
+    },
+    {
+      "id": "minecraft:raw_iron_block",
+      "required": false
+    },
+    {
+      "id": "moonlight:spawn_box",
+      "required": false
+    },
+    {
+      "id": "northstar:advanced_circuit",
+      "required": false
+    },
+    {
+      "id": "northstar:broken_iron_space_suit_boots",
+      "required": false
+    },
+    {
+      "id": "northstar:broken_iron_space_suit_chestpiece",
+      "required": false
+    },
+    {
+      "id": "northstar:broken_iron_space_suit_helmet",
+      "required": false
+    },
+    {
+      "id": "northstar:broken_iron_space_suit_leggings",
+      "required": false
+    },
+    {
+      "id": "northstar:circuit_engraver",
+      "required": false
+    },
+    {
+      "id": "northstar:iron_space_suit_boots",
+      "required": false
+    },
+    {
+      "id": "northstar:iron_space_suit_chestpiece",
+      "required": false
+    },
+    {
+      "id": "northstar:iron_space_suit_helmet",
+      "required": false
+    },
+    {
+      "id": "northstar:iron_space_suit_leggings",
+      "required": false
+    },
+    {
+      "id": "northstar:martian_steel_space_suit_boots",
+      "required": false
+    },
+    {
+      "id": "northstar:martian_steel_space_suit_chestpiece",
+      "required": false
+    },
+    {
+      "id": "northstar:martian_steel_space_suit_helmet",
+      "required": false
+    },
+    {
+      "id": "northstar:martian_steel_space_suit_leggings",
+      "required": false
+    },
+    {
+      "id": "northstar:polished_diamond",
+      "required": false
+    },
+    {
+      "id": "northstar:rocket_thruster",
+      "required": false
+    },
+    {
+      "id": "numismaticsutils:portable_bank_terminal",
+      "required": false
+    },
+    {
+      "id": "petrochem:turbine",
+      "required": false
+    },
+    {
+      "id": "quark:diamond_heart",
+      "required": false
+    },
+    {
+      "id": "slimpatch:diamond_wedding_ring",
+      "required": false
+    },
+    {
+      "id": "spawn:dodo_translator",
+      "required": false
+    },
+    {
+      "id": "spawn:spawn",
+      "required": false
+    },
+    {
+      "id": "spawn:spawn_eggs",
+      "required": false
+    },
+    {
+      "id": "spawn:steamed_clams",
+      "required": false
+    },
+    {
+      "id": "toms_storage:crafting_terminal",
+      "required": false
+    },
+    {
+      "id": "toughasnails:diamond_dirty_water_canteen",
+      "required": false
+    },
+    {
+      "id": "toughasnails:diamond_purified_water_canteen",
+      "required": false
+    },
+    {
+      "id": "toughasnails:diamond_water_canteen",
+      "required": false
+    },
+    {
+      "id": "toughasnails:empty_diamond_canteen",
+      "required": false
+    }
+  ]
+}

@@ -5,7 +5,7 @@ import com.ourcreation.itemsink.ItemSink;
 import com.ourcreation.itemsink.block.ItemSinkBlock;
 import com.ourcreation.itemsink.menu.ItemSinkMenu;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
@@ -20,14 +20,11 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.energy.EnergyStorage;
-import net.minecraftforge.energy.IEnergyStorage;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.IItemHandlerModifiable;
-import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.common.util.LazyOptional;
+import net.neoforged.neoforge.energy.EnergyStorage;
+import net.neoforged.neoforge.energy.IEnergyStorage;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.IItemHandlerModifiable;
+import net.neoforged.neoforge.items.ItemStackHandler;
 
 public class ItemSinkBlockEntity extends BlockEntity implements MenuProvider {
     public static final int INPUT_SLOT = 0;
@@ -49,8 +46,6 @@ public class ItemSinkBlockEntity extends BlockEntity implements MenuProvider {
 
     private final AutomationInventory automationInventory = new AutomationInventory(inventory);
     private final ItemSinkEnergyStorage energyStorage = new ItemSinkEnergyStorage();
-    private LazyOptional<IItemHandler> itemCapability = LazyOptional.of(() -> automationInventory);
-    private LazyOptional<IEnergyStorage> energyCapability = LazyOptional.of(() -> energyStorage);
     private int progress;
     private int maxProgress;
 
@@ -182,20 +177,20 @@ public class ItemSinkBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag) {
-        super.saveAdditional(tag);
-        tag.put("Inventory", inventory.serializeNBT());
-        tag.put("Energy", energyStorage.serializeNBT());
+    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.saveAdditional(tag, registries);
+        tag.put("Inventory", inventory.serializeNBT(registries));
+        tag.put("Energy", energyStorage.serializeNBT(registries));
         tag.putInt("Progress", progress);
         tag.putInt("MaxProgress", maxProgress);
     }
 
     @Override
-    public void load(CompoundTag tag) {
-        super.load(tag);
-        inventory.deserializeNBT(tag.getCompound("Inventory"));
+    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.loadAdditional(tag, registries);
+        inventory.deserializeNBT(registries, tag.getCompound("Inventory"));
         if (tag.contains("Energy")) {
-            energyStorage.deserializeNBT(tag.get("Energy"));
+            energyStorage.deserializeNBT(registries, tag.get("Energy"));
         }
         progress = tag.getInt("Progress");
         maxProgress = tag.getInt("MaxProgress");
@@ -225,31 +220,6 @@ public class ItemSinkBlockEntity extends BlockEntity implements MenuProvider {
 
     public IEnergyStorage getEnergyStorage() {
         return energyStorage;
-    }
-
-    @Override
-    public <T> LazyOptional<T> getCapability(Capability<T> capability, Direction side) {
-        if (capability == ForgeCapabilities.ITEM_HANDLER) {
-            return itemCapability.cast();
-        }
-        if (capability == ForgeCapabilities.ENERGY) {
-            return energyCapability.cast();
-        }
-        return super.getCapability(capability, side);
-    }
-
-    @Override
-    public void invalidateCaps() {
-        super.invalidateCaps();
-        itemCapability.invalidate();
-        energyCapability.invalidate();
-    }
-
-    @Override
-    public void reviveCaps() {
-        super.reviveCaps();
-        itemCapability = LazyOptional.of(() -> automationInventory);
-        energyCapability = LazyOptional.of(() -> energyStorage);
     }
 
     private static class AutomationInventory implements IItemHandler {

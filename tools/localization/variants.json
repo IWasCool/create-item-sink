@@ -1,0 +1,22 @@
+{
+  "en_au": {"base": "en_us"},
+  "en_ca": {"base": "en_us"},
+  "en_gb": {"base": "en_us"},
+  "en_nz": {"base": "en_us"},
+  "en_ud": {"base": "en_us", "transform": "upside_down"},
+  "es_ar": {"base": "es_es"},
+  "es_cl": {"base": "es_es"},
+  "es_ec": {"base": "es_es"},
+  "es_mx": {"base": "es_es"},
+  "es_uy": {"base": "es_es"},
+  "es_ve": {"base": "es_es"},
+  "de_at": {"base": "de_de"},
+  "de_ch": {"base": "de_de", "transform": "swiss_german"},
+  "fr_ca": {"base": "fr_fr"},
+  "nl_be": {"base": "nl_nl"},
+  "val_es": {"base": "ca_es"},
+  "tl_ph": {"base": "fil_ph"},
+  "be_latn": {"base": "be_by", "transform": "belarusian_latin"},
+  "sr_sp": {"base": "sr_cs", "transform": "serbian_cyrillic"},
+  "qid": {"base": "id_id", "transform": "old_indonesian"}
+}
