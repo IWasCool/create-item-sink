@@ -12,13 +12,13 @@ The [Forge 1.20.1 edition](https://github.com/IWasCool/create-item-sink-forge) i
 
 Create: Numismatics and JEI are optional. Default outputs use Numismatics coins. Without Numismatics, configure installed currency items such as `minecraft:emerald` in `config/item_sink-common.toml`. Missing currencies disable their conversions.
 
-1.0.0 adds ordered pricing rules for exact item IDs, tags, phrases, wildcards, and entire mods, with custom payouts and fallback prices. Existing prices, customized tier lists, output amounts, FE costs, and processing times remain in use. See the [configuration guide](CONFIGURATION.md) and [item value catalogue](docs/item-values.md).
+1.0.0 introduced ordered pricing rules for exact item IDs, tags, phrases, wildcards, and entire mods, with custom payouts and fallback prices. Existing prices, customized tier lists, output amounts, FE costs, and processing times remain in use. See the [configuration guide](CONFIGURATION.md) and [item value catalogue](docs/item-values.md).
 
-Right-click the Item Sink, insert unwanted items, and supply Forge Energy to convert them into currency. Hold **W** over the item for two short Ponder tutorials: basic use and Create belts and funnels. Any pickaxe recovers the machine; stored items drop separately.
+Right-click the Item Sink, insert unwanted items, and supply Forge Energy to convert them into currency. Hold **W** over the item for Ponder tutorials for basic use and Create belts and funnels. With Create Crafts & Additions installed, a third tutorial shows a charged accumulator connected to the sink by a copper wire, with the battery connector set to Pull and the sink connector set to Push. Any pickaxe recovers the machine; stored items drop separately.
 
 JEI shows one compact `? -> currency` overview with an **Any Item** input tooltip. Currency outputs are protected from being sold back into the machine.
 
-Existing Minecraft 1.21.1 language support is preserved across 137 locales. Newly introduced configuration labels and Create automation captions use English fallbacks where a translation is unavailable. Initial translations welcome native review.
+Existing Minecraft 1.21.1 language support is preserved across 137 locales. Newer configuration labels and tutorial captions use English fallbacks where a translation is unavailable. Initial translations welcome native review.
 
 ## Build and verify
 

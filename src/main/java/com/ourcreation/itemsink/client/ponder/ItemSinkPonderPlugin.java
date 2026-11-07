@@ -16,5 +16,9 @@ public final class ItemSinkPonderPlugin implements PonderPlugin {
         helper.forComponents(ItemSink.ITEM_SINK_ITEM.getId())
                 .addStoryBoard("item_sink", ItemSinkScenes::basics)
                 .addStoryBoard("item_sink_create", ItemSinkScenes::createAutomation);
+        if (ItemSinkScenes.hasWireExample()) {
+            helper.forComponents(ItemSink.ITEM_SINK_ITEM.getId())
+                    .addStoryBoard("item_sink", ItemSinkScenes::power);
+        }
     }
 }

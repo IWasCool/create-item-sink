@@ -1,6 +1,11 @@
-﻿# Update Log
+# Update Log
 
 ## v1.0.0 | NeoForge 1.21.1
+
+- Added an optional power tutorial using Create Crafts & Additions: a charged accumulator, Pull/Push connectors, and a real copper wire connected to the Item Sink.
+- Shows both wire-spool clicks, the FE buffer charging, and item conversion after power is connected.
+- Appears only when the optional accumulator, connectors, and copper spool are installed. The two existing tutorials remain available without the addon.
+- Adds English fallback captions across all 137 supported locales.
 
 - Ported Forge 1.0.0 pricing rules: ordered exact IDs, tags, phrases, wildcards, whole-mod selectors, direct custom payouts, fallback values, and optional replacement of bundled prices.
 - Preserved the NeoForge 0.0.4 catalogue, tier settings, custom inputs, IDs, and existing world data. Currency protection and exclusions apply to every pricing source.

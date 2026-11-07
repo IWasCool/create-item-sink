@@ -13,10 +13,16 @@ import net.createmod.ponder.api.scene.SceneBuildingUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
@@ -30,8 +36,124 @@ public final class ItemSinkScenes {
     private static final BlockPos SOURCE_CHEST = new BlockPos(0, 2, 3);
     private static final BlockPos OUTPUT_CHEST = new BlockPos(6, 2, 3);
     private static final BlockPos CRANK = new BlockPos(0, 1, 1);
+    private static final BlockPos BATTERY = new BlockPos(0, 1, 0);
+    private static final BlockPos BATTERY_CONNECTOR = BATTERY.above();
+    private static final BlockPos SINK_CONNECTOR = SINK.north();
 
     private ItemSinkScenes() {
+    }
+
+    public static boolean hasWireExample() {
+        return BuiltInRegistries.BLOCK.containsKey(ResourceLocation.parse("createaddition:modular_accumulator"))
+                && BuiltInRegistries.BLOCK.containsKey(ResourceLocation.parse("createaddition:connector"))
+                && BuiltInRegistries.ITEM.containsKey(ResourceLocation.parse("createaddition:copper_spool"));
+    }
+
+    public static void power(SceneBuilder scene, SceneBuildingUtil util) {
+        scene.title("item_sink_power", "Powering the Item Sink with a Wire");
+        scene.configureBasePlate(0, 0, 5);
+        scene.showBasePlate();
+        scene.world().showSection(util.select().fromTo(SINK.below(), SINK), Direction.DOWN);
+        scene.idle(15);
+
+        scene.world().setBlock(BATTERY, BuiltInRegistries.BLOCK
+                .get(ResourceLocation.parse("createaddition:modular_accumulator")).defaultBlockState(), false);
+        scene.world().modifyBlockEntityNBT(util.select().position(BATTERY), BlockEntity.class, tag -> {
+            CompoundTag charge = new CompoundTag();
+            charge.putInt("energy", 1000000);
+            tag.put("EnergyContent", charge);
+            tag.putInt("EnergyCapacity", 1000000);
+            tag.putInt("Size", 1);
+            tag.putInt("Height", 1);
+            tag.remove("Uninitialized");
+        });
+        scene.world().showSection(util.select().position(BATTERY), Direction.DOWN);
+        scene.overlay().showText(70)
+                .text("Start with a charged accumulator. It stores Forge Energy (FE).")
+                .pointAt(util.vector().centerOf(BATTERY))
+                .placeNearTarget()
+                .colored(PonderPalette.BLUE)
+                .attachKeyFrame();
+        scene.idle(80);
+
+        BlockState connector = BuiltInRegistries.BLOCK
+                .get(ResourceLocation.parse("createaddition:connector")).defaultBlockState();
+        scene.world().setBlock(BATTERY_CONNECTOR, connector, false);
+        scene.world().setBlock(SINK_CONNECTOR,
+                setProperty(connector, connector.getBlock().getStateDefinition().getProperty("facing"), "south"), false);
+        scene.world().showSection(util.select().position(BATTERY_CONNECTOR), Direction.DOWN);
+        scene.world().showSection(util.select().position(SINK_CONNECTOR), Direction.SOUTH);
+        ItemStack wrench = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse("create:wrench")));
+        scene.overlay().showControls(util.vector().centerOf(BATTERY_CONNECTOR), Pointing.RIGHT, 40)
+                .rightClick().withItem(wrench);
+        scene.world().modifyBlock(BATTERY_CONNECTOR,
+                state -> setProperty(state, state.getBlock().getStateDefinition().getProperty("mode"), "pull"), false);
+        scene.overlay().showText(85)
+                .text("Wrench the battery connector to Pull and the sink connector to Push.")
+                .pointAt(util.vector().centerOf(SINK_CONNECTOR))
+                .placeNearTarget()
+                .attachKeyFrame();
+        scene.idle(40);
+        scene.overlay().showControls(util.vector().centerOf(SINK_CONNECTOR), Pointing.RIGHT, 40)
+                .rightClick().withItem(wrench);
+        scene.world().modifyBlock(SINK_CONNECTOR,
+                state -> setProperty(state, state.getBlock().getStateDefinition().getProperty("mode"), "push"), false);
+        scene.idle(65);
+
+        ItemStack spool = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse("createaddition:copper_spool")));
+        scene.overlay().showText(90)
+                .text("Right-click both connectors with a copper wire spool to join them.")
+                .pointAt(util.vector().centerOf(BATTERY_CONNECTOR))
+                .placeNearTarget()
+                .attachKeyFrame();
+        scene.overlay().showControls(util.vector().centerOf(BATTERY_CONNECTOR), Pointing.RIGHT, 35)
+                .rightClick().withItem(spool);
+        scene.idle(40);
+        scene.overlay().showControls(util.vector().centerOf(SINK_CONNECTOR), Pointing.RIGHT, 35)
+                .rightClick().withItem(spool);
+        // These are the optional mod's real, reciprocal wire nodes, not a drawn power line.
+        connectWire(scene, util, BATTERY_CONNECTOR, SINK_CONNECTOR);
+        connectWire(scene, util, SINK_CONNECTOR, BATTERY_CONNECTOR);
+        scene.idle(90);
+
+        Example example = example();
+        insertInput(scene, SINK, example);
+        scene.overlay().showText(90)
+                .text("The wire fills the sink's FE buffer. That power turns items into currency.")
+                .pointAt(util.vector().centerOf(SINK))
+                .placeNearTarget()
+                .colored(PonderPalette.BLUE)
+                .attachKeyFrame();
+        // Ponder is client-side: demonstrate charging without ticking a real energy network.
+        for (int step = 1; step <= 4; step++) {
+            int charge = Config.ENERGY_CAPACITY.get() / 4 * step;
+            scene.world().modifyBlockEntity(SINK, ItemSinkBlockEntity.class,
+                    sink -> sink.getData().set(2, charge));
+            scene.idle(10);
+        }
+        animateConversion(scene, SINK, example);
+        scene.idle(50);
+        scene.markAsFinished();
+    }
+
+    private static <T extends Comparable<T>> BlockState setProperty(BlockState state, Property<T> property, String value) {
+        return state.setValue(property, property.getValue(value).orElseThrow());
+    }
+
+    private static void connectWire(SceneBuilder scene, SceneBuildingUtil util, BlockPos from, BlockPos to) {
+        // Create Crafts & Additions uses this saved node format on both supported loaders.
+        scene.world().modifyBlockEntityNBT(util.select().position(from), BlockEntity.class, tag -> {
+            CompoundTag node = new CompoundTag();
+            node.putInt("id", 0);
+            node.putInt("other", 0);
+            node.putInt("type", 0); // Copper
+            node.putInt("x", to.getX() - from.getX());
+            node.putInt("y", to.getY() - from.getY());
+            node.putInt("z", to.getZ() - from.getZ());
+            ListTag nodes = new ListTag();
+            nodes.add(node);
+            tag.put("nodes", nodes);
+        });
     }
 
     public static void basics(SceneBuilder scene, SceneBuildingUtil util) {

@@ -96,5 +96,10 @@
   "item_sink.configuration.item_sink.values.pricingRules": "Pricing Rules",
   "item_sink.configuration.item_sink.values.pricingRules.tooltip": "First match wins. Use item ids, #tags, contains:phrases, namespace:modid or wildcards, then -> tier or -> outputItem, count, ticks, FE/t.",
   "item_sink.configuration.item_sink.values.fallbackValue": "Fallback Value",
-  "item_sink.configuration.item_sink.values.fallbackValue.tooltip": "Price for items with no other match. Empty rejects them; use a tier name or outputItem, count, ticks, FE/t."
+  "item_sink.configuration.item_sink.values.fallbackValue.tooltip": "Price for items with no other match. Empty rejects them; use a tier name or outputItem, count, ticks, FE/t.",
+  "item_sink.ponder.item_sink_power.header": "Powering the Item Sink with a Wire",
+  "item_sink.ponder.item_sink_power.text_1": "Start with a charged accumulator. It stores Forge Energy (FE).",
+  "item_sink.ponder.item_sink_power.text_2": "Wrench the battery connector to Pull and the sink connector to Push.",
+  "item_sink.ponder.item_sink_power.text_3": "Right-click both connectors with a copper wire spool to join them.",
+  "item_sink.ponder.item_sink_power.text_4": "The wire fills the sink's FE buffer. That power turns items into currency."
 }
