@@ -4,6 +4,8 @@ A configurable Create addon that converts unwanted items into currency.
 
 Version **1.0.0** for Minecraft 1.20.1, Forge 47.4.x (47.4.0+), Create 6.0.x and Java 17.
 
+For **Minecraft 1.21.1 / NeoForge**, use the separate [NeoForge 1.0.0 release](https://github.com/IWasCool/create-item-sink-forge/releases/tag/neoforge-v1.0.0) and [source branch](https://github.com/IWasCool/create-item-sink-forge/tree/neoforge-1.21.1).
+
 **Public source:** [IWasCool/create-item-sink-forge](https://github.com/IWasCool/create-item-sink-forge).
 
 Download the jar from [Releases](https://github.com/IWasCool/create-item-sink-forge/releases) and place it in your client and server's `mods` folders alongside Create.
