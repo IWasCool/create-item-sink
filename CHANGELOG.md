@@ -11,7 +11,6 @@ All versions below are for Minecraft 1.21.1 / NeoForge.
 - Shows a connected accumulator and copper wire when Create Crafts & Additions is installed. Without that addon, the tutorial keeps the brief FE instruction and omits its power blocks and wire.
 - Simplified the JEI input tooltip to **Any Item** and included configured currencies in the overview.
 - Preserved 137 locale files, with English fallbacks for new captions and configuration labels.
-- Added reproducible source builds, 13 server GameTests with and without Numismatics, translation checks, and catalogue tests.
 
 ## 0.0.4
 

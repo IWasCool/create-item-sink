@@ -11,19 +11,8 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
 sourceSets {
     main.resources {
-        srcDir 'src/generated/resources'
         exclude '**/*.bbmodel', '**/.cache/**'
     }
-    gametest {
-        compileClasspath += sourceSets.main.output
-        runtimeClasspath += sourceSets.main.output
-    }
-}
-
-configurations {
-    gametestImplementation.extendsFrom implementation
-    gametestCompileOnly.extendsFrom compileOnly
-    gametestRuntimeOnly.extendsFrom runtimeOnly
 }
 
 repositories {
@@ -53,7 +42,6 @@ neoForge {
     }
     mods {
         item_sink { sourceSet sourceSets.main }
-        item_sink_tests { sourceSet sourceSets.gametest }
     }
     runs {
         configureEach {
@@ -69,18 +57,8 @@ neoForge {
             loadedMods = [mods.item_sink]
             programArgument '--nogui'
         }
-        gameTestServer {
-            type = 'gameTestServer'
-            sourceSet = sourceSets.gametest
-            loadedMods = [mods.item_sink, mods.item_sink_tests]
-            gameDirectory = project.layout.projectDirectory.dir(
-                    providers.gradleProperty('withoutNumismatics').isPresent() ? 'run-gametest-without-numismatics' : 'run-gametest')
-            systemProperty 'neoforge.enabledGameTestNamespaces', 'item_sink_tests'
-        }
     }
 }
-
-neoForge.addModdingDependenciesTo(sourceSets.gametest)
 
 dependencies {
     implementation "maven.modrinth:create:${create_version}"
@@ -88,9 +66,7 @@ dependencies {
     compileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
     compileOnly "mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}"
     runtimeOnly "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
-    if (!providers.gradleProperty('withoutNumismatics').isPresent()) {
-        runtimeOnly "maven.modrinth:numismatics:${numismatics_version}"
-    }
+    runtimeOnly "maven.modrinth:numismatics:${numismatics_version}"
 }
 
 var generateModMetadata = tasks.register('generateModMetadata', ProcessResources) {

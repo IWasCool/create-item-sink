@@ -1,52 +1,32 @@
-### Gradle ###
-.gradle
+.gradle/
 build/
-!gradle/wrapper/gradle-wrapper.jar
-!**/src/**/build/
-
-### IntelliJ IDEA ###
 .idea/
-*.iws
+.run/
+.vscode/
 *.iml
+*.iws
 *.ipr
 out/
-!**/src/**/out/
-
-.run/
-
-### Eclipse ###
-.apt_generated
-.classpath
-.eclipse/
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
 bin/
-!**/src/**/bin/
-
-### VS Code ###
-.vscode/
-
-### Mac OS ###
 .DS_Store
 
-### Minecraft Modding ###
 run/
-run-gametest*/
-!**/src/**/run/
-**/src/generated/**/.cache/
-repo/
-!**/src/**/repo/
-
-### Item value audit tools ###
-tools/__pycache__/
-
-### Local development dependencies and installation records ###
+run-*/
+logs/
 libs/
-forge/
+repo/
 *.jar
 !gradle/wrapper/gradle-wrapper.jar
-MODPACK_STATUS.md
-logs/
+
+# Keep local development material out of the mod source distribution.
+/.github/
+/tools/
+/docs/
+/forge/
+/src/test/
+/src/gametest/
+/src/valuescan/
+/src/generated/
+*.py
+__pycache__/
+/MODPACK_STATUS.md

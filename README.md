@@ -18,23 +18,19 @@ Hold **W** over the Item Sink for a Ponder tutorial covering use, power, convers
 
 Pricing rules support exact item IDs, tags, phrases, wildcards, and whole mods. Configure currencies, payout amounts, processing times, and FE costs, or replace the bundled prices with your own economy. Currency outputs cannot be sold back into the sink.
 
-See the [configuration guide](CONFIGURATION.md), [item value catalogue](docs/item-values.md), and [changelog](CHANGELOG.md).
+See the [configuration guide](CONFIGURATION.md) and [changelog](CHANGELOG.md).
 
 JEI shows a compact `? -> currency` overview with an **Any Item** tooltip. Language resources cover 137 Minecraft 1.21.1 locales; newer captions and labels use English fallbacks where needed. Translation corrections are welcome.
 
-## Build and verify
+## Build from source
 
 Use Java 21. On Windows:
 
 ```powershell
 .\gradlew.bat build
-.\gradlew.bat runGameTestServer
-.\gradlew.bat runGameTestServer -PwithoutNumismatics
-py -3 tools/check_translations.py build/libs/create_item_sink-1.0.0.jar
-py -3 -m unittest discover -s tools -p test_item_values.py
 ```
 
-On Linux and macOS, use `bash ./gradlew` and `python3`. The build produces `build/libs/create_item_sink-1.0.0.jar`. Dependencies download automatically. Development tests and catalogue tools are excluded from the release JAR.
+On Linux and macOS, use `bash ./gradlew build`. The build produces `build/libs/create_item_sink-1.0.0.jar`. Dependencies download automatically.
 
 Worlds using the current `item_sink` registry IDs remain compatible. Worlds from the former `create_item_sink` namespace require an ID migration before upgrading.
 
