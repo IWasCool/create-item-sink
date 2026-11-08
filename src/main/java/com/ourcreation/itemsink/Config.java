@@ -5,7 +5,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.common.ForgeConfigSpec;
+import net.neoforged.neoforge.common.ModConfigSpec;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -17,28 +17,28 @@ import java.util.Optional;
 import java.util.function.Predicate;
 
 public class Config {
-    private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
+    private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
-    public static final ForgeConfigSpec.IntValue ENERGY_CAPACITY;
-    public static final ForgeConfigSpec.IntValue MAX_ENERGY_INPUT;
-    public static final ForgeConfigSpec.BooleanValue REQUIRE_ENERGY;
-    public static final ForgeConfigSpec.BooleanValue INCLUDE_BUNDLED_VALUES;
-    public static final ForgeConfigSpec.BooleanValue INCLUDE_CREATECORE_VALUES;
-    public static final ForgeConfigSpec.ConfigValue<List<? extends String>> PRICING_RULES;
-    public static final ForgeConfigSpec.ConfigValue<String> FALLBACK_VALUE;
-    public static final ForgeConfigSpec.ConfigValue<List<? extends String>> EXCLUDED_ITEMS;
-    public static final ForgeConfigSpec.ConfigValue<List<? extends String>> VALUE_1_ITEMS;
-    public static final ForgeConfigSpec.ConfigValue<List<? extends String>> VALUE_2_ITEMS;
-    public static final ForgeConfigSpec.ConfigValue<List<? extends String>> VALUE_3_ITEMS;
-    public static final ForgeConfigSpec.ConfigValue<List<? extends String>> VALUE_4_ITEMS;
-    public static final ForgeConfigSpec.ConfigValue<List<? extends String>> VALUE_5_ITEMS;
-    public static final ForgeConfigSpec.ConfigValue<List<? extends String>> VALUE_6_ITEMS;
-    public static final ForgeConfigSpec.ConfigValue<List<? extends String>> VALUE_7_ITEMS;
-    public static final ForgeConfigSpec.ConfigValue<List<? extends String>> VALUE_8_ITEMS;
-    public static final ForgeConfigSpec.ConfigValue<List<? extends String>> VALUE_16_ITEMS;
-    public static final ForgeConfigSpec.ConfigValue<List<? extends String>> VALUE_32_ITEMS;
-    public static final ForgeConfigSpec.ConfigValue<List<? extends String>> VALUE_48_ITEMS;
-    public static final ForgeConfigSpec.ConfigValue<List<? extends String>> VALUE_64_ITEMS;
+    public static final ModConfigSpec.IntValue ENERGY_CAPACITY;
+    public static final ModConfigSpec.IntValue MAX_ENERGY_INPUT;
+    public static final ModConfigSpec.BooleanValue REQUIRE_ENERGY;
+    public static final ModConfigSpec.BooleanValue INCLUDE_BUNDLED_VALUES;
+    public static final ModConfigSpec.BooleanValue INCLUDE_CREATECORE_VALUES;
+    public static final ModConfigSpec.ConfigValue<List<? extends String>> PRICING_RULES;
+    public static final ModConfigSpec.ConfigValue<String> FALLBACK_VALUE;
+    public static final ModConfigSpec.ConfigValue<List<? extends String>> EXCLUDED_ITEMS;
+    public static final ModConfigSpec.ConfigValue<List<? extends String>> VALUE_1_ITEMS;
+    public static final ModConfigSpec.ConfigValue<List<? extends String>> VALUE_2_ITEMS;
+    public static final ModConfigSpec.ConfigValue<List<? extends String>> VALUE_3_ITEMS;
+    public static final ModConfigSpec.ConfigValue<List<? extends String>> VALUE_4_ITEMS;
+    public static final ModConfigSpec.ConfigValue<List<? extends String>> VALUE_5_ITEMS;
+    public static final ModConfigSpec.ConfigValue<List<? extends String>> VALUE_6_ITEMS;
+    public static final ModConfigSpec.ConfigValue<List<? extends String>> VALUE_7_ITEMS;
+    public static final ModConfigSpec.ConfigValue<List<? extends String>> VALUE_8_ITEMS;
+    public static final ModConfigSpec.ConfigValue<List<? extends String>> VALUE_16_ITEMS;
+    public static final ModConfigSpec.ConfigValue<List<? extends String>> VALUE_32_ITEMS;
+    public static final ModConfigSpec.ConfigValue<List<? extends String>> VALUE_48_ITEMS;
+    public static final ModConfigSpec.ConfigValue<List<? extends String>> VALUE_64_ITEMS;
     private static final List<ValueTier> VALUE_TIERS;
     private static volatile ExchangeIndex exchangeIndex;
 
@@ -65,7 +65,7 @@ public class Config {
                 .translation("item_sink.configuration.item_sink.values.pricingRules")
                 .comment("Ordered pricing overrides. First matching rule wins, ahead of all tier item lists and bundled prices.",
                         "Format: selector -> tier OR selector -> outputItem, outputCount, ticks, energyPerTick.",
-                        "Selectors: minecraft:diamond (exact id), #forge:ingots (tag), contains:iron ingot (phrase in item path),",
+                        "Selectors: minecraft:diamond (exact id), #c:ingots (tag), contains:iron ingot (phrase in item path),",
                         "namespace:create (whole mod), *:raw_* (wildcard in full id), *_ore (wildcard in item path). * matches all items.",
                         "Phrases ignore case and treat spaces as underscores. Names, language and stack NBT do not affect matching.",
                         "Tier names: value1, value2, value3, value4, value5, value6, value7, value8, value16, value32, value48, value64.",
@@ -74,7 +74,7 @@ public class Config {
                         "Output count: 1..64, ticks: 1..2147483647, energyPerTick: 0..2147483647. Numismatics is not required.",
                         "Exclusions and all configured currency outputs are always blocked, including exact-id rules.",
                         "Invalid entries are logged and skipped. See CONFIGURATION.md for complete examples.")
-                .defineListAllowEmpty("pricingRules", List.<String>of(), value -> value instanceof String);
+                .defineListAllowEmpty("pricingRules", List.<String>of(), () -> "", value -> value instanceof String);
         FALLBACK_VALUE = BUILDER
                 .translation("item_sink.configuration.item_sink.values.fallbackValue")
                 .comment("Price for installed items with no rule or tier-list match. Empty means unpriced items are rejected.",
@@ -97,7 +97,7 @@ public class Config {
                 .comment("Items that must never be accepted, even when a pricing rule matches.",
                         "Accepts the same selectors as pricingRules: item ids, #tags, contains:phrases, namespace:modid and wildcards.",
                         "Example: [\"minecraft:rotten_flesh\", \"contains:creative\", \"namespace:yourmod\"].")
-                .defineListAllowEmpty("excludedItems", List.<String>of(), value -> value instanceof String);
+                .defineListAllowEmpty("excludedItems", List.<String>of(), () -> "", value -> value instanceof String);
         VALUE_1_ITEMS = defineValueItems("value1Items", "Items in the value 1 exchange tier.", List.of("#item_sink:value_1"));
         VALUE_2_ITEMS = defineValueItems("value2Items", "Items in the value 2 exchange tier.", List.of("#item_sink:value_2"));
         VALUE_3_ITEMS = defineValueItems("value3Items", "Items in the value 3 exchange tier.", List.of("#item_sink:value_3"));
@@ -129,32 +129,32 @@ public class Config {
         BUILDER.pop();
     }
 
-    public static final ForgeConfigSpec SPEC = BUILDER.build();
+    public static final ModConfigSpec SPEC = BUILDER.build();
 
-    private static ForgeConfigSpec.ConfigValue<List<? extends String>> defineValueItems(String name, String comment, List<String> defaults) {
+    private static ModConfigSpec.ConfigValue<List<? extends String>> defineValueItems(String name, String comment, List<String> defaults) {
         return BUILDER
                 .translation("item_sink.configuration.item_sink.values." + name)
                 .comment(comment, "Use #item_tag or an item id. The default tag bundles this tier's items.",
-                        "Example: " + name + " = [\"#item_sink:" + name.replace("Items", "").replace("value", "value_") + "\", \"minecraft:stick\", \"#forge:ingots/tin\"].",
+                        "Example: " + name + " = [\"#item_sink:" + name.replace("Items", "").replace("value", "value_") + "\", \"minecraft:stick\", \"#c:ingots/tin\"].",
                         "Individual item ids override tags. Extend the default tag with a datapack to add more items.", "These inputs share the output settings from the matching value tier below.")
-                .defineListAllowEmpty(name, defaults, value -> value instanceof String);
+                .defineListAllowEmpty(name, defaults, () -> "", value -> value instanceof String);
     }
 
-    private static ValueTier defineValueTier(String name, ForgeConfigSpec.ConfigValue<List<? extends String>> items, String defaultOutput, int defaultCount, int defaultTicks, int defaultEnergyPerTick) {
+    private static ValueTier defineValueTier(String name, ModConfigSpec.ConfigValue<List<? extends String>> items, String defaultOutput, int defaultCount, int defaultTicks, int defaultEnergyPerTick) {
         BUILDER.translation("item_sink.configuration.item_sink.values." + name).push(name);
-        ForgeConfigSpec.ConfigValue<String> output = BUILDER
+        ModConfigSpec.ConfigValue<String> output = BUILDER
                 .translation("item_sink.configuration.item_sink.values.outputItem")
                 .comment("Currency item produced by this tier.", "Use any item id, for example minecraft:emerald or numismatics:spur.", "If this item is missing, recipes in this tier are disabled until the config is changed or the item-providing mod is installed.")
                 .define("outputItem", defaultOutput, value -> value instanceof String string && ResourceLocation.tryParse(string) != null);
-        ForgeConfigSpec.IntValue count = BUILDER
+        ModConfigSpec.IntValue count = BUILDER
                 .translation("item_sink.configuration.item_sink.values.outputCount")
                 .comment("Number of output items produced per input item in this tier.")
                 .defineInRange("outputCount", defaultCount, 1, 64);
-        ForgeConfigSpec.IntValue ticks = BUILDER
+        ModConfigSpec.IntValue ticks = BUILDER
                 .translation("item_sink.configuration.item_sink.values.ticks")
                 .comment("Processing time in ticks for this tier. 20 ticks = 1 second.")
                 .defineInRange("ticks", defaultTicks, 1, Integer.MAX_VALUE);
-        ForgeConfigSpec.IntValue energyPerTick = BUILDER
+        ModConfigSpec.IntValue energyPerTick = BUILDER
                 .translation("item_sink.configuration.item_sink.values.energyPerTick")
                 .comment("FE consumed per tick while processing this tier when requireEnergy is true.")
                 .defineInRange("energyPerTick", defaultEnergyPerTick, 0, Integer.MAX_VALUE);
@@ -411,11 +411,11 @@ public class Config {
 
     private record ValueTier(
             String name,
-            ForgeConfigSpec.ConfigValue<List<? extends String>> items,
-            ForgeConfigSpec.ConfigValue<String> output,
-            ForgeConfigSpec.IntValue count,
-            ForgeConfigSpec.IntValue ticks,
-            ForgeConfigSpec.IntValue energyPerTick
+            ModConfigSpec.ConfigValue<List<? extends String>> items,
+            ModConfigSpec.ConfigValue<String> output,
+            ModConfigSpec.IntValue count,
+            ModConfigSpec.IntValue ticks,
+            ModConfigSpec.IntValue energyPerTick
     ) {
     }
 

@@ -1,6 +1,5 @@
 package com.ourcreation.itemsink.gametest;
 
-import com.electronwill.nightconfig.core.CommentedConfig;
 import com.mojang.authlib.GameProfile;
 import com.ourcreation.itemsink.Config;
 import com.ourcreation.itemsink.ItemSink;
@@ -10,7 +9,6 @@ import com.ourcreation.itemsink.menu.ItemSinkMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.gametest.framework.GameTest;
-import net.minecraft.gametest.framework.BeforeBatch;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
@@ -19,32 +17,22 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.GameType;
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.common.util.FakePlayer;
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.gametest.GameTestHolder;
-import net.minecraftforge.gametest.PrefixGameTestTemplate;
+import net.neoforged.neoforge.common.ModConfigSpec;
+import net.neoforged.neoforge.capabilities.Capabilities;
+import net.neoforged.neoforge.common.util.FakePlayer;
+import net.neoforged.fml.ModList;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.gametest.GameTestHolder;
+import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 
 import java.util.List;
 import java.util.UUID;
 
-/** Runs against the real Forge server, Create registry, tags, recipes and config. */
+/** Runs against the real NeoForge server, Create registry, tags, recipes and config. */
 @Mod("item_sink_tests")
 @GameTestHolder("item_sink_tests")
 @PrefixGameTestTemplate(false)
 public class ItemSinkPortTests {
-    @BeforeBatch(batch = "defaultBatch")
-    public static void prepareConfig(ServerLevel level) {
-        // Forge's file config autosaves edits; a file-watcher reload can race a test.
-        // Exercise the real config spec with defaults without writing temporary values to disk.
-        var defaults = CommentedConfig.inMemory();
-        Config.SPEC.correct(defaults);
-        Config.SPEC.setConfig(defaults);
-        Config.invalidateExchanges();
-    }
-
     @GameTest(template = "empty")
     public static void tagsRecipesAndDefaultCurrency(GameTestHelper helper) {
         var flint = Config.exchanges().stream()
@@ -109,22 +97,26 @@ public class ItemSinkPortTests {
     public static void automationAndCapabilityLifecycle(GameTestHelper helper) {
         withEmeraldCurrency(() -> {
             var sink = placeSink(helper);
+            var level = helper.getLevel();
+            var pos = sink.getBlockPos();
             for (Direction side : Direction.values()) {
-                helper.assertTrue(sink.getCapability(ForgeCapabilities.ITEM_HANDLER, side).isPresent(), "Missing item side " + side);
-                helper.assertTrue(sink.getCapability(ForgeCapabilities.ENERGY, side).isPresent(), "Missing energy side " + side);
+                helper.assertTrue(level.getCapability(Capabilities.ItemHandler.BLOCK, pos, side) != null, "Missing item side " + side);
+                helper.assertTrue(level.getCapability(Capabilities.EnergyStorage.BLOCK, pos, side) != null, "Missing energy side " + side);
             }
-            var capability = sink.getCapability(ForgeCapabilities.ITEM_HANDLER, null);
-            var inventory = capability.orElseThrow(IllegalStateException::new);
+            var inventory = level.getCapability(Capabilities.ItemHandler.BLOCK, pos, (Direction) null);
             helper.assertTrue(inventory.insertItem(0, new ItemStack(Items.FLINT, 2), false).isEmpty(), "Valid input rejected");
             helper.assertTrue(inventory.extractItem(0, 1, false).isEmpty(), "Automation extracted input");
             helper.assertTrue(inventory.insertItem(1, new ItemStack(Items.FLINT), false).getCount() == 1, "Automation inserted output");
             sink.getInventory().setStackInSlot(1, new ItemStack(Items.EMERALD, 2));
             helper.assertTrue(inventory.extractItem(1, 1, false).is(Items.EMERALD), "Automation could not extract currency");
-            sink.invalidateCaps();
-            helper.assertTrue(!capability.isPresent(), "Removed block retained a live capability");
-            sink.reviveCaps();
-            helper.assertTrue(sink.getCapability(ForgeCapabilities.ITEM_HANDLER, null).isPresent(), "Item capability did not revive");
-            helper.assertTrue(sink.getCapability(ForgeCapabilities.ENERGY, null).isPresent(), "Energy capability did not revive");
+            level.removeBlock(pos, false);
+            helper.assertTrue(level.getCapability(Capabilities.ItemHandler.BLOCK, pos, (Direction) null) == null,
+                    "Removed block retained its item capability");
+            helper.assertTrue(level.getCapability(Capabilities.EnergyStorage.BLOCK, pos, (Direction) null) == null,
+                    "Removed block retained its energy capability");
+            helper.setBlock(new BlockPos(1, 1, 1), ItemSink.ITEM_SINK.get());
+            helper.assertTrue(level.getCapability(Capabilities.ItemHandler.BLOCK, pos, (Direction) null) != null,
+                    "Replacement block did not expose an item capability");
         });
         helper.succeed();
     }
@@ -164,9 +156,9 @@ public class ItemSinkPortTests {
             sink.getInventory().setStackInSlot(2, new ItemStack(Items.EMERALD, 7));
             sink.getEnergyStorage().receiveEnergy(10000, false);
             tick(helper, sink);
-            CompoundTag saved = sink.saveWithoutMetadata();
+            CompoundTag saved = sink.saveWithoutMetadata(helper.getLevel().registryAccess());
             var restored = new ItemSinkBlockEntity(sink.getBlockPos(), sink.getBlockState());
-            restored.load(saved);
+            restored.loadWithComponents(saved, helper.getLevel().registryAccess());
             helper.assertTrue(restored.getInventory().getStackInSlot(0).getCount() == 3, "Saved input lost");
             helper.assertTrue(restored.getInventory().getStackInSlot(2).getCount() == 7, "Saved currency lost");
             helper.assertTrue(restored.getEnergyStorage().getEnergyStored() == 9640, "Saved energy lost");
@@ -179,7 +171,7 @@ public class ItemSinkPortTests {
     public static void menuShiftClickAndDistance(GameTestHelper helper) {
         withEmeraldCurrency(() -> {
             var sink = placeSink(helper);
-            var player = helper.makeMockPlayer();
+            var player = helper.makeMockPlayer(GameType.SURVIVAL);
             var pos = sink.getBlockPos();
             player.setPos(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5);
             player.getInventory().setItem(9, new ItemStack(Items.FLINT, 2));
@@ -226,7 +218,7 @@ public class ItemSinkPortTests {
         helper.succeed();
     }
 
-    private static ForgeConfigSpec.ConfigValue<String> currency() {
+    private static ModConfigSpec.ConfigValue<String> currency() {
         return Config.SPEC.getValues().get(List.of("item_sink", "values", "value1", "outputItem"));
     }
 

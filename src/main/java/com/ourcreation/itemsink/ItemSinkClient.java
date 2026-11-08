@@ -3,20 +3,28 @@ package com.ourcreation.itemsink;
 import com.ourcreation.itemsink.client.ItemSinkScreen;
 import com.ourcreation.itemsink.client.ponder.ItemSinkPonderPlugin;
 import net.createmod.ponder.foundation.PonderIndex;
-import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.neoforged.neoforge.client.gui.ConfigurationScreen;
+import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 
-@Mod.EventBusSubscriber(modid = ItemSink.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-public final class ItemSinkClient {
-    private ItemSinkClient() {
+@Mod(value = ItemSink.MODID, dist = Dist.CLIENT)
+public class ItemSinkClient {
+    public ItemSinkClient(IEventBus modEventBus, ModContainer container) {
+        modEventBus.addListener(this::setup);
+        modEventBus.addListener(this::registerScreens);
+        container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
     }
 
-    @SubscribeEvent
-    public static void setup(FMLClientSetupEvent event) {
+    private void setup(FMLClientSetupEvent event) {
         PonderIndex.addPlugin(new ItemSinkPonderPlugin());
-        event.enqueueWork(() -> MenuScreens.register(ItemSink.ITEM_SINK_MENU.get(), ItemSinkScreen::new));
+    }
+
+    private void registerScreens(RegisterMenuScreensEvent event) {
+        event.register(ItemSink.ITEM_SINK_MENU.get(), ItemSinkScreen::new);
     }
 }

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "nexus:chrono_shard_fragment",
+      "required": false
+    }
+  ]
+}

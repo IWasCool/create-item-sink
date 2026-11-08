@@ -1,0 +1,1145 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "bellsandwhistles:brass_bogie_steps",
+      "required": false
+    },
+    {
+      "id": "bellsandwhistles:brass_door_step",
+      "required": false
+    },
+    {
+      "id": "bellsandwhistles:brass_grab_rails",
+      "required": false
+    },
+    {
+      "id": "bellsandwhistles:brass_pilot",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:dead_chest_boat",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:empyreal_chest_boat",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:fir_chest_boat",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:hellbark_chest_boat",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:jacaranda_chest_boat",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:magic_chest_boat",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:mahogany_chest_boat",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:maple_chest_boat",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:palm_chest_boat",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:pine_chest_boat",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:redwood_chest_boat",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:umbran_chest_boat",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:willow_chest_boat",
+      "required": false
+    },
+    {
+      "id": "bits_n_bobs:brass_encased_flanged_cogwheel",
+      "required": false
+    },
+    {
+      "id": "bits_n_bobs:brass_encased_large_flanged_cogwheel",
+      "required": false
+    },
+    {
+      "id": "bits_n_bobs:brass_encased_piston_extension_pole",
+      "required": false
+    },
+    {
+      "id": "bits_n_bobs:brass_lamp",
+      "required": false
+    },
+    {
+      "id": "buddycards:golden_grading_sleeve",
+      "required": false
+    },
+    {
+      "id": "chipped:ancient_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:angry_raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:blank_raw_gold_block_carving",
+      "required": false
+    },
+    {
+      "id": "chipped:bordered_raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:brick_bordered_raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:carved_raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:checkered_raw_gold_block_tiles",
+      "required": false
+    },
+    {
+      "id": "chipped:chipped_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:cobbled_raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:cracked_disordered_raw_gold_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:cracked_flat_raw_gold_block_tiles",
+      "required": false
+    },
+    {
+      "id": "chipped:cracked_raw_gold_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:creeper_raw_gold_block_carving",
+      "required": false
+    },
+    {
+      "id": "chipped:crying_raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:curly_raw_gold_block_pillar",
+      "required": false
+    },
+    {
+      "id": "chipped:cut_blank_raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:cut_raw_gold_block_column",
+      "required": false
+    },
+    {
+      "id": "chipped:duh_raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:edged_raw_gold_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:embossed_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:engraved_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:engraved_raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:eroded_raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:etched_raw_gold_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:fine_raw_gold_block_pillar",
+      "required": false
+    },
+    {
+      "id": "chipped:flat_raw_gold_block_tiles",
+      "required": false
+    },
+    {
+      "id": "chipped:glad_raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:gold_barrel",
+      "required": false
+    },
+    {
+      "id": "chipped:gold_block_panels",
+      "required": false
+    },
+    {
+      "id": "chipped:golden_acacia_leaves",
+      "required": false
+    },
+    {
+      "id": "chipped:golden_apple_acacia_leaves",
+      "required": false
+    },
+    {
+      "id": "chipped:golden_apple_birch_leaves",
+      "required": false
+    },
+    {
+      "id": "chipped:golden_apple_dark_oak_leaves",
+      "required": false
+    },
+    {
+      "id": "chipped:golden_apple_jungle_leaves",
+      "required": false
+    },
+    {
+      "id": "chipped:golden_apple_oak_leaves",
+      "required": false
+    },
+    {
+      "id": "chipped:golden_apple_spruce_leaves",
+      "required": false
+    },
+    {
+      "id": "chipped:golden_barred_acacia_trapdoor",
+      "required": false
+    },
+    {
+      "id": "chipped:golden_barred_bamboo_trapdoor",
+      "required": false
+    },
+    {
+      "id": "chipped:golden_barred_birch_trapdoor",
+      "required": false
+    },
+    {
+      "id": "chipped:golden_barred_cherry_trapdoor",
+      "required": false
+    },
+    {
+      "id": "chipped:golden_barred_crimson_trapdoor",
+      "required": false
+    },
+    {
+      "id": "chipped:golden_barred_dark_oak_trapdoor",
+      "required": false
+    },
+    {
+      "id": "chipped:golden_barred_jungle_trapdoor",
+      "required": false
+    },
+    {
+      "id": "chipped:golden_barred_mangrove_trapdoor",
+      "required": false
+    },
+    {
+      "id": "chipped:golden_barred_oak_trapdoor",
+      "required": false
+    },
+    {
+      "id": "chipped:golden_barred_spruce_trapdoor",
+      "required": false
+    },
+    {
+      "id": "chipped:golden_barred_warped_trapdoor",
+      "required": false
+    },
+    {
+      "id": "chipped:golden_birch_leaves",
+      "required": false
+    },
+    {
+      "id": "chipped:golden_cherry_acacia_leaves",
+      "required": false
+    },
+    {
+      "id": "chipped:golden_cherry_birch_leaves",
+      "required": false
+    },
+    {
+      "id": "chipped:golden_cherry_dark_oak_leaves",
+      "required": false
+    },
+    {
+      "id": "chipped:golden_cherry_jungle_leaves",
+      "required": false
+    },
+    {
+      "id": "chipped:golden_cherry_oak_leaves",
+      "required": false
+    },
+    {
+      "id": "chipped:golden_cherry_spruce_leaves",
+      "required": false
+    },
+    {
+      "id": "chipped:golden_dark_oak_leaves",
+      "required": false
+    },
+    {
+      "id": "chipped:golden_jungle_leaves",
+      "required": false
+    },
+    {
+      "id": "chipped:golden_melon",
+      "required": false
+    },
+    {
+      "id": "chipped:golden_oak_leaves",
+      "required": false
+    },
+    {
+      "id": "chipped:golden_paper_soul_lantern",
+      "required": false
+    },
+    {
+      "id": "chipped:golden_spruce_leaves",
+      "required": false
+    },
+    {
+      "id": "chipped:inlayed_raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:inscribed_raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:layed_raw_gold_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:layered_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:loded_raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:massive_raw_gold_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:offset_raw_gold_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:ornate_raw_gold_block_pillar",
+      "required": false
+    },
+    {
+      "id": "chipped:overlapping_raw_gold_block_tiles",
+      "required": false
+    },
+    {
+      "id": "chipped:pillar_raw_gold_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:plated_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:polished_raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:pressed_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:prismal_raw_gold_block_remnants",
+      "required": false
+    },
+    {
+      "id": "chipped:raw_gold_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:raw_gold_block_mini_tiles",
+      "required": false
+    },
+    {
+      "id": "chipped:raw_gold_block_pillar",
+      "required": false
+    },
+    {
+      "id": "chipped:raw_gold_block_pillar_top",
+      "required": false
+    },
+    {
+      "id": "chipped:raw_gold_block_scales",
+      "required": false
+    },
+    {
+      "id": "chipped:reinforced_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:rough_raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:rounded_raw_gold_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:runic_carved_raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:sad_raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:sanded_raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:sheet_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:shuttered_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:simple_raw_gold_block_pillar",
+      "required": false
+    },
+    {
+      "id": "chipped:small_raw_gold_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:smooth_inlayed_raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:smooth_raw_gold_block_column",
+      "required": false
+    },
+    {
+      "id": "chipped:smooth_ringed_raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:smoothed_double_inlayed_raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:spider_raw_gold_block_carving",
+      "required": false
+    },
+    {
+      "id": "chipped:spiraled_raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:stacked_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:stacked_raw_gold_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:thick_inlayed_raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:tiled_bordered_raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:tiled_raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:tiled_raw_gold_block_column",
+      "required": false
+    },
+    {
+      "id": "chipped:tiny_brick_bordered_raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:tiny_layered_raw_gold_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:tiny_layered_raw_gold_block_slabs",
+      "required": false
+    },
+    {
+      "id": "chipped:tiny_raw_gold_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:trodden_raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:unamused_raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:vertical_cut_raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "chipped:vertical_disordered_raw_gold_block_bricks",
+      "required": false
+    },
+    {
+      "id": "chipped:weathered_raw_gold_block",
+      "required": false
+    },
+    {
+      "id": "create:brass_bars",
+      "required": false
+    },
+    {
+      "id": "create:brass_casing",
+      "required": false
+    },
+    {
+      "id": "create:brass_door",
+      "required": false
+    },
+    {
+      "id": "create:brass_encased_cogwheel",
+      "required": false
+    },
+    {
+      "id": "create:brass_encased_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "create:brass_encased_shaft",
+      "required": false
+    },
+    {
+      "id": "create:brass_funnel",
+      "required": false
+    },
+    {
+      "id": "create:brass_hand",
+      "required": false
+    },
+    {
+      "id": "create:brass_ladder",
+      "required": false
+    },
+    {
+      "id": "create:brass_scaffolding",
+      "required": false
+    },
+    {
+      "id": "create:brass_sheet",
+      "required": false
+    },
+    {
+      "id": "create:brass_table_cloth",
+      "required": false
+    },
+    {
+      "id": "create:brass_tunnel",
+      "required": false
+    },
+    {
+      "id": "create:crushed_raw_gold",
+      "required": false
+    },
+    {
+      "id": "create:golden_sheet",
+      "required": false
+    },
+    {
+      "id": "create:rose_quartz",
+      "required": false
+    },
+    {
+      "id": "create_optical:golden_coil",
+      "required": false
+    },
+    {
+      "id": "create_power_loader:brass_chunk_loader",
+      "required": false
+    },
+    {
+      "id": "create_power_loader:empty_brass_chunk_loader",
+      "required": false
+    },
+    {
+      "id": "createaddition:brass_rod",
+      "required": false
+    },
+    {
+      "id": "createaddition:gold_rod",
+      "required": false
+    },
+    {
+      "id": "createaddition:gold_wire",
+      "required": false
+    },
+    {
+      "id": "createbigcannons:bronze_ingot",
+      "required": false
+    },
+    {
+      "id": "createbigcannons:bronze_scrap",
+      "required": false
+    },
+    {
+      "id": "createbigcannons:bronze_sliding_breechblock",
+      "required": false
+    },
+    {
+      "id": "createbigcannons:molten_bronze_bucket",
+      "required": false
+    },
+    {
+      "id": "createdeco:blue_brass_lamp",
+      "required": false
+    },
+    {
+      "id": "createdeco:brass_bars",
+      "required": false
+    },
+    {
+      "id": "createdeco:brass_bars_overlay",
+      "required": false
+    },
+    {
+      "id": "createdeco:brass_catwalk",
+      "required": false
+    },
+    {
+      "id": "createdeco:brass_catwalk_railing",
+      "required": false
+    },
+    {
+      "id": "createdeco:brass_catwalk_stairs",
+      "required": false
+    },
+    {
+      "id": "createdeco:brass_door",
+      "required": false
+    },
+    {
+      "id": "createdeco:brass_hull",
+      "required": false
+    },
+    {
+      "id": "createdeco:brass_mesh_fence",
+      "required": false
+    },
+    {
+      "id": "createdeco:brass_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "createdeco:brass_support",
+      "required": false
+    },
+    {
+      "id": "createdeco:brass_support_wedge",
+      "required": false
+    },
+    {
+      "id": "createdeco:brass_trapdoor",
+      "required": false
+    },
+    {
+      "id": "createdeco:brass_window",
+      "required": false
+    },
+    {
+      "id": "createdeco:brass_window_pane",
+      "required": false
+    },
+    {
+      "id": "createdeco:green_brass_lamp",
+      "required": false
+    },
+    {
+      "id": "createdeco:locked_brass_door",
+      "required": false
+    },
+    {
+      "id": "createdeco:red_brass_lamp",
+      "required": false
+    },
+    {
+      "id": "createdeco:yellow_brass_lamp",
+      "required": false
+    },
+    {
+      "id": "createmetalwork:molten_brass_bucket",
+      "required": false
+    },
+    {
+      "id": "createmetalwork:molten_gold_bucket",
+      "required": false
+    },
+    {
+      "id": "createqol:brass_trash_can",
+      "required": false
+    },
+    {
+      "id": "handcrafted:golden_medium_pot",
+      "required": false
+    },
+    {
+      "id": "handcrafted:golden_thick_pot",
+      "required": false
+    },
+    {
+      "id": "handcrafted:golden_thin_pot",
+      "required": false
+    },
+    {
+      "id": "handcrafted:golden_wide_pot",
+      "required": false
+    },
+    {
+      "id": "minecraft:acacia_chest_boat",
+      "required": false
+    },
+    {
+      "id": "minecraft:bamboo_chest_raft",
+      "required": false
+    },
+    {
+      "id": "minecraft:birch_chest_boat",
+      "required": false
+    },
+    {
+      "id": "minecraft:cherry_chest_boat",
+      "required": false
+    },
+    {
+      "id": "minecraft:dark_oak_chest_boat",
+      "required": false
+    },
+    {
+      "id": "minecraft:deepslate_lapis_ore",
+      "required": false
+    },
+    {
+      "id": "minecraft:deepslate_redstone_ore",
+      "required": false
+    },
+    {
+      "id": "minecraft:golden_horse_armor",
+      "required": false
+    },
+    {
+      "id": "minecraft:jungle_chest_boat",
+      "required": false
+    },
+    {
+      "id": "minecraft:lapis_ore",
+      "required": false
+    },
+    {
+      "id": "minecraft:lava_bucket",
+      "required": false
+    },
+    {
+      "id": "minecraft:mangrove_chest_boat",
+      "required": false
+    },
+    {
+      "id": "minecraft:oak_chest_boat",
+      "required": false
+    },
+    {
+      "id": "minecraft:raw_gold",
+      "required": false
+    },
+    {
+      "id": "minecraft:redstone_ore",
+      "required": false
+    },
+    {
+      "id": "minecraft:spruce_chest_boat",
+      "required": false
+    },
+    {
+      "id": "northstar:mars_deep_redstone_ore",
+      "required": false
+    },
+    {
+      "id": "northstar:mars_redstone_ore",
+      "required": false
+    },
+    {
+      "id": "northstar:mercury_deep_lapis_ore",
+      "required": false
+    },
+    {
+      "id": "northstar:mercury_deep_redstone_ore",
+      "required": false
+    },
+    {
+      "id": "northstar:mercury_lapis_ore",
+      "required": false
+    },
+    {
+      "id": "northstar:mercury_redstone_ore",
+      "required": false
+    },
+    {
+      "id": "northstar:moon_deep_lapis_ore",
+      "required": false
+    },
+    {
+      "id": "northstar:moon_deep_redstone_ore",
+      "required": false
+    },
+    {
+      "id": "northstar:moon_lapis_ore",
+      "required": false
+    },
+    {
+      "id": "northstar:moon_redstone_ore",
+      "required": false
+    },
+    {
+      "id": "northstar:venus_deep_redstone_ore",
+      "required": false
+    },
+    {
+      "id": "northstar:venus_redstone_ore",
+      "required": false
+    },
+    {
+      "id": "numismatics:brass_depositor",
+      "required": false
+    },
+    {
+      "id": "petrochem:bronze_ingot",
+      "required": false
+    },
+    {
+      "id": "petrochem:bronze_sheet",
+      "required": false
+    },
+    {
+      "id": "pipeorgans:brass_boot",
+      "required": false
+    },
+    {
+      "id": "pipeorgans:brass_reed",
+      "required": false
+    },
+    {
+      "id": "powergrid:golden_wire",
+      "required": false
+    },
+    {
+      "id": "quark:ancient_chest_boat",
+      "required": false
+    },
+    {
+      "id": "quark:azalea_chest_boat",
+      "required": false
+    },
+    {
+      "id": "quark:blossom_chest_boat",
+      "required": false
+    },
+    {
+      "id": "quark:gold_bars",
+      "required": false
+    },
+    {
+      "id": "quark:gold_button",
+      "required": false
+    },
+    {
+      "id": "quark:golden_carrot_crate",
+      "required": false
+    },
+    {
+      "id": "quark:raw_gold_bricks",
+      "required": false
+    },
+    {
+      "id": "quark:raw_gold_bricks_slab",
+      "required": false
+    },
+    {
+      "id": "quark:raw_gold_bricks_stairs",
+      "required": false
+    },
+    {
+      "id": "quark:raw_gold_bricks_vertical_slab",
+      "required": false
+    },
+    {
+      "id": "quark:raw_gold_bricks_wall",
+      "required": false
+    },
+    {
+      "id": "railways:black_brass_wrapped_locometal",
+      "required": false
+    },
+    {
+      "id": "railways:black_brass_wrapped_locometal_boiler",
+      "required": false
+    },
+    {
+      "id": "railways:blue_brass_wrapped_locometal",
+      "required": false
+    },
+    {
+      "id": "railways:blue_brass_wrapped_locometal_boiler",
+      "required": false
+    },
+    {
+      "id": "railways:brass_wrapped_locometal",
+      "required": false
+    },
+    {
+      "id": "railways:brass_wrapped_locometal_boiler",
+      "required": false
+    },
+    {
+      "id": "railways:brown_brass_wrapped_locometal",
+      "required": false
+    },
+    {
+      "id": "railways:brown_brass_wrapped_locometal_boiler",
+      "required": false
+    },
+    {
+      "id": "railways:cyan_brass_wrapped_locometal",
+      "required": false
+    },
+    {
+      "id": "railways:cyan_brass_wrapped_locometal_boiler",
+      "required": false
+    },
+    {
+      "id": "railways:gray_brass_wrapped_locometal",
+      "required": false
+    },
+    {
+      "id": "railways:gray_brass_wrapped_locometal_boiler",
+      "required": false
+    },
+    {
+      "id": "railways:green_brass_wrapped_locometal",
+      "required": false
+    },
+    {
+      "id": "railways:green_brass_wrapped_locometal_boiler",
+      "required": false
+    },
+    {
+      "id": "railways:light_blue_brass_wrapped_locometal",
+      "required": false
+    },
+    {
+      "id": "railways:light_blue_brass_wrapped_locometal_boiler",
+      "required": false
+    },
+    {
+      "id": "railways:light_gray_brass_wrapped_locometal",
+      "required": false
+    },
+    {
+      "id": "railways:light_gray_brass_wrapped_locometal_boiler",
+      "required": false
+    },
+    {
+      "id": "railways:lime_brass_wrapped_locometal",
+      "required": false
+    },
+    {
+      "id": "railways:lime_brass_wrapped_locometal_boiler",
+      "required": false
+    },
+    {
+      "id": "railways:magenta_brass_wrapped_locometal",
+      "required": false
+    },
+    {
+      "id": "railways:magenta_brass_wrapped_locometal_boiler",
+      "required": false
+    },
+    {
+      "id": "railways:orange_brass_wrapped_locometal",
+      "required": false
+    },
+    {
+      "id": "railways:orange_brass_wrapped_locometal_boiler",
+      "required": false
+    },
+    {
+      "id": "railways:pink_brass_wrapped_locometal",
+      "required": false
+    },
+    {
+      "id": "railways:pink_brass_wrapped_locometal_boiler",
+      "required": false
+    },
+    {
+      "id": "railways:purple_brass_wrapped_locometal",
+      "required": false
+    },
+    {
+      "id": "railways:purple_brass_wrapped_locometal_boiler",
+      "required": false
+    },
+    {
+      "id": "railways:red_brass_wrapped_locometal",
+      "required": false
+    },
+    {
+      "id": "railways:red_brass_wrapped_locometal_boiler",
+      "required": false
+    },
+    {
+      "id": "railways:smokestack_coalburner_brass",
+      "required": false
+    },
+    {
+      "id": "railways:smokestack_coalburner_brass_cap_steel",
+      "required": false
+    },
+    {
+      "id": "railways:smokestack_long_brass",
+      "required": false
+    },
+    {
+      "id": "railways:smokestack_long_brass_cap_steel",
+      "required": false
+    },
+    {
+      "id": "railways:smokestack_oilburner_brass",
+      "required": false
+    },
+    {
+      "id": "railways:smokestack_oilburner_brass_cap_steel",
+      "required": false
+    },
+    {
+      "id": "railways:smokestack_streamlined_brass",
+      "required": false
+    },
+    {
+      "id": "railways:smokestack_streamlined_brass_cap_steel",
+      "required": false
+    },
+    {
+      "id": "railways:smokestack_woodburner_brass",
+      "required": false
+    },
+    {
+      "id": "railways:smokestack_woodburner_brass_cap_steel",
+      "required": false
+    },
+    {
+      "id": "railways:track_switch_brass",
+      "required": false
+    },
+    {
+      "id": "railways:white_brass_wrapped_locometal",
+      "required": false
+    },
+    {
+      "id": "railways:white_brass_wrapped_locometal_boiler",
+      "required": false
+    },
+    {
+      "id": "railways:yellow_brass_wrapped_locometal",
+      "required": false
+    },
+    {
+      "id": "railways:yellow_brass_wrapped_locometal_boiler",
+      "required": false
+    },
+    {
+      "id": "slimpatch:gold_wedding_ring",
+      "required": false
+    },
+    {
+      "id": "spawn:date_chest_raft",
+      "required": false
+    },
+    {
+      "id": "spawn:rotten_chest_boat",
+      "required": false
+    },
+    {
+      "id": "supplementaries:gold_bars",
+      "required": false
+    },
+    {
+      "id": "supplementaries:gold_door",
+      "required": false
+    },
+    {
+      "id": "supplementaries:gold_gate",
+      "required": false
+    },
+    {
+      "id": "supplementaries:gold_trapdoor",
+      "required": false
+    },
+    {
+      "id": "toughasnails:empty_gold_canteen",
+      "required": false
+    },
+    {
+      "id": "toughasnails:gold_dirty_water_canteen",
+      "required": false
+    },
+    {
+      "id": "toughasnails:gold_purified_water_canteen",
+      "required": false
+    },
+    {
+      "id": "toughasnails:gold_water_canteen",
+      "required": false
+    }
+  ]
+}

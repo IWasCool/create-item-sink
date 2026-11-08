@@ -13,9 +13,9 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.gametest.GameTestHolder;
-import net.minecraftforge.gametest.PrefixGameTestTemplate;
+import net.neoforged.neoforge.common.ModConfigSpec;
+import net.neoforged.neoforge.gametest.GameTestHolder;
+import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -80,7 +80,7 @@ public class ItemPricingTests {
             assertPayout(helper, BuiltInRegistries.ITEM.get(ResourceLocation.parse("create:andesite_alloy")), 9, 9, 16);
             assertPayout(helper, Items.GOLDEN_APPLE, 10, 10, 17);
             var renamed = new ItemStack(Items.FLINT);
-            renamed.setHoverName(Component.literal("diamond"));
+            renamed.set(net.minecraft.core.component.DataComponents.CUSTOM_NAME, Component.literal("diamond"));
             var original = Config.exchanges().stream().filter(exchange -> exchange.matches(renamed)).findFirst().orElseThrow();
             helper.assertTrue(original.count() == 1 && original.ticks() == 1200, "Renaming an item changed its price");
             var overview = ItemSinkConversionRecipe.fromConfig();
@@ -201,7 +201,7 @@ public class ItemPricingTests {
                 "Unexpected payout for " + BuiltInRegistries.ITEM.getKey(input) + ": " + exchange);
     }
 
-    private static ForgeConfigSpec.ConfigValue<String> currency() {
+    private static ModConfigSpec.ConfigValue<String> currency() {
         return Config.SPEC.getValues().get(List.of("item_sink", "values", "value1", "outputItem"));
     }
 

@@ -1,0 +1,7 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="All Rights Reserved"
+[[mods]]
+modId="item_sink_value_scan"
+version="1.0.0"
+displayName="Item Sink Value Registry Scan"

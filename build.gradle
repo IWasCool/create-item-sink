@@ -1,15 +1,19 @@
 plugins {
     id 'java-library'
-    id 'net.neoforged.moddev.legacyforge' version '2.0.147'
+    id 'net.neoforged.moddev' version '2.0.147'
     id 'idea'
 }
 
-group = 'com.ourcreation.itemsink'
 version = mod_version
+group = mod_group_id
 base.archivesName = 'create_item_sink'
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
 sourceSets {
+    main.resources {
+        srcDir 'src/generated/resources'
+        exclude '**/*.bbmodel', '**/.cache/**'
+    }
     gametest {
         compileClasspath += sourceSets.main.output
         runtimeClasspath += sourceSets.main.output
@@ -41,13 +45,21 @@ repositories {
     }
 }
 
-legacyForge {
-    version = "${minecraft_version}-${forge_version}"
+neoForge {
+    version = project.neo_version
+    parchment {
+        mappingsVersion = project.parchment_mappings_version
+        minecraftVersion = project.parchment_minecraft_version
+    }
     mods {
         item_sink { sourceSet sourceSets.main }
         item_sink_tests { sourceSet sourceSets.gametest }
     }
     runs {
+        configureEach {
+            // Numismatics restores Log4j using a URI, including on Windows.
+            systemProperty 'log4j2.configurationFile', file("build/moddev/${name}Log4j2.xml").toURI().toString()
+        }
         client {
             client()
             loadedMods = [mods.item_sink]
@@ -63,47 +75,43 @@ legacyForge {
             loadedMods = [mods.item_sink, mods.item_sink_tests]
             gameDirectory = project.layout.projectDirectory.dir(
                     providers.gradleProperty('withoutNumismatics').isPresent() ? 'run-gametest-without-numismatics' : 'run-gametest')
-            systemProperty 'forge.enabledGameTestNamespaces', 'item_sink_tests'
+            systemProperty 'neoforge.enabledGameTestNamespaces', 'item_sink_tests'
         }
     }
 }
 
-legacyForge.addModdingDependenciesTo(sourceSets.gametest)
+neoForge.addModdingDependenciesTo(sourceSets.gametest)
 
 dependencies {
-    // Create supplies Ponder at runtime; only its API is needed to compile our scenes.
-    modCompileOnly("net.createmod.ponder:Ponder-Forge-${minecraft_version}:${ponder_version}") {
-        transitive = false
-    }
+    implementation "maven.modrinth:create:${create_version}"
+    compileOnly("net.createmod.ponder:ponder-neoforge:${ponder_version}") { transitive = false }
     compileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
-    compileOnly "mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"
-    modRuntimeOnly "mezz.jei:jei-${minecraft_version}-forge:${jei_version}"
-    // Use Create's Ponder helpers for animated belts and funnels.
-    modImplementation "maven.modrinth:create:${create_version}"
+    compileOnly "mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}"
+    runtimeOnly "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
     if (!providers.gradleProperty('withoutNumismatics').isPresent()) {
-        modRuntimeOnly "maven.modrinth:numismatics:${numismatics_version}"
+        runtimeOnly "maven.modrinth:numismatics:${numismatics_version}"
     }
 }
 
-// All resources use Minecraft 1.20.1 paths and live inside this project.
-def metadataProperties = [mod_version: mod_version]
-
-tasks.named('processResources', ProcessResources) {
-    inputs.properties metadataProperties
-    exclude '**/*.bbmodel'
-    filesMatching('META-INF/mods.toml') {
-        expand metadataProperties
-    }
+var generateModMetadata = tasks.register('generateModMetadata', ProcessResources) {
+    var replaceProperties = [minecraft_version: minecraft_version,
+            minecraft_version_range: minecraft_version_range, neo_version: neo_version,
+            loader_version_range: loader_version_range, mod_id: mod_id,
+            mod_name: mod_name, mod_license: mod_license, mod_version: mod_version]
+    inputs.properties replaceProperties
+    expand replaceProperties
+    from 'src/main/templates'
+    into 'build/generated/sources/modMetadata'
 }
-
-tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8'
-    options.release = 17
-}
+sourceSets.main.resources.srcDir generateModMetadata
+neoForge.ideSyncTask generateModMetadata
 
 tasks.named('jar', Jar) {
-    from('LICENSE')
-    from('TEMPLATE_LICENSE.txt')
+    from 'LICENSE'
+    from 'TEMPLATE_LICENSE.txt'
 }
-
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 21
+}
 idea.module.downloadSources = true

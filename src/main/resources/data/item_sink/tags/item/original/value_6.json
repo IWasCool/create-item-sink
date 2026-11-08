@@ -1,0 +1,101 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "create:brass_ingot",
+      "required": false
+    },
+    {
+      "id": "create:electron_tube",
+      "required": false
+    },
+    {
+      "id": "createaddition:gold_spool",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:golden_knife",
+      "required": false
+    },
+    {
+      "id": "kubejs:blaze_gold_gear",
+      "required": false
+    },
+    {
+      "id": "minecraft:gold_ingot",
+      "required": false
+    },
+    {
+      "id": "minecraft:golden_boots",
+      "required": false
+    },
+    {
+      "id": "minecraft:golden_hoe",
+      "required": false
+    },
+    {
+      "id": "minecraft:golden_shovel",
+      "required": false
+    },
+    {
+      "id": "simplyswords:gold_chakram",
+      "required": false
+    },
+    {
+      "id": "simplyswords:gold_claymore",
+      "required": false
+    },
+    {
+      "id": "simplyswords:gold_cutlass",
+      "required": false
+    },
+    {
+      "id": "simplyswords:gold_glaive",
+      "required": false
+    },
+    {
+      "id": "simplyswords:gold_greataxe",
+      "required": false
+    },
+    {
+      "id": "simplyswords:gold_greathammer",
+      "required": false
+    },
+    {
+      "id": "simplyswords:gold_halberd",
+      "required": false
+    },
+    {
+      "id": "simplyswords:gold_katana",
+      "required": false
+    },
+    {
+      "id": "simplyswords:gold_longsword",
+      "required": false
+    },
+    {
+      "id": "simplyswords:gold_rapier",
+      "required": false
+    },
+    {
+      "id": "simplyswords:gold_sai",
+      "required": false
+    },
+    {
+      "id": "simplyswords:gold_scythe",
+      "required": false
+    },
+    {
+      "id": "simplyswords:gold_spear",
+      "required": false
+    },
+    {
+      "id": "simplyswords:gold_twinblade",
+      "required": false
+    },
+    {
+      "id": "simplyswords:gold_warglaive",
+      "required": false
+    }
+  ]
+}

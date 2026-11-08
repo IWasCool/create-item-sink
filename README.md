@@ -1,31 +1,41 @@
 # Create: Item Sink
 
-A configurable Create addon that converts unwanted items into currency.
+A configurable Create addon for **Minecraft 1.21.1 / NeoForge** that converts unwanted items into currency.
 
-Version **1.0.0** for Minecraft 1.20.1, Forge 47.4.x (47.4.0+), Create 6.0.x and Java 17.
+Version **1.0.0** requires **NeoForge 21.1.251+**, **Create 6.0.x**, and **Java 21**.
 
-For **Minecraft 1.21.1 / NeoForge**, use the separate [NeoForge 1.0.0 release](https://github.com/IWasCool/create-item-sink-forge/releases/tag/neoforge-v1.0.0) and [source branch](https://github.com/IWasCool/create-item-sink-forge/tree/neoforge-1.21.1).
+## Install
 
-**Public source:** [IWasCool/create-item-sink-forge](https://github.com/IWasCool/create-item-sink-forge).
+Download `create_item_sink-neoforge-1.21.1-1.0.0.jar` from the [1.0.0 release](https://github.com/IWasCool/create-item-sink/releases/tag/neoforge-v1.0.0). Place it in the client and server `mods` folders alongside Create.
 
-Download the jar from [Releases](https://github.com/IWasCool/create-item-sink-forge/releases) and place it in your client and server's `mods` folders alongside Create.
+Create: Numismatics and JEI are optional. Default payouts use Numismatics coins. Without Numismatics, configure installed currency items such as `minecraft:emerald` in `config/item_sink-common.toml`. Conversions with missing currency items stay disabled.
 
-Create: Numismatics and JEI are optional. The default outputs use Numismatics coins. Without Numismatics, configure installed currency items (such as `minecraft:emerald`) as the tiers' `outputItem` values in `config/item_sink-common.toml`; tiers with missing output items stay disabled.
+## Use
 
-Pricing supports ordered config rules for item IDs, tags, phrases, wildcards, and entire mods. Keep the current prices as defaults or build a custom economy with any installed currency items, payout amounts, processing times, and FE costs. See the [configuration guide](CONFIGURATION.md) for examples.
+Right-click the Item Sink to open its inventory. Insert unwanted items, supply **FE**, and collect the currency. Belts and funnels can automate input and output. Full output slots pause processing until space is available. Mine the sink with any pickaxe to recover it; stored items drop separately.
 
-Right-click the sink to open it. Insert unwanted items and supply Forge Energy to convert them into currency. Hold **W** over the item to view its Ponder tutorials.
+Hold **W** over the Item Sink for a Ponder tutorial covering use, power, conversion, and belt/funnel automation. If Create Crafts & Additions is installed, the tutorial shows a connected accumulator and copper wire as a power example. That addon is optional.
 
-Mine the Item Sink with any pickaxe to recover the machine. Its stored items drop separately.
+Pricing rules support exact item IDs, tags, phrases, wildcards, and whole mods. Configure currencies, payout amounts, processing times, and FE costs, or replace the bundled prices with your own economy. Currency outputs cannot be sold back into the sink.
 
-JEI shows one compact `? -> currency` overview, with checkerboard slots and an **Any Item** tooltip over the question mark.
+See the [configuration guide](CONFIGURATION.md), [item value catalogue](docs/item-values.md), and [changelog](CHANGELOG.md).
 
-Includes two short Ponder tutorials: basic use and Create automation. Belts sit directly on Create's checkerboard floor, with funnels feeding items into the sink and extracting currency onto an output belt.
+JEI shows a compact `? -> currency` overview with an **Any Item** tooltip. Language resources cover 137 Minecraft 1.21.1 locales; newer captions and labels use English fallbacks where needed. Translation corrections are welcome.
 
-Initial translations cover all 143 Minecraft 1.20.1 language options; new Create automation captions fall back to English. Translation corrections are welcome.
+## Build and verify
 
-Build from source with `./gradlew build` or `gradlew.bat build` on Windows. The release jar is `build/libs/create_item_sink-1.0.0.jar`.
+Use Java 21. On Windows:
 
-Run the server GameTests with `./gradlew runGameTestServer`, and repeat with `-PwithoutNumismatics` to verify custom currencies without Numismatics. The test mod is excluded from the release jar.
+```powershell
+.\gradlew.bat build
+.\gradlew.bat runGameTestServer
+.\gradlew.bat runGameTestServer -PwithoutNumismatics
+py -3 tools/check_translations.py build/libs/create_item_sink-1.0.0.jar
+py -3 -m unittest discover -s tools -p test_item_values.py
+```
 
-The code is available to view, reuse, modify and port under the [MIT license](LICENSE).
+On Linux and macOS, use `bash ./gradlew` and `python3`. The build produces `build/libs/create_item_sink-1.0.0.jar`. Dependencies download automatically. Development tests and catalogue tools are excluded from the release JAR.
+
+Worlds using the current `item_sink` registry IDs remain compatible. Worlds from the former `create_item_sink` namespace require an ID migration before upgrading.
+
+Source: [IWasCool/create-item-sink](https://github.com/IWasCool/create-item-sink). Available under the [MIT license](LICENSE).
