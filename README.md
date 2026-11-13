@@ -18,7 +18,7 @@ Hold **W** over the Item Sink for a Ponder tutorial covering use, power, convers
 
 Pricing rules support exact item IDs, tags, phrases, wildcards, and whole mods. Configure currencies, payout amounts, processing times, and FE costs, or replace the bundled prices with your own economy. Currency outputs cannot be sold back into the sink.
 
-See the [configuration guide](CONFIGURATION.md) and [changelog](CHANGELOG.md).
+Settings live in `config/item_sink-common.toml`. Edit currency IDs, pricing rules, processing times and FE costs there; restart after changing configuration.
 
 JEI shows a compact `? -> currency` overview with an **Any Item** tooltip. Language resources cover 137 Minecraft 1.21.1 locales; newer captions and labels use English fallbacks where needed. Translation corrections are welcome.
 
