@@ -6,7 +6,7 @@
     "B": { "item": "create:brass_sheet" },
     "D": { "item": "create:depot" },
     "E": { "item": "create:electron_tube" },
-    "H": { "item": "minecraft:hopper" },
+    "H": { "item": "create:chute" },
     "T": { "item": "create:brass_casing" }
   },
   "pattern": [
