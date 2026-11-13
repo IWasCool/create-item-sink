@@ -19,8 +19,6 @@
   "item_sink.configuration.item_sink.maxEnergyInput.tooltip": "Maximale Energiezufuhr\nFE/t",
   "item_sink.configuration.item_sink.requireEnergy": "Energie erforderlich",
   "item_sink.configuration.item_sink.requireEnergy.tooltip": "Energie erforderlich\nFE",
-  "item_sink.configuration.item_sink.values.includeCreateCoreValues": "CreateCore-Werte einbeziehen",
-  "item_sink.configuration.item_sink.values.includeCreateCoreValues.tooltip": "CreateCore-Werte einbeziehen\nCreateCore",
   "item_sink.configuration.item_sink.values.excludedItems": "Ausgeschlossene Gegenstände",
   "item_sink.configuration.item_sink.values.excludedItems.tooltip": "Ausgeschlossene Gegenstände\nminecraft:rotten_flesh",
   "item_sink.configuration.item_sink.values.outputItem": "Ausgabegegenstand",
@@ -73,8 +71,6 @@
   "jei.item_sink.overview.payout": "Auszahlung nach Gegenstandswert.",
   "jei.item_sink.overview.excluded": "Währungen, Kreativgegenstände und ausgeschlossene Gegenstände werden standardmäßig nicht angenommen.",
   "jei.item_sink.overview.any_item": "Any Item",
-  "item_sink.configuration.item_sink.values.includeBundledValues": "Include Bundled Values",
-  "item_sink.configuration.item_sink.values.includeBundledValues.tooltip": "Keep the existing catalogue prices beneath your pricing rules.",
   "item_sink.configuration.item_sink.values.pricingRules": "Pricing Rules",
   "item_sink.configuration.item_sink.values.pricingRules.tooltip": "First match wins. Use item ids, #tags, contains:phrases, namespace:modid or wildcards, then -> tier or -> outputItem, count, ticks, FE/t.",
   "item_sink.configuration.item_sink.values.fallbackValue": "Fallback Value",
@@ -85,10 +81,10 @@
   "item_sink.ponder.item_sink_complete.text_3": "Turn the belts. Funnels feed accepted items from the input chest into the sink.",
   "item_sink.ponder.item_sink_complete.text_4": "The extracting funnel puts currency on the output belt. Collect it in the chest.",
   "item_sink.ponder.item_sink_complete.text_5": "Keep power supplied and the outputs clear. A full machine pauses until there is room again.",
-  "item_sink.configuration.item_sink.values.originalPricingRules": "Original Pricing Rules",
-  "item_sink.configuration.item_sink.values.originalPricingRules.tooltip": "Preserved original prices, including the orestone economy. First matching rule wins; every entry can be edited here.",
-  "item_sink.configuration.item_sink.values.createCorePricingRules": "Automatic Pricing Rules",
-  "item_sink.configuration.item_sink.values.createCorePricingRules.tooltip": "Ordered reviewed exceptions and material, form, machine and food keywords. First match wins after original pricing rules.",
   "item_sink.configuration.item_sink.values.keywordBlacklist": "Keyword Rule Blacklist",
-  "item_sink.configuration.item_sink.values.keywordBlacklist.tooltip": "Selectors skipped by createCorePricingRules only. Custom pricing rules, tier item lists and original rules still apply. Use excludedItems to block every source."
+  "item_sink.configuration.item_sink.values.keywordBlacklist.tooltip": "Selectors skipped by keywordRules only. Custom pricing rules and tier item lists still apply. Use excludedItems to block every source.",
+  "item_sink.configuration.item_sink.values.enableKeywordConfig": "Enable Keyword Pricing",
+  "item_sink.configuration.item_sink.values.enableKeywordConfig.tooltip": "Enable keywordRules for automatic item detection. Custom pricing rules, tier item lists and fallback remain available.",
+  "item_sink.configuration.item_sink.values.keywordRules": "Keyword Pricing Rules",
+  "item_sink.configuration.item_sink.values.keywordRules.tooltip": "Ordered keyword and regular-expression rules for material, form, machine and food names. First match wins beneath custom rules and tier item lists."
 }

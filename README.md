@@ -18,24 +18,23 @@ Mine the sink with any pickaxe to recover it. Like the Hub Terminal, a Create wr
 
 Hold **W** over the Item Sink for a Ponder tutorial covering use, power, conversion, and belt/funnel automation. If Create Crafts & Additions is installed, the tutorial shows a connected accumulator and copper wire as a power example. That addon is optional.
 
-Item Sink keeps its configuration in `config/item_sink/`, with separate files for each purpose:
+Item Sink keeps its configuration in `config/item_sink/`, with three files:
 
 | File | Settings |
 | --- | --- |
 | `common.toml` | Energy capacity, maximum FE input and whether processing requires energy |
-| `item_settings.toml` | Custom pricing rules, exclusions, fallback, default-rule switches, tier inputs and payout currency/count/time/FE |
-| `original_values.toml` | `originalPricingRules`, preserving the original economy and fixed orestone prices |
-| `keyword.toml` | `createCorePricingRules` and `keywordBlacklist`, including reviewed exceptions and automatic item detection |
+| `item_settings.toml` | Custom pricing rules, exclusions, fallback, tier inputs and payout currency/count/time/FE |
+| `keyword.toml` | `enableKeywordConfig`, `keywordRules` and `keywordBlacklist` for automatic item detection |
 
-The generated files contain editable rule lists instead of loading item-value JSON files or bundled value tags. Keyword rules recognize material, item-form, machine and food names, so suitable items from newly installed mods can be recognized without adding every registry ID by hand. TOML key paths remain `item_sink` and `item_sink.values` within the appropriate files.
+Keyword rules recognize material, item-form, machine and food names, so suitable items from newly installed mods can be priced through editable configuration. Set `enableKeywordConfig` to false to use your custom pricing rules, tier lists and fallback alone. TOML key paths remain `item_sink` and `item_sink.values` within the appropriate files. Restart after changing configuration.
 
-Prices use this order: your `pricingRules` first, custom tier lists such as `value1Items` next, `originalPricingRules`, then `createCorePricingRules`, and finally `fallbackValue` for unmatched items. Within custom tier lists, exact item IDs take priority over broader selectors. Within each rule list, the first matching rule wins. Specific exceptions should precede general keywords. A missing configured currency disables its matched conversion instead of falling through to another price.
+Prices use this order: your `pricingRules` first, custom tier lists such as `value1Items` next, then enabled `keywordRules`, and finally `fallbackValue` for unmatched items. Within custom tier lists, exact item IDs take priority over broader selectors. Within a rule list, the first matching rule wins. Put specific rules before general keywords. A missing configured currency disables its matched conversion instead of falling through to another price.
 
-`keywordBlacklist` skips matches from `createCorePricingRules` only; it leaves custom rules, tier lists and original prices available. Use `excludedItems` to reject an item from every pricing source. Configured currency outputs are always protected from being sold back into the sink.
+`keywordBlacklist` skips matches from `keywordRules` only; custom rules and tier lists still apply. Use `excludedItems` to reject an item from every pricing source. Configured currency outputs are always protected from being sold back into the sink.
 
 Selectors support exact IDs, external item tags such as `#c:ingots`, `keyword:whole phrases`, `regex:path patterns`, `idregex:full-id patterns`, `contains:phrases`, `namespace:modid`, and wildcards. Keyword phrases treat spaces as underscores and respect underscore, slash and dash word boundaries. Regular expressions use case-insensitive search; `^` and `$` restrict a pattern to the complete path or ID. Matching uses stable registry IDs, so language, renamed items and stack NBT do not change prices.
 
-For example, add your own overrides to `config/item_sink/item_settings.toml` while retaining the default rule lists in the other files:
+For example, add your own overrides to `config/item_sink/item_settings.toml`:
 
 ```toml
 [item_sink.values]
@@ -49,21 +48,17 @@ excludedItems = ["yourmod:free_part"]
 fallbackValue = ""
 ```
 
-In `keyword.toml`, keep the generated `keywordBlacklist` entries and append selectors such as `keyword:unfinished` when needed.
-
-The existing `includeBundledValues` setting in `item_settings.toml` enables the configured default rule lists. Set it to false to use only your overrides, custom tier lists and fallback. `includeCreateCoreValues` controls the automatic `createCorePricingRules` list separately. Old built-in tag selectors migrate to config rules while preserving custom tier-list additions and external tags.
-
-On first start, the mod automatically splits `config/item_sink-common.toml`, or the older `config/create_item_sink-common.toml`, into the folder files. Existing folder files take priority and are not overwritten; missing files receive the corresponding legacy settings. The old flat config is archived under `config/item_sink/legacy/` after migration. Output items, payout counts, processing times, FE costs, custom rules and exclusions are retained. Restart after changing configuration.
+In `keyword.toml`, edit the generated `keywordRules` list and append `keywordBlacklist` selectors such as `keyword:unfinished` when needed.
 
 JEI shows a compact `? -> currency` overview using the **original font-rendered question mark**, with an **Any Item** tooltip.
 
-The supported language set matches Create New World Core: **18 locales**, with all 92 Item Sink translation keys present in each: `de_de`, `en_us`, `es_es`, `es_mx`, `fr_fr`, `id_id`, `it_it`, `ja_jp`, `ko_kr`, `pl_pl`, `pt_br`, `pt_pt`, `ru_ru`, `tr_tr`, `uk_ua`, `vi_vn`, `zh_cn`, and `zh_tw`. Newer captions and labels use English fallbacks where needed. Translation corrections are welcome.
+The supported language set matches Create New World Core: **18 locales**, with all 88 Item Sink translation keys present in each: `de_de`, `en_us`, `es_es`, `es_mx`, `fr_fr`, `id_id`, `it_it`, `ja_jp`, `ko_kr`, `pl_pl`, `pt_br`, `pt_pt`, `ru_ru`, `tr_tr`, `uk_ua`, `vi_vn`, `zh_cn`, and `zh_tw`. Newer captions and labels use English fallbacks where needed. Translation corrections are welcome.
 
 ## Compatibility and verification
 
 Verified on assembled **Sable 2.0.5 and 2.0.6** structures after translation and rotation: inventory, FE, and progress survive assembly; normal block-entity ticks convert items; automation capabilities and menu distance checks work; Create wrench pickup returns the sink. The isolated test holds physics still during the short check. Prolonged active flight and client targeting were outside its scope.
 
-The focused native suite passed 33 server tests, including all 16,379 historical prices, keyword matching for new item IDs, config overrides, four-file migration and Sable operation. The native client also rendered the Item Sink and JEI category successfully. Builds verify all 18 supported locales with 92 translation keys each.
+The focused native suite passed 26 server tests covering keyword/material recognition, exclusions, custom pricing and currency protection, inventory/FE processing, wrench recovery, and Sable operation. The native client also rendered the Item Sink and JEI category successfully. Builds verify all 18 supported locales with 88 translation keys each.
 
 ## Build from source
 
@@ -75,7 +70,5 @@ $env:JAVA_HOME = 'C:\Program Files\Java\jdk-25'
 ```
 
 On Linux and macOS, use `bash ./gradlew build`. The build produces `build/libs/item_sink-neoforge-1.21.1-1.0.1.jar`. Dependencies download automatically. Add `-PwithJei` to include JEI in a development client run.
-
-Worlds using the current `item_sink` registry IDs remain compatible. Worlds from the former `create_item_sink` namespace require an ID migration before upgrading.
 
 Source: [IWasCool/create-item-sink](https://github.com/IWasCool/create-item-sink). Available under the [MIT license](LICENSE).

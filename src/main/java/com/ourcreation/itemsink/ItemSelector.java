@@ -16,13 +16,6 @@ public final class ItemSelector {
 
     public static Predicate<ResourceLocation> parse(String text) {
         String selector = text.trim();
-        // Migration stores the former default-tag opt-outs alongside its exact selectors.
-        if (selector.startsWith("bundled:") || selector.startsWith("corebundled:")) {
-            boolean core = selector.startsWith("corebundled:");
-            Predicate<ResourceLocation> nested = parse(selector.substring(core ? "corebundled:".length() : "bundled:".length()));
-            return id -> Config.INCLUDE_BUNDLED_VALUES.get()
-                    && (!core || Config.INCLUDE_CREATECORE_VALUES.get()) && nested.test(id);
-        }
         if (selector.startsWith("#")) {
             ResourceLocation tag = requireId(selector.substring(1));
             var members = new HashSet<ResourceLocation>();
@@ -90,7 +83,6 @@ public final class ItemSelector {
         String selector = text.trim();
         // These prefixes also look like legal namespaces to ResourceLocation.
         return !selector.startsWith("#") && !selector.startsWith("regex:")
-                && !selector.startsWith("bundled:") && !selector.startsWith("corebundled:")
                 && !selector.startsWith("idregex:") && !selector.startsWith("keyword:")
                 && !selector.startsWith("contains:") && !selector.startsWith("namespace:")
                 && ResourceLocation.tryParse(selector) != null;

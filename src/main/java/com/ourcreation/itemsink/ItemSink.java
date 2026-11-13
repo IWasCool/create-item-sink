@@ -74,27 +74,24 @@ public class ItemSink {
         modEventBus.addListener(this::onConfigReloaded);
         NeoForge.EVENT_BUS.addListener(this::onPlayerLoggedIn);
         NeoForge.EVENT_BUS.addListener(this::onTagsUpdated);
-        ConfigMigration.migrate(net.neoforged.fml.loading.FMLPaths.CONFIGDIR.get());
+        try {
+            java.nio.file.Files.createDirectories(net.neoforged.fml.loading.FMLPaths.CONFIGDIR.get().resolve(MODID));
+        } catch (java.io.IOException error) {
+            throw new IllegalStateException("Could not create the Item Sink config folder", error);
+        }
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.COMMON_SPEC, "item_sink/common.toml");
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.ITEM_SETTINGS_SPEC, "item_sink/item_settings.toml");
-        modContainer.registerConfig(ModConfig.Type.COMMON, Config.ORIGINAL_VALUES_SPEC, "item_sink/original_values.toml");
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.KEYWORD_SPEC, "item_sink/keyword.toml");
     }
 
     private void onConfigLoaded(ModConfigEvent.Loading event) {
         if (Config.ownsSpec(event.getConfig().getSpec())) {
-            if (event.getConfig().getSpec() == Config.ITEM_SETTINGS_SPEC && Config.compactLegacyDefaults()) {
-                Config.ITEM_SETTINGS_SPEC.save();
-            }
             Config.invalidateExchanges();
         }
     }
 
     private void onConfigReloaded(ModConfigEvent.Reloading event) {
         if (Config.ownsSpec(event.getConfig().getSpec())) {
-            if (event.getConfig().getSpec() == Config.ITEM_SETTINGS_SPEC && Config.compactLegacyDefaults()) {
-                Config.ITEM_SETTINGS_SPEC.save();
-            }
             Config.invalidateExchanges();
         }
     }

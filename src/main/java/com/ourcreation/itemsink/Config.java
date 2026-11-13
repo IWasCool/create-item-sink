@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
@@ -17,18 +16,15 @@ import java.util.function.Predicate;
 public class Config {
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
     private static final ModConfigSpec.Builder COMMON_BUILDER = new ModConfigSpec.Builder();
-    private static final ModConfigSpec.Builder ORIGINAL_BUILDER = new ModConfigSpec.Builder();
     private static final ModConfigSpec.Builder KEYWORD_BUILDER = new ModConfigSpec.Builder();
 
     public static final ModConfigSpec.IntValue ENERGY_CAPACITY;
     public static final ModConfigSpec.IntValue MAX_ENERGY_INPUT;
     public static final ModConfigSpec.BooleanValue REQUIRE_ENERGY;
-    public static final ModConfigSpec.BooleanValue INCLUDE_BUNDLED_VALUES;
-    public static final ModConfigSpec.BooleanValue INCLUDE_CREATECORE_VALUES;
+    public static final ModConfigSpec.BooleanValue ENABLE_KEYWORD_VALUES;
     public static final ModConfigSpec.ConfigValue<List<? extends String>> PRICING_RULES;
-    public static final ModConfigSpec.ConfigValue<List<? extends String>> ORIGINAL_PRICING_RULES;
-    public static final ModConfigSpec.ConfigValue<List<? extends String>> CREATECORE_PRICING_RULES;
-    public static final ModConfigSpec.ConfigValue<List<? extends String>> DEFAULT_KEYWORD_BLACKLIST;
+    public static final ModConfigSpec.ConfigValue<List<? extends String>> KEYWORD_PRICING_RULES;
+    public static final ModConfigSpec.ConfigValue<List<? extends String>> KEYWORD_BLACKLIST;
     public static final ModConfigSpec.ConfigValue<String> FALLBACK_VALUE;
     public static final ModConfigSpec.ConfigValue<List<? extends String>> EXCLUDED_ITEMS;
     public static final ModConfigSpec.ConfigValue<List<? extends String>> VALUE_1_ITEMS;
@@ -49,8 +45,6 @@ public class Config {
     static {
         BUILDER.translation("item_sink.configuration.item_sink").push("item_sink");
         COMMON_BUILDER.translation("item_sink.configuration.item_sink").push("item_sink");
-        ORIGINAL_BUILDER.translation("item_sink.configuration.item_sink").push("item_sink")
-                .translation("item_sink.configuration.item_sink.values").push("values");
         KEYWORD_BUILDER.translation("item_sink.configuration.item_sink").push("item_sink")
                 .translation("item_sink.configuration.item_sink.values").push("values");
 
@@ -72,7 +66,7 @@ public class Config {
         BUILDER.translation("item_sink.configuration.item_sink.values").push("values");
         PRICING_RULES = BUILDER
                 .translation("item_sink.configuration.item_sink.values.pricingRules")
-                .comment("Ordered pricing overrides. First matching rule wins, ahead of tier item lists and configured default rules.",
+                .comment("Ordered pricing overrides. First matching rule wins, ahead of tier item lists and keyword rules.",
                         "Format: selector -> tier OR selector -> outputItem, outputCount, ticks, energyPerTick.",
                         "Selectors: minecraft:diamond (exact id), #c:ingots (tag), contains:iron ingot (phrase in item path),",
                         "namespace:create (whole mod), *:raw_* (wildcard in full id), *_ore (wildcard in item path). * matches all items.",
@@ -81,7 +75,7 @@ public class Config {
                         "Phrases ignore case and treat spaces as underscores. Names, language and stack NBT do not affect matching.",
                         "Tier names: value1, value2, value3, value4, value5, value6, value7, value8, value16, value32, value48, value64.",
                         "Examples: [\"minecraft:diamond -> value16\", \"contains:ingot -> value4\", \"namespace:create -> minecraft:emerald, 2, 200, 360\"].",
-                        "Put specific rules before broad ones. An empty list uses the configured default rules. Missing outputs disable matched inputs.",
+                        "Put specific rules before broad ones. An empty list uses the keyword rules. Missing outputs disable matched inputs.",
                         "Output count: 1..64, ticks: 1..2147483647, energyPerTick: 0..2147483647. Numismatics is not required.",
                         "Exclusions and all configured currency outputs are always blocked, including exact-id rules.",
                         "Invalid entries, including invalid regular expressions, are logged and skipped.")
@@ -92,29 +86,20 @@ public class Config {
                         "Use a tier name, such as value1, or a payout, such as minecraft:emerald, 1, 1200, 360.",
                         "Unlike a * rule, this never replaces an existing price. Exclusions and currency protection still apply.")
                 .define("fallbackValue", "");
-        INCLUDE_BUNDLED_VALUES = BUILDER
-                .translation("item_sink.configuration.item_sink.values.includeBundledValues")
-                .comment("Enable originalPricingRules and createCorePricingRules beneath your custom rules and tier item lists.",
-                        "Set false to build your own economy using pricingRules, custom tier item lists and fallbackValue.",
-                        "The default economy is entirely in this config; no bundled value tags or item-value JSON files are loaded.")
-                .define("includeBundledValues", true);
-        INCLUDE_CREATECORE_VALUES = BUILDER
-                .translation("item_sink.configuration.item_sink.values.includeCreateCoreValues")
-                .comment("Enable createCorePricingRules, including automatic keyword matching for newly installed items.",
-                        "Requires includeBundledValues. Explicit pricingRules and tier lists take priority.")
-                .define("includeCreateCoreValues", true);
-        ORIGINAL_PRICING_RULES = defineDefaultRules(ORIGINAL_BUILDER, "originalPricingRules",
-                "Preserved original prices, including the fixed orestone economy. First matching rule wins.",
-                ConfigValueDefaults.ORIGINAL_RULES);
-        CREATECORE_PRICING_RULES = defineDefaultRules(KEYWORD_BUILDER, "createCorePricingRules",
-                "Ordered item-value rules: reviewed exceptions first, then material, form, machine and food keywords.",
-                ConfigValueDefaults.CREATECORE_RULES);
-        DEFAULT_KEYWORD_BLACKLIST = KEYWORD_BUILDER
+        ENABLE_KEYWORD_VALUES = KEYWORD_BUILDER
+                .translation("item_sink.configuration.item_sink.values.enableKeywordConfig")
+                .comment("Enable automatic item values from keywordRules below.",
+                        "Custom pricingRules and tier item lists remain active when this is false.")
+                .define("enableKeywordConfig", true);
+        KEYWORD_PRICING_RULES = defineDefaultRules(KEYWORD_BUILDER, "keywordRules",
+                "Ordered keyword/material/form rules for automatically assigning item values.",
+                KeywordDefaults.RULES);
+        KEYWORD_BLACKLIST = KEYWORD_BUILDER
                 .translation("item_sink.configuration.item_sink.values.keywordBlacklist")
-                .comment("Selectors ignored by createCorePricingRules, similar to Thirst's keyword blacklist.",
-                        "Does not override your explicit pricingRules, custom tier lists or originalPricingRules.",
+                .comment("Selectors ignored by keywordRules, similar to Thirst's keyword blacklist.",
+                        "Does not override your explicit pricingRules or custom tier lists.",
                         "Use excludedItems below to block an item from every pricing source.")
-                .defineListAllowEmpty("keywordBlacklist", ConfigValueDefaults.KEYWORD_BLACKLIST, () -> "", value -> value instanceof String);
+                .defineListAllowEmpty("keywordBlacklist", KeywordDefaults.BLACKLIST, () -> "", value -> value instanceof String);
         EXCLUDED_ITEMS = BUILDER
                 .translation("item_sink.configuration.item_sink.values.excludedItems")
                 .comment("Items that must never be accepted, even when a pricing rule matches.",
@@ -150,20 +135,15 @@ public class Config {
         BUILDER.pop();
         BUILDER.pop();
         COMMON_BUILDER.pop();
-        ORIGINAL_BUILDER.pop(2);
         KEYWORD_BUILDER.pop(2);
     }
 
     public static final ModConfigSpec COMMON_SPEC = COMMON_BUILDER.build();
     public static final ModConfigSpec ITEM_SETTINGS_SPEC = BUILDER.build();
-    public static final ModConfigSpec ORIGINAL_VALUES_SPEC = ORIGINAL_BUILDER.build();
     public static final ModConfigSpec KEYWORD_SPEC = KEYWORD_BUILDER.build();
-    /** Compatibility alias for callers looking up value tier settings. */
-    public static final ModConfigSpec SPEC = ITEM_SETTINGS_SPEC;
 
     public static boolean ownsSpec(Object spec) {
-        return spec == COMMON_SPEC || spec == ITEM_SETTINGS_SPEC
-                || spec == ORIGINAL_VALUES_SPEC || spec == KEYWORD_SPEC;
+        return spec == COMMON_SPEC || spec == ITEM_SETTINGS_SPEC || spec == KEYWORD_SPEC;
     }
 
     private static ModConfigSpec.ConfigValue<List<? extends String>> defineDefaultRules(ModConfigSpec.Builder builder, String name, String comment, List<String> defaults) {
@@ -178,7 +158,7 @@ public class Config {
     private static ModConfigSpec.ConfigValue<List<? extends String>> defineValueItems(String name, String comment, List<String> defaults) {
         return BUILDER.translation("item_sink.configuration.item_sink.values." + name)
                 .comment(comment,
-                        "Custom selectors assigned to this tier, ahead of configured default prices. Empty uses the default rule lists.",
+                        "Custom selectors assigned to this tier, ahead of keyword prices. Empty uses keyword rules.",
                         "Accepts item ids, #external_tags, keyword:, regex:, idregex:, contains:, namespace: and wildcards.",
                         "Exact item ids override other tier selectors. pricingRules overrides both.",
                         "These inputs share the output settings from the matching value tier below.")
@@ -205,42 +185,6 @@ public class Config {
                 .defineInRange("energyPerTick", defaultEnergyPerTick, 0, Integer.MAX_VALUE);
         BUILDER.pop();
         return new ValueTier(name, items, output, count, ticks, energyPerTick);
-    }
-
-    /** Migrate only former built-in tag selectors; retain custom selectors and tier settings. */
-    static boolean compactLegacyDefaults() {
-        List<List<String>> legacy = List.of(ValueDefaults.VALUE_1, ValueDefaults.VALUE_2,
-                ValueDefaults.VALUE_3, ValueDefaults.VALUE_4, ValueDefaults.VALUE_5, ValueDefaults.VALUE_6,
-                ValueDefaults.VALUE_7, ValueDefaults.VALUE_8, ValueDefaults.VALUE_16, ValueDefaults.VALUE_32,
-                ValueDefaults.VALUE_48, ValueDefaults.VALUE_64);
-        boolean changed = false;
-        for (int i = 0; i < VALUE_TIERS.size(); i++) {
-            ValueTier tier = VALUE_TIERS.get(i);
-            var items = tier.items();
-            List<String> migrated = new ArrayList<>();
-            if (!items.get().equals(legacy.get(i))) {
-                for (String entry : items.get()) {
-                    String normalized = entry.trim().replaceFirst("^#create_item_sink:", "#item_sink:");
-                    // This was the unchanged default tag; configured defaults now supply its prices.
-                    if (normalized.equals("#item_sink:" + tier.name().replace("value", "value_"))) continue;
-                    List<String> replacement = normalized.startsWith("#")
-                            ? ConfigValueDefaults.legacySelectors(normalized.substring(1)) : null;
-                    if (replacement == null) migrated.add(entry);
-                    else if (normalized.matches("#item_sink:value_[0-9]+")) {
-                        String suffix = normalized.substring("#item_sink:".length());
-                        ConfigValueDefaults.legacySelectors("item_sink:original/" + suffix)
-                                .forEach(selector -> migrated.add("bundled:" + selector));
-                        ConfigValueDefaults.legacySelectors("item_sink:createcore/" + suffix)
-                                .forEach(selector -> migrated.add("corebundled:" + selector));
-                    } else replacement.forEach(selector -> migrated.add("bundled:" + selector));
-                }
-            }
-            if (!items.get().equals(migrated)) {
-                items.set(List.copyOf(migrated));
-                changed = true;
-            }
-        }
-        return changed;
     }
 
     public static boolean hasValidExchange() {
@@ -290,12 +234,10 @@ public class Config {
 
     private static ExchangeIndex buildIndex() {
         List<PricingRule> rules = parseRules(PRICING_RULES.get(), "pricingRules");
-        List<PricingRule> original = INCLUDE_BUNDLED_VALUES.get()
-                ? parseRules(ORIGINAL_PRICING_RULES.get(), "originalPricingRules") : List.of();
-        List<PricingRule> automatic = INCLUDE_BUNDLED_VALUES.get() && INCLUDE_CREATECORE_VALUES.get()
-                ? parseRules(CREATECORE_PRICING_RULES.get(), "createCorePricingRules") : List.of();
+        List<PricingRule> automatic = ENABLE_KEYWORD_VALUES.get()
+                ? parseRules(KEYWORD_PRICING_RULES.get(), "keywordRules") : List.of();
         List<Predicate<ResourceLocation>> exclusions = parseSelectors(EXCLUDED_ITEMS.get(), "excludedItems");
-        List<Predicate<ResourceLocation>> keywordBlacklist = parseSelectors(DEFAULT_KEYWORD_BLACKLIST.get(), "keywordBlacklist");
+        List<Predicate<ResourceLocation>> keywordBlacklist = parseSelectors(KEYWORD_BLACKLIST.get(), "keywordBlacklist");
         List<PricingRule> exactTierItems = new ArrayList<>();
         List<PricingRule> otherTierItems = new ArrayList<>();
         for (ValueTier tier : VALUE_TIERS) {
@@ -318,7 +260,7 @@ public class Config {
         }
         var outputs = new LinkedHashSet<ResourceLocation>();
         for (ValueTier tier : VALUE_TIERS) outputs.add(payout(tier).output());
-        for (List<PricingRule> source : List.of(rules, original, automatic)) {
+        for (List<PricingRule> source : List.of(rules, automatic)) {
             source.forEach(rule -> outputs.add(rule.payout().output()));
         }
         if (fallback != null) outputs.add(fallback.output());
@@ -330,7 +272,6 @@ public class Config {
             Exchange match = firstMatch(input, rules);
             if (match == null) match = firstMatch(input, exactTierItems);
             if (match == null) match = firstMatch(input, otherTierItems);
-            if (match == null) match = firstMatch(input, original);
             if (match == null && keywordBlacklist.stream().noneMatch(selector -> selector.test(input))) {
                 match = firstMatch(input, automatic);
             }
