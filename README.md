@@ -2,11 +2,11 @@
 
 A configurable Create addon for **Minecraft 1.21.1 / NeoForge** that converts unwanted items into currency.
 
-Version **1.0.2** requires **NeoForge 21.1.256+**, **Create 6.0.x**, and **Java 21**. Built and tested with Create **6.0.10**.
+Version **1.0.1** requires **NeoForge 21.1.256+**, **Create 6.0.x**, and **Java 21**. Built and tested with Create **6.0.10**.
 
 ## Install
 
-Download `item_sink-neoforge-1.21.1-1.0.2.jar` from the [1.0.2 release](https://github.com/IWasCool/create-item-sink/releases/tag/neoforge-v1.0.2). Place it in the client and server `mods` folders alongside Create. Replace the previous Item Sink jar so only one edition is installed.
+Download `item_sink-neoforge-1.21.1-1.0.1.jar` from the [1.0.1 release](https://github.com/IWasCool/create-item-sink/releases/tag/neoforge-v1.0.1). Place it in the client and server `mods` folders alongside Create. Replace the previous Item Sink jar so only one edition is installed.
 
 Create: Numismatics and JEI are optional. Default payouts use Numismatics coins. Without Numismatics, configure installed currency items such as `minecraft:emerald` in `config/item_sink-common.toml`. Conversions with missing currency items stay disabled.
 
@@ -28,7 +28,7 @@ The supported language set matches Create New World Core: **18 locales**, with a
 
 Verified on assembled **Sable 2.0.5 and 2.0.6** structures after translation and rotation: inventory, FE, and progress survive assembly; normal block-entity ticks convert items; automation capabilities and menu distance checks work; Create wrench pickup returns the sink. The isolated test holds physics still during the short check. Prolonged active flight and client targeting were outside its scope.
 
-The focused native suite passed 15 Item Sink server tests, 16 with the Sable integration enabled, and a client check rendering the JEI category. Version 1.0.2 restores the original question mark; the client render check was repeated for this release. Production builds verify the exact supported language set and complete translation keys.
+The focused native suite passed 15 Item Sink server tests, 16 with the Sable integration enabled, and a client check rendering the JEI category. The working 1.0.1 build uses the original question mark, confirmed by the native client render check. Production builds verify the exact supported language set and complete translation keys.
 
 ## Build from source
 
@@ -39,7 +39,7 @@ $env:JAVA_HOME = 'C:\Program Files\Java\jdk-25'
 .\gradlew.bat build
 ```
 
-On Linux and macOS, use `bash ./gradlew build`. The build produces `build/libs/item_sink-neoforge-1.21.1-1.0.2.jar`. Dependencies download automatically. Add `-PwithJei` to include JEI in a development client run.
+On Linux and macOS, use `bash ./gradlew build`. The build produces `build/libs/item_sink-neoforge-1.21.1-1.0.1.jar`. Dependencies download automatically. Add `-PwithJei` to include JEI in a development client run.
 
 Worlds using the current `item_sink` registry IDs remain compatible. Worlds from the former `create_item_sink` namespace require an ID migration before upgrading.
 
