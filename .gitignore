@@ -30,3 +30,24 @@ repo/
 *.py
 __pycache__/
 /MODPACK_STATUS.md
+
+/src/clientSmoke/
+/src/testFixtures/
+/scripts/
+/CHANGELOG.md
+/CONFIGURATION.md
+
+# Production-source repository: keep local development material untracked.
+/.run/
+/.idea/
+/.vscode/
+/exports/
+/screenshots/
+/AGENTS.md
+/CONTRIBUTING.md
+/MODPACK_STATUS.example.md
+/build/
+/.gradle/
+/logs/
+/run/
+/run-*/
