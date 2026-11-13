@@ -3,6 +3,8 @@ package com.ourcreation.itemsink.block;
 import com.mojang.serialization.MapCodec;
 import com.ourcreation.itemsink.ItemSink;
 import com.ourcreation.itemsink.block.entity.ItemSinkBlockEntity;
+import com.simibubi.create.content.equipment.wrench.IWrenchable;
+import com.simibubi.create.content.equipment.wrench.WrenchItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
@@ -27,7 +29,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.BlockHitResult;
 
-public class ItemSinkBlock extends BaseEntityBlock {
+public class ItemSinkBlock extends BaseEntityBlock implements IWrenchable {
     public static final MapCodec<ItemSinkBlock> CODEC = simpleCodec(properties -> new ItemSinkBlock());
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
@@ -74,6 +76,11 @@ public class ItemSinkBlock extends BaseEntityBlock {
 
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+        // Let Create handle rotation and sneak-pickup instead of opening the menu.
+        if (player.getMainHandItem().getItem() instanceof WrenchItem
+                || player.getOffhandItem().getItem() instanceof WrenchItem) {
+            return InteractionResult.PASS;
+        }
         if (!level.isClientSide && player instanceof ServerPlayer serverPlayer) {
             BlockEntity blockEntity = level.getBlockEntity(pos);
             if (blockEntity instanceof MenuProvider menuProvider) {
@@ -81,6 +88,11 @@ public class ItemSinkBlock extends BaseEntityBlock {
             }
         }
         return InteractionResult.sidedSuccess(level.isClientSide);
+    }
+
+    @Override
+    public BlockState getRotatedBlockState(BlockState state, Direction face) {
+        return state.setValue(FACING, state.getValue(FACING).getClockWise());
     }
 
     @Override

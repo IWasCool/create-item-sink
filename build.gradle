@@ -1,91 +1,67 @@
 plugins {
     id 'java-library'
-    id 'net.neoforged.moddev' version '2.0.147'
+    id 'net.neoforged.moddev' version '2.0.148'
 }
 
 version = mod_version
 group = mod_group_id
-base.archivesName = 'create_item_sink'
+base.archivesName = "item_sink-neoforge-${minecraft_version}"
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
-
-sourceSets {
-    main.resources {
-        exclude '**/*.bbmodel', '**/.cache/**'
-    }
-}
 
 repositories {
     mavenCentral()
-    maven {
-        name = 'Create'
-        url = 'https://maven.createmod.net'
-        content { includeGroup 'net.createmod.ponder' }
-    }
-    maven {
-        name = 'JEI'
-        url = 'https://maven.blamejared.com'
-        content { includeGroup 'mezz.jei' }
-    }
-    maven {
-        name = 'Modrinth'
-        url = 'https://api.modrinth.com/maven'
-        content { includeGroup 'maven.modrinth' }
-    }
+    maven { url = 'https://api.modrinth.com/maven'; content { includeGroup 'maven.modrinth' } }
+    maven { url = 'https://maven.createmod.net' }
+    maven { url = 'https://maven.blamejared.com' }
+    maven { url = 'https://maven.shedaniel.me' }
+    maven { url = 'https://maven.architectury.dev' }
 }
 
 neoForge {
     version = project.neo_version
-    parchment {
-        mappingsVersion = project.parchment_mappings_version
-        minecraftVersion = project.parchment_minecraft_version
-    }
-    mods {
-        item_sink { sourceSet sourceSets.main }
-    }
+    mods { item_sink { sourceSet sourceSets.main } }
     runs {
         configureEach {
-            // Numismatics restores Log4j using a URI, including on Windows.
+            gameDirectory = layout.buildDirectory.dir("runs/${name}")
             systemProperty 'log4j2.configurationFile', file("build/moddev/${name}Log4j2.xml").toURI().toString()
         }
-        client {
-            client()
-            loadedMods = [mods.item_sink]
-        }
-        server {
-            server()
-            loadedMods = [mods.item_sink]
-            programArgument '--nogui'
-        }
+        client { client(); loadedMods = [mods.item_sink] }
+        server { server(); loadedMods = [mods.item_sink]; programArgument '--nogui' }
     }
+}
+
+sourceSets.main.resources {
+    srcDir 'src/main/templates'
+    srcDir 'src/generated/resources'
+    exclude '**/*.bbmodel', '**/.cache/**'
+}
+processResources {
+    def metadata = providers.provider {
+        project.properties.findAll { key, value -> value instanceof String || value instanceof Number || value instanceof Boolean }
+    }
+    inputs.property 'metadata', metadata
+    filesMatching(['META-INF/neoforge.mods.toml', 'pack.mcmeta']) { expand metadata.get() }
 }
 
 dependencies {
-    implementation "maven.modrinth:create:${create_version}"
-    compileOnly("net.createmod.ponder:ponder-neoforge:${ponder_version}") { transitive = false }
-    compileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
-    compileOnly "mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}"
-    runtimeOnly "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
-    runtimeOnly "maven.modrinth:numismatics:${numismatics_version}"
+    implementation 'maven.modrinth:create:UjX6dr61'
+    compileOnly('net.createmod.ponder:ponder-neoforge:1.0.82+mc1.21.1') { transitive = false }
+    compileOnly 'mezz.jei:jei-1.21.1-common-api:19.70.0.469'
+    compileOnly 'mezz.jei:jei-1.21.1-neoforge-api:19.70.0.469'
+    runtimeOnly 'maven.modrinth:numismatics:kVi3TESX'
+    if (providers.gradleProperty('withJei').isPresent()) {
+        runtimeOnly('mezz.jei:jei-1.21.1-neoforge:19.70.0.469') { transitive = false }
+    }
 }
 
-var generateModMetadata = tasks.register('generateModMetadata', ProcessResources) {
-    var replaceProperties = [minecraft_version: minecraft_version,
-            minecraft_version_range: minecraft_version_range, neo_version: neo_version,
-            loader_version_range: loader_version_range, mod_id: mod_id,
-            mod_name: mod_name, mod_license: mod_license, mod_version: mod_version]
-    inputs.properties replaceProperties
-    expand replaceProperties
-    from 'src/main/templates'
-    into 'build/generated/sources/modMetadata'
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
+tasks.withType(AbstractArchiveTask).configureEach {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
 }
-sourceSets.main.resources.srcDir generateModMetadata
-neoForge.ideSyncTask generateModMetadata
-
 tasks.named('jar', Jar) {
-    from 'LICENSE'
-    from 'TEMPLATE_LICENSE.txt'
+    from(files('LICENSE', 'LICENSE.txt', 'TEMPLATE_LICENSE.txt')) { into 'META-INF' }
+    from('LICENSES') { into 'META-INF/licenses' }
 }
-tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8'
-    options.release = 21
-}
+
+apply from: 'languages.gradle'

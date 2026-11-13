@@ -2,6 +2,7 @@ package com.ourcreation.itemsink.compat.jei;
 
 import com.ourcreation.itemsink.ItemSink;
 import com.ourcreation.itemsink.compat.ItemSinkConversionRecipe;
+import com.simibubi.create.foundation.gui.AllGuiTextures;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.builder.ITooltipBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -10,7 +11,6 @@ import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -74,8 +74,9 @@ public class ItemSinkJeiCategory implements IRecipeCategory<ItemSinkConversionRe
                      GuiGraphics graphics, double mouseX, double mouseY) {
         drawCheckerboardSlot(graphics, INPUT_X, SLOT_Y);
         drawCheckerboardSlot(graphics, OUTPUT_X, SLOT_Y);
-        graphics.drawCenteredString(Minecraft.getInstance().font, "?",
-                INPUT_X + SLOT_SIZE / 2, SLOT_Y + 5, 0xFFFFFF);
+        AllGuiTextures questionMark = AllGuiTextures.JEI_QUESTION_MARK;
+        questionMark.render(graphics, INPUT_X + (SLOT_SIZE - questionMark.getWidth()) / 2,
+                SLOT_Y + (SLOT_SIZE - questionMark.getHeight()) / 2);
         arrow.draw(graphics, 45, 8);
     }
 
