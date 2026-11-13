@@ -1,7 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "#item_sink:original/value_64",
-    "#item_sink:createcore/value_64"
-  ]
-}

@@ -1,8 +1,6 @@
 package com.ourcreation.itemsink;
 
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.tags.TagKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.common.ModConfigSpec;
@@ -25,6 +23,9 @@ public class Config {
     public static final ModConfigSpec.BooleanValue INCLUDE_BUNDLED_VALUES;
     public static final ModConfigSpec.BooleanValue INCLUDE_CREATECORE_VALUES;
     public static final ModConfigSpec.ConfigValue<List<? extends String>> PRICING_RULES;
+    public static final ModConfigSpec.ConfigValue<List<? extends String>> ORIGINAL_PRICING_RULES;
+    public static final ModConfigSpec.ConfigValue<List<? extends String>> CREATECORE_PRICING_RULES;
+    public static final ModConfigSpec.ConfigValue<List<? extends String>> DEFAULT_KEYWORD_BLACKLIST;
     public static final ModConfigSpec.ConfigValue<String> FALLBACK_VALUE;
     public static final ModConfigSpec.ConfigValue<List<? extends String>> EXCLUDED_ITEMS;
     public static final ModConfigSpec.ConfigValue<List<? extends String>> VALUE_1_ITEMS;
@@ -63,17 +64,19 @@ public class Config {
         BUILDER.translation("item_sink.configuration.item_sink.values").push("values");
         PRICING_RULES = BUILDER
                 .translation("item_sink.configuration.item_sink.values.pricingRules")
-                .comment("Ordered pricing overrides. First matching rule wins, ahead of all tier item lists and bundled prices.",
+                .comment("Ordered pricing overrides. First matching rule wins, ahead of tier item lists and configured default rules.",
                         "Format: selector -> tier OR selector -> outputItem, outputCount, ticks, energyPerTick.",
                         "Selectors: minecraft:diamond (exact id), #c:ingots (tag), contains:iron ingot (phrase in item path),",
                         "namespace:create (whole mod), *:raw_* (wildcard in full id), *_ore (wildcard in item path). * matches all items.",
+                        "Also accepts keyword:iron ingot (whole path phrase), regex:^iron_ingot$ (path regex), idregex:^create:.* (full id regex).",
+                        "Regex uses case-insensitive find; anchor with ^ and $ for a complete match. Patterns compile once per config/tag reload.",
                         "Phrases ignore case and treat spaces as underscores. Names, language and stack NBT do not affect matching.",
                         "Tier names: value1, value2, value3, value4, value5, value6, value7, value8, value16, value32, value48, value64.",
                         "Examples: [\"minecraft:diamond -> value16\", \"contains:ingot -> value4\", \"namespace:create -> minecraft:emerald, 2, 200, 360\"].",
-                        "Put specific rules before broad ones. An empty list preserves existing prices. Missing output items disable matched inputs.",
+                        "Put specific rules before broad ones. An empty list uses the configured default rules. Missing outputs disable matched inputs.",
                         "Output count: 1..64, ticks: 1..2147483647, energyPerTick: 0..2147483647. Numismatics is not required.",
                         "Exclusions and all configured currency outputs are always blocked, including exact-id rules.",
-                        "Invalid entries are logged and skipped. See CONFIGURATION.md for complete examples.")
+                        "Invalid entries, including invalid regular expressions, are logged and skipped.")
                 .defineListAllowEmpty("pricingRules", List.<String>of(), () -> "", value -> value instanceof String);
         FALLBACK_VALUE = BUILDER
                 .translation("item_sink.configuration.item_sink.values.fallbackValue")
@@ -83,33 +86,45 @@ public class Config {
                 .define("fallbackValue", "");
         INCLUDE_BUNDLED_VALUES = BUILDER
                 .translation("item_sink.configuration.item_sink.values.includeBundledValues")
-                .comment("Keep the existing bundled item prices as defaults beneath your pricing rules.",
+                .comment("Enable originalPricingRules and createCorePricingRules beneath your custom rules and tier item lists.",
                         "Set false to build your own economy using pricingRules, custom tier item lists and fallbackValue.",
-                        "When false, built-in Item Sink value tags and automatic CreateCore additions are ignored; custom tags and item ids remain active.")
+                        "The default economy is entirely in this config; no bundled value tags or item-value JSON files are loaded.")
                 .define("includeBundledValues", true);
         INCLUDE_CREATECORE_VALUES = BUILDER
                 .translation("item_sink.configuration.item_sink.values.includeCreateCoreValues")
-                .comment("Include bundled values for the CreateCore mod collection.",
-                        "Your explicit tier lists take priority. Existing configs receive the additions automatically.")
+                .comment("Enable createCorePricingRules, including automatic keyword matching for newly installed items.",
+                        "Requires includeBundledValues. Explicit pricingRules and tier lists take priority.")
                 .define("includeCreateCoreValues", true);
+        ORIGINAL_PRICING_RULES = defineDefaultRules("originalPricingRules",
+                "Preserved original prices, including the fixed orestone economy. First matching rule wins.",
+                ConfigValueDefaults.ORIGINAL_RULES);
+        CREATECORE_PRICING_RULES = defineDefaultRules("createCorePricingRules",
+                "Ordered item-value rules: reviewed exceptions first, then material, form, machine and food keywords.",
+                ConfigValueDefaults.CREATECORE_RULES);
+        DEFAULT_KEYWORD_BLACKLIST = BUILDER
+                .translation("item_sink.configuration.item_sink.values.keywordBlacklist")
+                .comment("Selectors ignored by createCorePricingRules, similar to Thirst's keyword blacklist.",
+                        "Does not override your explicit pricingRules, custom tier lists or originalPricingRules.",
+                        "Use excludedItems below to block an item from every pricing source.")
+                .defineListAllowEmpty("keywordBlacklist", ConfigValueDefaults.KEYWORD_BLACKLIST, () -> "", value -> value instanceof String);
         EXCLUDED_ITEMS = BUILDER
                 .translation("item_sink.configuration.item_sink.values.excludedItems")
                 .comment("Items that must never be accepted, even when a pricing rule matches.",
-                        "Accepts the same selectors as pricingRules: item ids, #tags, contains:phrases, namespace:modid and wildcards.",
+                        "Accepts the same selectors as pricingRules, including keyword:, regex:, idregex:, tags and wildcards.",
                         "Example: [\"minecraft:rotten_flesh\", \"contains:creative\", \"namespace:yourmod\"].")
                 .defineListAllowEmpty("excludedItems", List.<String>of(), () -> "", value -> value instanceof String);
-        VALUE_1_ITEMS = defineValueItems("value1Items", "Items in the value 1 exchange tier.", List.of("#item_sink:value_1"));
-        VALUE_2_ITEMS = defineValueItems("value2Items", "Items in the value 2 exchange tier.", List.of("#item_sink:value_2"));
-        VALUE_3_ITEMS = defineValueItems("value3Items", "Items in the value 3 exchange tier.", List.of("#item_sink:value_3"));
-        VALUE_4_ITEMS = defineValueItems("value4Items", "Items in the value 4 exchange tier.", List.of("#item_sink:value_4"));
-        VALUE_5_ITEMS = defineValueItems("value5Items", "Items in the value 5 exchange tier.", List.of("#item_sink:value_5"));
-        VALUE_6_ITEMS = defineValueItems("value6Items", "Items in the value 6 exchange tier.", List.of("#item_sink:value_6"));
-        VALUE_7_ITEMS = defineValueItems("value7Items", "Items in the value 7 exchange tier.", List.of("#item_sink:value_7"));
-        VALUE_8_ITEMS = defineValueItems("value8Items", "Items in the value 8 exchange tier.", List.of("#item_sink:value_8"));
-        VALUE_16_ITEMS = defineValueItems("value16Items", "Items in the value 16 exchange tier.", List.of("#item_sink:value_16"));
-        VALUE_32_ITEMS = defineValueItems("value32Items", "Items in the value 32 exchange tier.", List.of("#item_sink:value_32"));
-        VALUE_48_ITEMS = defineValueItems("value48Items", "Items in the value 48 exchange tier.", List.of("#item_sink:value_48"));
-        VALUE_64_ITEMS = defineValueItems("value64Items", "Items in the value 64 exchange tier.", List.of("#item_sink:value_64"));
+        VALUE_1_ITEMS = defineValueItems("value1Items", "Items in the value 1 exchange tier.", List.of());
+        VALUE_2_ITEMS = defineValueItems("value2Items", "Items in the value 2 exchange tier.", List.of());
+        VALUE_3_ITEMS = defineValueItems("value3Items", "Items in the value 3 exchange tier.", List.of());
+        VALUE_4_ITEMS = defineValueItems("value4Items", "Items in the value 4 exchange tier.", List.of());
+        VALUE_5_ITEMS = defineValueItems("value5Items", "Items in the value 5 exchange tier.", List.of());
+        VALUE_6_ITEMS = defineValueItems("value6Items", "Items in the value 6 exchange tier.", List.of());
+        VALUE_7_ITEMS = defineValueItems("value7Items", "Items in the value 7 exchange tier.", List.of());
+        VALUE_8_ITEMS = defineValueItems("value8Items", "Items in the value 8 exchange tier.", List.of());
+        VALUE_16_ITEMS = defineValueItems("value16Items", "Items in the value 16 exchange tier.", List.of());
+        VALUE_32_ITEMS = defineValueItems("value32Items", "Items in the value 32 exchange tier.", List.of());
+        VALUE_48_ITEMS = defineValueItems("value48Items", "Items in the value 48 exchange tier.", List.of());
+        VALUE_64_ITEMS = defineValueItems("value64Items", "Items in the value 64 exchange tier.", List.of());
         VALUE_TIERS = List.of(
                 defineValueTier("value1", VALUE_1_ITEMS, "numismatics:spur", 1, 1200, 360),
                 defineValueTier("value2", VALUE_2_ITEMS, "numismatics:spur", 2, 1100, 360),
@@ -131,12 +146,22 @@ public class Config {
 
     public static final ModConfigSpec SPEC = BUILDER.build();
 
+    private static ModConfigSpec.ConfigValue<List<? extends String>> defineDefaultRules(String name, String comment, List<String> defaults) {
+        return BUILDER.translation("item_sink.configuration.item_sink.values." + name)
+                .comment(comment,
+                        "Format and selectors are the same as pricingRules. Every default can be edited or removed here.",
+                        "Specific rules precede general keywords. Use regex: for item paths and idregex: for namespace-specific exceptions.",
+                        "Unmatched items are rejected unless fallbackValue is configured. Missing currencies disable the matched price.")
+                .defineListAllowEmpty(name, defaults, () -> "", value -> value instanceof String);
+    }
+
     private static ModConfigSpec.ConfigValue<List<? extends String>> defineValueItems(String name, String comment, List<String> defaults) {
-        return BUILDER
-                .translation("item_sink.configuration.item_sink.values." + name)
-                .comment(comment, "Use #item_tag or an item id. The default tag bundles this tier's items.",
-                        "Example: " + name + " = [\"#item_sink:" + name.replace("Items", "").replace("value", "value_") + "\", \"minecraft:stick\", \"#c:ingots/tin\"].",
-                        "Individual item ids override tags. Extend the default tag with a datapack to add more items.", "These inputs share the output settings from the matching value tier below.")
+        return BUILDER.translation("item_sink.configuration.item_sink.values." + name)
+                .comment(comment,
+                        "Custom selectors assigned to this tier, ahead of configured default prices. Empty uses the default rule lists.",
+                        "Accepts item ids, #external_tags, keyword:, regex:, idregex:, contains:, namespace: and wildcards.",
+                        "Exact item ids override other tier selectors. pricingRules overrides both.",
+                        "These inputs share the output settings from the matching value tier below.")
                 .defineListAllowEmpty(name, defaults, () -> "", value -> value instanceof String);
     }
 
@@ -162,7 +187,7 @@ public class Config {
         return new ValueTier(name, items, output, count, ticks, energyPerTick);
     }
 
-    /** Compact unchanged old defaults while preserving every customized tier list. */
+    /** Migrate only former built-in tag selectors; retain custom selectors and tier settings. */
     static boolean compactLegacyDefaults() {
         List<List<String>> legacy = List.of(ValueDefaults.VALUE_1, ValueDefaults.VALUE_2,
                 ValueDefaults.VALUE_3, ValueDefaults.VALUE_4, ValueDefaults.VALUE_5, ValueDefaults.VALUE_6,
@@ -170,19 +195,29 @@ public class Config {
                 ValueDefaults.VALUE_48, ValueDefaults.VALUE_64);
         boolean changed = false;
         for (int i = 0; i < VALUE_TIERS.size(); i++) {
-            var items = VALUE_TIERS.get(i).items();
-            if (items.get().equals(legacy.get(i))) {
-                items.set(items.getDefault());
-                changed = true;
-            } else {
-                List<String> renamed = items.get().stream()
-                        .map(entry -> entry.startsWith("#create_item_sink:")
-                                ? "#item_sink:" + entry.substring("#create_item_sink:".length()) : entry)
-                        .toList();
-                if (!renamed.equals(items.get())) {
-                    items.set(renamed);
-                    changed = true;
+            ValueTier tier = VALUE_TIERS.get(i);
+            var items = tier.items();
+            List<String> migrated = new ArrayList<>();
+            if (!items.get().equals(legacy.get(i))) {
+                for (String entry : items.get()) {
+                    String normalized = entry.trim().replaceFirst("^#create_item_sink:", "#item_sink:");
+                    // This was the unchanged default tag; configured defaults now supply its prices.
+                    if (normalized.equals("#item_sink:" + tier.name().replace("value", "value_"))) continue;
+                    List<String> replacement = normalized.startsWith("#")
+                            ? ConfigValueDefaults.legacySelectors(normalized.substring(1)) : null;
+                    if (replacement == null) migrated.add(entry);
+                    else if (normalized.matches("#item_sink:value_[0-9]+")) {
+                        String suffix = normalized.substring("#item_sink:".length());
+                        ConfigValueDefaults.legacySelectors("item_sink:original/" + suffix)
+                                .forEach(selector -> migrated.add("bundled:" + selector));
+                        ConfigValueDefaults.legacySelectors("item_sink:createcore/" + suffix)
+                                .forEach(selector -> migrated.add("corebundled:" + selector));
+                    } else replacement.forEach(selector -> migrated.add("bundled:" + selector));
                 }
+            }
+            if (!items.get().equals(migrated)) {
+                items.set(List.copyOf(migrated));
+                changed = true;
             }
         }
         return changed;
@@ -234,17 +269,23 @@ public class Config {
     }
 
     private static ExchangeIndex buildIndex() {
-        Map<ResourceLocation, Exchange> parsed = new LinkedHashMap<>();
-        List<PricingRule> rules = new ArrayList<>();
-        for (String rule : PRICING_RULES.get()) {
-            try {
-                String[] parts = rule.split("->", -1);
-                if (parts.length != 2) {
-                    throw new IllegalArgumentException("expected selector -> tier or selector -> outputItem, count, ticks, FE/t");
+        List<PricingRule> rules = parseRules(PRICING_RULES.get(), "pricingRules");
+        List<PricingRule> original = INCLUDE_BUNDLED_VALUES.get()
+                ? parseRules(ORIGINAL_PRICING_RULES.get(), "originalPricingRules") : List.of();
+        List<PricingRule> automatic = INCLUDE_BUNDLED_VALUES.get() && INCLUDE_CREATECORE_VALUES.get()
+                ? parseRules(CREATECORE_PRICING_RULES.get(), "createCorePricingRules") : List.of();
+        List<Predicate<ResourceLocation>> exclusions = parseSelectors(EXCLUDED_ITEMS.get(), "excludedItems");
+        List<Predicate<ResourceLocation>> keywordBlacklist = parseSelectors(DEFAULT_KEYWORD_BLACKLIST.get(), "keywordBlacklist");
+        List<PricingRule> exactTierItems = new ArrayList<>();
+        List<PricingRule> otherTierItems = new ArrayList<>();
+        for (ValueTier tier : VALUE_TIERS) {
+            for (String selector : tier.items().get()) {
+                try {
+                    PricingRule rule = new PricingRule(ItemSelector.parse(selector), payout(tier));
+                    (ItemSelector.isExactItemId(selector) ? exactTierItems : otherTierItems).add(rule);
+                } catch (IllegalArgumentException error) {
+                    ItemSink.LOGGER.warn("Ignoring Item Sink {} item selector '{}': {}", tier.name(), selector, error.getMessage());
                 }
-                rules.add(new PricingRule(ItemSelector.parse(parts[0]), parsePayout(parts[1])));
-            } catch (IllegalArgumentException error) {
-                ItemSink.LOGGER.warn("Ignoring Item Sink pricing rule '{}': {}", rule, error.getMessage());
             }
         }
         Payout fallback = null;
@@ -255,107 +296,62 @@ public class Config {
                 ItemSink.LOGGER.warn("Ignoring Item Sink fallbackValue '{}': {}", FALLBACK_VALUE.get(), error.getMessage());
             }
         }
-        List<Predicate<ResourceLocation>> exclusions = new ArrayList<>();
-        for (String selector : EXCLUDED_ITEMS.get()) {
-            try {
-                exclusions.add(ItemSelector.parse(selector));
-            } catch (IllegalArgumentException error) {
-                ItemSink.LOGGER.warn("Ignoring Item Sink exclusion '{}': {}", selector, error.getMessage());
-            }
-        }
         var outputs = new LinkedHashSet<ResourceLocation>();
-        for (ValueTier tier : VALUE_TIERS) {
-            outputs.add(payout(tier).output());
+        for (ValueTier tier : VALUE_TIERS) outputs.add(payout(tier).output());
+        for (List<PricingRule> source : List.of(rules, original, automatic)) {
+            source.forEach(rule -> outputs.add(rule.payout().output()));
         }
-        rules.forEach(rule -> outputs.add(rule.payout().output()));
-        if (fallback != null) {
-            outputs.add(fallback.output());
-        }
-        var blocked = new HashSet<ResourceLocation>(outputs);
-        blocked.add(ResourceLocation.parse("minecraft:air"));
+        if (fallback != null) outputs.add(fallback.output());
+
+        Map<ResourceLocation, Exchange> parsed = new LinkedHashMap<>();
         for (ResourceLocation input : BuiltInRegistries.ITEM.keySet()) {
-            if (exclusions.stream().anyMatch(selector -> selector.test(input))) {
-                blocked.add(input);
+            if (input.equals(ResourceLocation.parse("minecraft:air")) || outputs.contains(input)
+                    || exclusions.stream().anyMatch(selector -> selector.test(input))) continue;
+            Exchange match = firstMatch(input, rules);
+            if (match == null) match = firstMatch(input, exactTierItems);
+            if (match == null) match = firstMatch(input, otherTierItems);
+            if (match == null) match = firstMatch(input, original);
+            if (match == null && keywordBlacklist.stream().noneMatch(selector -> selector.test(input))) {
+                match = firstMatch(input, automatic);
             }
-            if (!blocked.contains(input)) {
-                for (PricingRule rule : rules) {
-                    if (rule.selector().test(input)) {
-                        parsed.put(input, rule.payout().exchange(input));
-                        break;
-                    }
-                }
-            }
-        }
-        // Explicit item ids override tag membership, even in a later tier.
-        for (ValueTier tier : VALUE_TIERS) {
-            for (String entry : tier.items().get()) {
-                if (!entry.startsWith("#")) {
-                    addExchange(parsed, entry, tier);
-                }
-            }
-        }
-        for (ValueTier tier : VALUE_TIERS) {
-            for (String entry : tier.items().get()) {
-                if (entry.startsWith("#")) {
-                    String tagId = entry.substring(1);
-                    if (!INCLUDE_BUNDLED_VALUES.get() && isBundledValueTag(tagId)) {
-                        continue;
-                    }
-                    // Preserve the existing opt-out for the bundled collection.
-                    if (!INCLUDE_CREATECORE_VALUES.get() && tagId.matches("item_sink:value_[0-9]+")) {
-                        tagId = tagId.replace(":value_", ":original/value_");
-                    }
-                    addTagExchanges(parsed, tagId, tier);
-                }
-            }
-        }
-        // Existing customized configs still receive bundled additions without being overwritten.
-        if (INCLUDE_BUNDLED_VALUES.get() && INCLUDE_CREATECORE_VALUES.get()) {
-            int[] values = {1, 2, 3, 4, 5, 6, 7, 8, 16, 32, 48, 64};
-            for (int i = 0; i < VALUE_TIERS.size(); i++) {
-                addTagExchanges(parsed, "item_sink:createcore/value_" + values[i],
-                        VALUE_TIERS.get(i));
-            }
-        }
-        // Apply protection to every source, including explicit legacy item ids.
-        parsed.keySet().removeIf(input -> blocked.contains(input)
-                || exclusions.stream().anyMatch(selector -> selector.test(input)));
-        if (fallback != null) {
-            for (ResourceLocation input : BuiltInRegistries.ITEM.keySet()) {
-                if (!blocked.contains(input)) {
-                    parsed.putIfAbsent(input, fallback.exchange(input));
-                }
-            }
+            if (match == null && fallback != null) match = fallback.exchange(input);
+            // Keep a matched-but-missing currency disabled, rather than falling through to a different price.
+            if (match != null) parsed.put(input, match);
         }
         return new ExchangeIndex(List.copyOf(parsed.values()), Map.copyOf(parsed), List.copyOf(outputs));
     }
 
-    private static boolean isBundledValueTag(String tagId) {
-        return tagId.matches("item_sink:(?:(?:original|createcore)/)?value_[0-9]+");
+    private static Exchange firstMatch(ResourceLocation input, List<PricingRule> rules) {
+        for (PricingRule rule : rules) {
+            if (rule.selector().test(input)) return rule.payout().exchange(input);
+        }
+        return null;
     }
 
-    private static void addTagExchanges(Map<ResourceLocation, Exchange> parsed, String tagId,
-                                        ValueTier tier) {
-        ResourceLocation location = ResourceLocation.tryParse(tagId);
-        if (location == null) {
-            ItemSink.LOGGER.warn("Ignoring invalid Item Sink item tag '{}'", tagId);
-            return;
-        }
-        BuiltInRegistries.ITEM.getTag(TagKey.create(Registries.ITEM, location)).ifPresent(holders -> {
-            for (var holder : holders) {
-                String itemId = BuiltInRegistries.ITEM.getKey(holder.value()).toString();
-                addExchange(parsed, itemId, tier);
+    private static List<PricingRule> parseRules(List<? extends String> entries, String setting) {
+        List<PricingRule> result = new ArrayList<>();
+        for (String entry : entries) {
+            try {
+                String[] parts = entry.split("->", -1);
+                if (parts.length != 2) throw new IllegalArgumentException("expected selector -> tier or selector -> outputItem, count, ticks, FE/t");
+                result.add(new PricingRule(ItemSelector.parse(parts[0]), parsePayout(parts[1])));
+            } catch (IllegalArgumentException error) {
+                ItemSink.LOGGER.warn("Ignoring Item Sink {} rule '{}': {}", setting, entry, error.getMessage());
             }
-        });
+        }
+        return List.copyOf(result);
     }
 
-    private static void addExchange(Map<ResourceLocation, Exchange> parsed, String itemId, ValueTier tier) {
-        ResourceLocation input = ResourceLocation.tryParse(itemId);
-        if (input == null) {
-            ItemSink.LOGGER.warn("Ignoring invalid Item Sink value item '{}'", itemId);
-            return;
+    private static List<Predicate<ResourceLocation>> parseSelectors(List<? extends String> entries, String setting) {
+        List<Predicate<ResourceLocation>> result = new ArrayList<>();
+        for (String entry : entries) {
+            try {
+                result.add(ItemSelector.parse(entry));
+            } catch (IllegalArgumentException error) {
+                ItemSink.LOGGER.warn("Ignoring Item Sink {} selector '{}': {}", setting, entry, error.getMessage());
+            }
         }
-        parsed.putIfAbsent(input, payout(tier).exchange(input));
+        return List.copyOf(result);
     }
 
     private static Payout parsePayout(String text) {

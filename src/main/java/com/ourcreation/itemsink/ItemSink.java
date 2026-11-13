@@ -102,6 +102,9 @@ public class ItemSink {
 
     private void onConfigReloaded(ModConfigEvent.Reloading event) {
         if (event.getConfig().getSpec() == Config.SPEC) {
+            if (Config.compactLegacyDefaults()) {
+                Config.SPEC.save();
+            }
             Config.invalidateExchanges();
         }
     }

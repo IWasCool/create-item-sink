@@ -11,17 +11,45 @@ import java.util.function.Predicate;
 import java.util.regex.Pattern;
 
 /** Registry-based selectors: player language and renamed stacks never affect prices. */
-final class ItemSelector {
+public final class ItemSelector {
     private ItemSelector() {}
 
-    static Predicate<ResourceLocation> parse(String text) {
+    public static Predicate<ResourceLocation> parse(String text) {
         String selector = text.trim();
+        // Migration stores the former default-tag opt-outs alongside its exact selectors.
+        if (selector.startsWith("bundled:") || selector.startsWith("corebundled:")) {
+            boolean core = selector.startsWith("corebundled:");
+            Predicate<ResourceLocation> nested = parse(selector.substring(core ? "corebundled:".length() : "bundled:".length()));
+            return id -> Config.INCLUDE_BUNDLED_VALUES.get()
+                    && (!core || Config.INCLUDE_CREATECORE_VALUES.get()) && nested.test(id);
+        }
         if (selector.startsWith("#")) {
             ResourceLocation tag = requireId(selector.substring(1));
             var members = new HashSet<ResourceLocation>();
             BuiltInRegistries.ITEM.getTag(TagKey.create(Registries.ITEM, tag)).ifPresent(holders ->
                     holders.forEach(holder -> members.add(BuiltInRegistries.ITEM.getKey(holder.value()))));
             return members::contains;
+        }
+        if (selector.startsWith("regex:") || selector.startsWith("idregex:")) {
+            boolean fullId = selector.startsWith("idregex:");
+            String expression = selector.substring(fullId ? "idregex:".length() : "regex:".length()).trim();
+            if (expression.isEmpty()) {
+                throw new IllegalArgumentException((fullId ? "idregex:" : "regex:") + " needs a pattern");
+            }
+            Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+            return id -> pattern.matcher(fullId ? id.toString() : id.getPath()).find();
+        }
+        if (selector.startsWith("keyword:")) {
+            String phrase = selector.substring("keyword:".length()).trim()
+                    .toLowerCase(Locale.ROOT).replaceAll("\\s+", "_");
+            if (phrase.isEmpty() || !phrase.matches("[a-z0-9_./-]+")) {
+                throw new IllegalArgumentException("keyword: needs an item-path word or phrase");
+            }
+            // An underscore, slash or dash separates words in registry paths. Java's
+            // \\b treats underscores as word characters and is unsuitable here.
+            Pattern pattern = Pattern.compile("(?:^|[-_/])" + Pattern.quote(phrase) + "(?=$|[-_/])",
+                    Pattern.CASE_INSENSITIVE);
+            return id -> pattern.matcher(id.getPath()).find();
         }
         if (selector.startsWith("contains:")) {
             String phrase = selector.substring("contains:".length()).trim()
@@ -56,6 +84,16 @@ final class ItemSelector {
         }
         ResourceLocation item = requireId(selector);
         return item::equals;
+    }
+
+    public static boolean isExactItemId(String text) {
+        String selector = text.trim();
+        // These prefixes also look like legal namespaces to ResourceLocation.
+        return !selector.startsWith("#") && !selector.startsWith("regex:")
+                && !selector.startsWith("bundled:") && !selector.startsWith("corebundled:")
+                && !selector.startsWith("idregex:") && !selector.startsWith("keyword:")
+                && !selector.startsWith("contains:") && !selector.startsWith("namespace:")
+                && ResourceLocation.tryParse(selector) != null;
     }
 
     private static ResourceLocation requireId(String text) {

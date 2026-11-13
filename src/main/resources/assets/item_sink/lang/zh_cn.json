@@ -84,5 +84,11 @@
   "item_sink.ponder.item_sink_complete.text_2": "Connect power to the sink (FE).",
   "item_sink.ponder.item_sink_complete.text_3": "Turn the belts. Funnels feed accepted items from the input chest into the sink.",
   "item_sink.ponder.item_sink_complete.text_4": "The extracting funnel puts currency on the output belt. Collect it in the chest.",
-  "item_sink.ponder.item_sink_complete.text_5": "Keep power supplied and the outputs clear. A full machine pauses until there is room again."
+  "item_sink.ponder.item_sink_complete.text_5": "Keep power supplied and the outputs clear. A full machine pauses until there is room again.",
+  "item_sink.configuration.item_sink.values.originalPricingRules": "Original Pricing Rules",
+  "item_sink.configuration.item_sink.values.originalPricingRules.tooltip": "Preserved original prices, including the orestone economy. First matching rule wins; every entry can be edited here.",
+  "item_sink.configuration.item_sink.values.createCorePricingRules": "Automatic Pricing Rules",
+  "item_sink.configuration.item_sink.values.createCorePricingRules.tooltip": "Ordered reviewed exceptions and material, form, machine and food keywords. First match wins after original pricing rules.",
+  "item_sink.configuration.item_sink.values.keywordBlacklist": "Keyword Rule Blacklist",
+  "item_sink.configuration.item_sink.values.keywordBlacklist.tooltip": "Selectors skipped by createCorePricingRules only. Custom pricing rules, tier item lists and original rules still apply. Use excludedItems to block every source."
 }
