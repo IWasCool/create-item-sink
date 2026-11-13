@@ -16,6 +16,9 @@ import java.util.function.Predicate;
 
 public class Config {
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
+    private static final ModConfigSpec.Builder COMMON_BUILDER = new ModConfigSpec.Builder();
+    private static final ModConfigSpec.Builder ORIGINAL_BUILDER = new ModConfigSpec.Builder();
+    private static final ModConfigSpec.Builder KEYWORD_BUILDER = new ModConfigSpec.Builder();
 
     public static final ModConfigSpec.IntValue ENERGY_CAPACITY;
     public static final ModConfigSpec.IntValue MAX_ENERGY_INPUT;
@@ -45,18 +48,23 @@ public class Config {
 
     static {
         BUILDER.translation("item_sink.configuration.item_sink").push("item_sink");
+        COMMON_BUILDER.translation("item_sink.configuration.item_sink").push("item_sink");
+        ORIGINAL_BUILDER.translation("item_sink.configuration.item_sink").push("item_sink")
+                .translation("item_sink.configuration.item_sink.values").push("values");
+        KEYWORD_BUILDER.translation("item_sink.configuration.item_sink").push("item_sink")
+                .translation("item_sink.configuration.item_sink.values").push("values");
 
-        ENERGY_CAPACITY = BUILDER
+        ENERGY_CAPACITY = COMMON_BUILDER
                 .translation("item_sink.configuration.item_sink.energyCapacity")
                 .comment("Internal FE capacity for the Item Sink.")
                 .defineInRange("energyCapacity", 100000, 0, Integer.MAX_VALUE);
 
-        MAX_ENERGY_INPUT = BUILDER
+        MAX_ENERGY_INPUT = COMMON_BUILDER
                 .translation("item_sink.configuration.item_sink.maxEnergyInput")
                 .comment("Maximum FE accepted per tick from external energy handlers.")
                 .defineInRange("maxEnergyInput", 10000, 0, Integer.MAX_VALUE);
 
-        REQUIRE_ENERGY = BUILDER
+        REQUIRE_ENERGY = COMMON_BUILDER
                 .translation("item_sink.configuration.item_sink.requireEnergy")
                 .comment("If false, exchanges run without consuming FE.")
                 .define("requireEnergy", true);
@@ -95,13 +103,13 @@ public class Config {
                 .comment("Enable createCorePricingRules, including automatic keyword matching for newly installed items.",
                         "Requires includeBundledValues. Explicit pricingRules and tier lists take priority.")
                 .define("includeCreateCoreValues", true);
-        ORIGINAL_PRICING_RULES = defineDefaultRules("originalPricingRules",
+        ORIGINAL_PRICING_RULES = defineDefaultRules(ORIGINAL_BUILDER, "originalPricingRules",
                 "Preserved original prices, including the fixed orestone economy. First matching rule wins.",
                 ConfigValueDefaults.ORIGINAL_RULES);
-        CREATECORE_PRICING_RULES = defineDefaultRules("createCorePricingRules",
+        CREATECORE_PRICING_RULES = defineDefaultRules(KEYWORD_BUILDER, "createCorePricingRules",
                 "Ordered item-value rules: reviewed exceptions first, then material, form, machine and food keywords.",
                 ConfigValueDefaults.CREATECORE_RULES);
-        DEFAULT_KEYWORD_BLACKLIST = BUILDER
+        DEFAULT_KEYWORD_BLACKLIST = KEYWORD_BUILDER
                 .translation("item_sink.configuration.item_sink.values.keywordBlacklist")
                 .comment("Selectors ignored by createCorePricingRules, similar to Thirst's keyword blacklist.",
                         "Does not override your explicit pricingRules, custom tier lists or originalPricingRules.",
@@ -140,14 +148,26 @@ public class Config {
                 defineValueTier("value64", VALUE_64_ITEMS, "numismatics:cog", 1, 100, 360)
         );
         BUILDER.pop();
-
         BUILDER.pop();
+        COMMON_BUILDER.pop();
+        ORIGINAL_BUILDER.pop(2);
+        KEYWORD_BUILDER.pop(2);
     }
 
-    public static final ModConfigSpec SPEC = BUILDER.build();
+    public static final ModConfigSpec COMMON_SPEC = COMMON_BUILDER.build();
+    public static final ModConfigSpec ITEM_SETTINGS_SPEC = BUILDER.build();
+    public static final ModConfigSpec ORIGINAL_VALUES_SPEC = ORIGINAL_BUILDER.build();
+    public static final ModConfigSpec KEYWORD_SPEC = KEYWORD_BUILDER.build();
+    /** Compatibility alias for callers looking up value tier settings. */
+    public static final ModConfigSpec SPEC = ITEM_SETTINGS_SPEC;
 
-    private static ModConfigSpec.ConfigValue<List<? extends String>> defineDefaultRules(String name, String comment, List<String> defaults) {
-        return BUILDER.translation("item_sink.configuration.item_sink.values." + name)
+    public static boolean ownsSpec(Object spec) {
+        return spec == COMMON_SPEC || spec == ITEM_SETTINGS_SPEC
+                || spec == ORIGINAL_VALUES_SPEC || spec == KEYWORD_SPEC;
+    }
+
+    private static ModConfigSpec.ConfigValue<List<? extends String>> defineDefaultRules(ModConfigSpec.Builder builder, String name, String comment, List<String> defaults) {
+        return builder.translation("item_sink.configuration.item_sink.values." + name)
                 .comment(comment,
                         "Format and selectors are the same as pricingRules. Every default can be edited or removed here.",
                         "Specific rules precede general keywords. Use regex: for item paths and idregex: for namespace-specific exceptions.",

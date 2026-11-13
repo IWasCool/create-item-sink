@@ -8,7 +8,7 @@ Version **1.0.1** requires **NeoForge 21.1.256+**, **Create 6.0.x**, and **Java 
 
 Download `item_sink-neoforge-1.21.1-1.0.1.jar` from the [1.0.1 release](https://github.com/IWasCool/create-item-sink/releases/tag/neoforge-v1.0.1). Place it in the client and server `mods` folders alongside Create. Replace the previous Item Sink jar so only one edition is installed.
 
-Create: Numismatics and JEI are optional. Default payouts use Numismatics coins. Without Numismatics, configure installed currency items such as `minecraft:emerald` in `config/item_sink-common.toml`. Conversions with missing currency items stay disabled.
+Create: Numismatics and JEI are optional. Default payouts use Numismatics coins. Without Numismatics, configure installed currency items such as `minecraft:emerald` in `config/item_sink/item_settings.toml`. Conversions with missing currency items stay disabled.
 
 ## Use
 
@@ -18,7 +18,16 @@ Mine the sink with any pickaxe to recover it. Like the Hub Terminal, a Create wr
 
 Hold **W** over the Item Sink for a Ponder tutorial covering use, power, conversion, and belt/funnel automation. If Create Crafts & Additions is installed, the tutorial shows a connected accumulator and copper wire as a power example. That addon is optional.
 
-All item values now come from `config/item_sink-common.toml`. The generated config contains ordinary editable rule lists instead of loading item-value JSON files or bundled value tags. `originalPricingRules` preserves the original economy, including the fixed orestone prices. `createCorePricingRules` contains reviewed exceptions followed by material, item-form, machine and food keywords, so suitable items from newly installed mods can be recognized without adding every registry ID by hand.
+Item Sink keeps its configuration in `config/item_sink/`, with separate files for each purpose:
+
+| File | Settings |
+| --- | --- |
+| `common.toml` | Energy capacity, maximum FE input and whether processing requires energy |
+| `item_settings.toml` | Custom pricing rules, exclusions, fallback, default-rule switches, tier inputs and payout currency/count/time/FE |
+| `original_values.toml` | `originalPricingRules`, preserving the original economy and fixed orestone prices |
+| `keyword.toml` | `createCorePricingRules` and `keywordBlacklist`, including reviewed exceptions and automatic item detection |
+
+The generated files contain editable rule lists instead of loading item-value JSON files or bundled value tags. Keyword rules recognize material, item-form, machine and food names, so suitable items from newly installed mods can be recognized without adding every registry ID by hand. TOML key paths remain `item_sink` and `item_sink.values` within the appropriate files.
 
 Prices use this order: your `pricingRules` first, custom tier lists such as `value1Items` next, `originalPricingRules`, then `createCorePricingRules`, and finally `fallbackValue` for unmatched items. Within custom tier lists, exact item IDs take priority over broader selectors. Within each rule list, the first matching rule wins. Specific exceptions should precede general keywords. A missing configured currency disables its matched conversion instead of falling through to another price.
 
@@ -26,7 +35,7 @@ Prices use this order: your `pricingRules` first, custom tier lists such as `val
 
 Selectors support exact IDs, external item tags such as `#c:ingots`, `keyword:whole phrases`, `regex:path patterns`, `idregex:full-id patterns`, `contains:phrases`, `namespace:modid`, and wildcards. Keyword phrases treat spaces as underscores and respect underscore, slash and dash word boundaries. Regular expressions use case-insensitive search; `^` and `$` restrict a pattern to the complete path or ID. Matching uses stable registry IDs, so language, renamed items and stack NBT do not change prices.
 
-For example, add your own overrides to the generated config while retaining its default rule lists:
+For example, add your own overrides to `config/item_sink/item_settings.toml` while retaining the default rule lists in the other files:
 
 ```toml
 [item_sink.values]
@@ -40,9 +49,11 @@ excludedItems = ["yourmod:free_part"]
 fallbackValue = ""
 ```
 
-Keep the generated `keywordBlacklist` entries and append selectors such as `keyword:unfinished` when needed.
+In `keyword.toml`, keep the generated `keywordBlacklist` entries and append selectors such as `keyword:unfinished` when needed.
 
-The existing `includeBundledValues` setting now enables the configured default rule lists. Set it to false to use only your overrides, custom tier lists and fallback. `includeCreateCoreValues` controls the automatic `createCorePricingRules` list separately. Old built-in tag selectors migrate to config rules while preserving custom tier-list additions and external tags. Existing output items, payout counts, processing times and FE costs are retained. Restart after changing configuration.
+The existing `includeBundledValues` setting in `item_settings.toml` enables the configured default rule lists. Set it to false to use only your overrides, custom tier lists and fallback. `includeCreateCoreValues` controls the automatic `createCorePricingRules` list separately. Old built-in tag selectors migrate to config rules while preserving custom tier-list additions and external tags.
+
+On first start, the mod automatically splits `config/item_sink-common.toml`, or the older `config/create_item_sink-common.toml`, into the folder files. Existing folder files take priority and are not overwritten; missing files receive the corresponding legacy settings. The old flat config is archived under `config/item_sink/legacy/` after migration. Output items, payout counts, processing times, FE costs, custom rules and exclusions are retained. Restart after changing configuration.
 
 JEI shows a compact `? -> currency` overview using the **original font-rendered question mark**, with an **Any Item** tooltip.
 
@@ -52,7 +63,7 @@ The supported language set matches Create New World Core: **18 locales**, with a
 
 Verified on assembled **Sable 2.0.5 and 2.0.6** structures after translation and rotation: inventory, FE, and progress survive assembly; normal block-entity ticks convert items; automation capabilities and menu distance checks work; Create wrench pickup returns the sink. The isolated test holds physics still during the short check. Prolonged active flight and client targeting were outside its scope.
 
-The focused native suite passed 29 server tests, including all 16,379 historical prices, keyword matching for new item IDs, config overrides, migration and Sable operation. The native client also rendered the Item Sink and JEI category successfully. Builds verify all 18 supported locales with 92 translation keys each.
+The focused native suite passed 33 server tests, including all 16,379 historical prices, keyword matching for new item IDs, config overrides, four-file migration and Sable operation. The native client also rendered the Item Sink and JEI category successfully. Builds verify all 18 supported locales with 92 translation keys each.
 
 ## Build from source
 

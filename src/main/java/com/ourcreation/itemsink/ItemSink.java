@@ -74,36 +74,26 @@ public class ItemSink {
         modEventBus.addListener(this::onConfigReloaded);
         NeoForge.EVENT_BUS.addListener(this::onPlayerLoggedIn);
         NeoForge.EVENT_BUS.addListener(this::onTagsUpdated);
-        migrateLegacyConfig();
-        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
-    }
-
-    private void migrateLegacyConfig() {
-        var configDirectory = net.neoforged.fml.loading.FMLPaths.CONFIGDIR.get();
-        var legacy = configDirectory.resolve("create_item_sink-common.toml");
-        var current = configDirectory.resolve("item_sink-common.toml");
-        if (java.nio.file.Files.exists(legacy) && !java.nio.file.Files.exists(current)) {
-            try {
-                java.nio.file.Files.copy(legacy, current);
-            } catch (java.io.IOException error) {
-                throw new IllegalStateException("Could not migrate Item Sink configuration", error);
-            }
-        }
+        ConfigMigration.migrate(net.neoforged.fml.loading.FMLPaths.CONFIGDIR.get());
+        modContainer.registerConfig(ModConfig.Type.COMMON, Config.COMMON_SPEC, "item_sink/common.toml");
+        modContainer.registerConfig(ModConfig.Type.COMMON, Config.ITEM_SETTINGS_SPEC, "item_sink/item_settings.toml");
+        modContainer.registerConfig(ModConfig.Type.COMMON, Config.ORIGINAL_VALUES_SPEC, "item_sink/original_values.toml");
+        modContainer.registerConfig(ModConfig.Type.COMMON, Config.KEYWORD_SPEC, "item_sink/keyword.toml");
     }
 
     private void onConfigLoaded(ModConfigEvent.Loading event) {
-        if (event.getConfig().getSpec() == Config.SPEC) {
-            if (Config.compactLegacyDefaults()) {
-                Config.SPEC.save();
+        if (Config.ownsSpec(event.getConfig().getSpec())) {
+            if (event.getConfig().getSpec() == Config.ITEM_SETTINGS_SPEC && Config.compactLegacyDefaults()) {
+                Config.ITEM_SETTINGS_SPEC.save();
             }
             Config.invalidateExchanges();
         }
     }
 
     private void onConfigReloaded(ModConfigEvent.Reloading event) {
-        if (event.getConfig().getSpec() == Config.SPEC) {
-            if (Config.compactLegacyDefaults()) {
-                Config.SPEC.save();
+        if (Config.ownsSpec(event.getConfig().getSpec())) {
+            if (event.getConfig().getSpec() == Config.ITEM_SETTINGS_SPEC && Config.compactLegacyDefaults()) {
+                Config.ITEM_SETTINGS_SPEC.save();
             }
             Config.invalidateExchanges();
         }
@@ -118,7 +108,7 @@ public class ItemSink {
             event.getEntity().sendSystemMessage(Component.translatable(
                     "message.item_sink.no_valid_outputs", "Create: Numismatics",
                     Component.translatable("item_sink.configuration.item_sink.values.outputItem"),
-                    "item_sink-common.toml"
+                    "item_sink/item_settings.toml"
             ));
         }
     }
